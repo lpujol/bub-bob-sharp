@@ -52,6 +52,7 @@
     <Compile Include="clases\Personaje.cs" />
     <Compile Include="clases\PersonajeTerrestre.cs" />
     <Compile Include="clases\Robotito.cs" />
+    <Compile Include="Controlador\Controlador.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="program.cs" />
     <Compile Include="Resource1.Designer.cs">

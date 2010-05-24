@@ -4,6 +4,7 @@ using System.Text;
 using SdlDotNet.Core;
 using BubbleBobble.clases;
 using BubbleBobble.Vista;
+using SdlDotNet.Input;
 
 namespace BubbleBobble
 {
@@ -12,11 +13,14 @@ namespace BubbleBobble
     {
         Laberinto lab;
         Vista.Vista vista;
+        List<Controlador.Controlador> controladores;
 
         public Juego()
         {
             vista = new Vista.Vista(800, 600);
             lab = new Laberinto();
+            controladores = new List<BubbleBobble.Controlador.Controlador>();
+            controladores.Add(new BubbleBobble.Controlador.Controlador(lab.jugador, Key.LeftArrow, Key.UpArrow, Key.RightArrow, Key.Space));
             Events.Fps = 15;
             Events.Tick+=new EventHandler<TickEventArgs>(Events_Tick);
             Events.KeyboardDown += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardDown);
@@ -31,21 +35,23 @@ namespace BubbleBobble
 
         void Events_KeyboardUp(object sender, SdlDotNet.Input.KeyboardEventArgs e)
         {
-            if (e.Key == SdlDotNet.Input.Key.RightArrow)
+            /*if (e.Key == SdlDotNet.Input.Key.RightArrow)
             {
                 lab.jugador.Moviendose = false;
             }
             if (e.Key == SdlDotNet.Input.Key.LeftArrow)
             {
                 lab.jugador.Moviendose = false;
-            }
+            }*/
+            foreach (Controlador.Controlador c in controladores)
+                c.keyUp(e.Key);
         }
 
         void Events_KeyboardDown(object sender, SdlDotNet.Input.KeyboardEventArgs e)
         {
             if (e.Key == SdlDotNet.Input.Key.Escape)
                 Events.QuitApplication();
-            if (e.Key == SdlDotNet.Input.Key.UpArrow)
+            /*if (e.Key == SdlDotNet.Input.Key.UpArrow)
                 lab.jugador.saltar();
             if (e.Key == SdlDotNet.Input.Key.RightArrow)
             {
@@ -56,7 +62,13 @@ namespace BubbleBobble
             {
                 lab.jugador.Direccion = Direccion.izquierda;
                 lab.jugador.Moviendose = true;
+            }*/
+            foreach (Controlador.Controlador c in controladores)
+            {
+                c.keyDown(e.Key);
+                c.keyPress(e.Key);
             }
+            
         }
 
         public void Run()
