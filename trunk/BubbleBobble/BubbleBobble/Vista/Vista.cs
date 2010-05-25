@@ -234,6 +234,16 @@ namespace BubbleBobble.Vista
             Point posicion = APosicionVisual(new Point(burbuja.getPosicion().X, burbuja.getPosicion().Y + burbuja.getAlto()));
             if (burbuja.Estado == EstadoBurbuja.Estable)
             {
+                if (burbuja is BurbujaConEnemigo)
+                {
+                    IEnemigo enemigo = ((BurbujaConEnemigo)burbuja).Enemigo;
+                    if (enemigo is Robotito)
+                    {
+                        Robotito r = (Robotito)enemigo;
+                        r.setPosicion(burbuja.getPosicion());
+                        Dibujar(r);
+                    }
+                }
                 bv.Position = posicion;
                 screen.Blit(bv);
             }

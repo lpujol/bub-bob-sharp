@@ -42,6 +42,7 @@
     <Compile Include="clases\Aire.cs" />
     <Compile Include="clases\Bloque.cs" />
     <Compile Include="clases\Burbuja.cs" />
+    <Compile Include="clases\BurbujaConEnemigo.cs" />
     <Compile Include="clases\BurbujaDisparada.cs" />
     <Compile Include="clases\IDibujable.cs" />
     <Compile Include="clases\IEnemigo.cs" />

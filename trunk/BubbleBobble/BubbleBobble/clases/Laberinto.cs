@@ -159,15 +159,26 @@ namespace BubbleBobble.clases
             get { return this.burbujas; }
         }
 
-        internal void pasarABurbujaRegular(BurbujaDisparada burbujaDisparada)
+        public void pasarABurbujaRegular(BurbujaDisparada burbujaDisparada)
         {
             objetosDisparados.Remove(burbujaDisparada);
-            burbujas.Add(new Burbuja(burbujaDisparada.getPosicion(),this));
+            Burbuja burbuja = new Burbuja(burbujaDisparada.getPosicion(), this);
+            burbujas.Add(burbuja);            
         }
+
+
 
         internal void reventarBurbuja(Burbuja burbuja)
         {
             burbujas.Remove(burbuja);
+        }
+
+        internal void burbujaAtrapaEnemigo(BurbujaDisparada burbujaDisparada, IEnemigo enemigo)
+        {
+            objetosDisparados.Remove(burbujaDisparada);
+            Burbuja nueva = new BurbujaConEnemigo(burbujaDisparada.getPosicion(),this, enemigo);
+            enemigos.Remove(enemigo);
+            burbujas.Add(nueva);
         }
     }
 }
