@@ -36,6 +36,18 @@ namespace BubbleBobble.clases
             if (getPosicion().X < 4 || getPosicion().X>60)
             {
                 estado = EstadoBurbuja.Rev1;
+                return;
+            }
+            int x=(getPosicion().X/2)*2;
+            int y=(getPosicion().Y/2)*2;
+            Bloque b1 = laberinto.bloqueEn(x, y);
+            Bloque b2 = laberinto.bloqueEn(x + 2, y);
+            Bloque b3 = laberinto.bloqueEn(x, y + 2);
+            Bloque b4 = laberinto.bloqueEn(x + 2, y + 2);
+            if (b1 is Pared || b2 is Pared || b3 is Pared || b4 is Pared)
+            {
+                estado = EstadoBurbuja.Rev1;
+                return;
             }
 
         }
