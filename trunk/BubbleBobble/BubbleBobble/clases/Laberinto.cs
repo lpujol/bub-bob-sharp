@@ -9,6 +9,7 @@ namespace BubbleBobble.clases
         Bloque[,] bloques;
         public Jugador jugador;
         private List<IEnemigo> enemigos;
+        private List<ObjetoDisparado> objetosDisparados;
 
         public Laberinto()
         {
@@ -57,6 +58,8 @@ namespace BubbleBobble.clases
             robotito = new Robotito(new System.Drawing.Point(24, 42), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
+
+            objetosDisparados = new List<ObjetoDisparado>();
         }
 
         public List<IEnemigo> Enemigos
@@ -125,6 +128,21 @@ namespace BubbleBobble.clases
                 if (!esOcupableDesdeArriba(puntos[x]))
                     return false;
             return true;
+        }
+
+        internal void agregarDisparo(ObjetoDisparado objetoDisparado)
+        {
+            objetosDisparados.Add(objetoDisparado);
+        }
+
+        public List<ObjetoDisparado> ObjetosDisparados
+        {
+            get { return this.objetosDisparados; }
+        }
+
+        internal void pasarABurbujaRegular(BurbujaDisparada burbujaDisparada)
+        {
+            objetosDisparados.Remove(burbujaDisparada);
         }
     }
 }

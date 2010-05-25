@@ -35,14 +35,6 @@ namespace BubbleBobble
 
         void Events_KeyboardUp(object sender, SdlDotNet.Input.KeyboardEventArgs e)
         {
-            /*if (e.Key == SdlDotNet.Input.Key.RightArrow)
-            {
-                lab.jugador.Moviendose = false;
-            }
-            if (e.Key == SdlDotNet.Input.Key.LeftArrow)
-            {
-                lab.jugador.Moviendose = false;
-            }*/
             foreach (Controlador.Controlador c in controladores)
                 c.keyUp(e.Key);
         }
@@ -51,18 +43,6 @@ namespace BubbleBobble
         {
             if (e.Key == SdlDotNet.Input.Key.Escape)
                 Events.QuitApplication();
-            /*if (e.Key == SdlDotNet.Input.Key.UpArrow)
-                lab.jugador.saltar();
-            if (e.Key == SdlDotNet.Input.Key.RightArrow)
-            {
-                lab.jugador.Direccion = Direccion.derecha;
-                lab.jugador.Moviendose = true;
-            }
-            if (e.Key == SdlDotNet.Input.Key.LeftArrow)
-            {
-                lab.jugador.Direccion = Direccion.izquierda;
-                lab.jugador.Moviendose = true;
-            }*/
             foreach (Controlador.Controlador c in controladores)
             {
                 c.keyDown(e.Key);
@@ -79,6 +59,15 @@ namespace BubbleBobble
         void Events_Tick(object sender, TickEventArgs e)
         {
             lab.jugador.vivir();
+            for (int x = 0; x < lab.ObjetosDisparados.Count; x++)
+            {
+                ObjetoDisparado disparado = lab.ObjetosDisparados[x];
+                try
+                {
+                    disparado.vivir();
+                }
+                catch (Exception) { }
+            }
             foreach (IEnemigo enemigo in lab.Enemigos)
                 enemigo.vivir();
             vista.Dibujar(lab);

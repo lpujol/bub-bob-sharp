@@ -42,6 +42,11 @@ namespace BubbleBobble.clases
             base.vivir();
         }
 
+        public override ObjetoDisparado getObjetoDisparado()
+        {
+            return null;
+        }
+
         #region Miembros de IEnemigo
 
 
