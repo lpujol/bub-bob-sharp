@@ -25,6 +25,7 @@ namespace BubbleBobble.Vista
         Sprite bubc1i, bubc2i, bubc3i;
         Sprite rob0, rob1, rob2, rob3;
         Sprite rob0i, rob1i, rob2i, rob3i;
+        Sprite bvd1, bvd2, bvd3, bvd4;
         int estadoCamina;
         public Vista(int ancho, int alto)
         {
@@ -80,6 +81,23 @@ namespace BubbleBobble.Vista
             rob3i.Transparent = true;
             rob3i.TransparentColor = Color.Magenta;
             #endregion spriteRobotito
+
+            #region burbujaVerde
+            bvd1 = new Sprite(new Surface(Resource1.bvd1));
+            bvd1.TransparentColor = Color.Magenta;
+            bvd1.Transparent = true;
+            bvd2 = new Sprite(new Surface(Resource1.bvd2));
+            bvd2.TransparentColor = Color.Magenta;
+            bvd2.Transparent = true;
+            bvd3 = new Sprite(new Surface(Resource1.bvd3));
+            bvd3.TransparentColor = Color.Magenta;
+            bvd3.Transparent = true;
+            bvd4 = new Sprite(new Surface(Resource1.bvd4)); 
+            bvd4.Transparent = true;
+            bvd4.TransparentColor = Color.Magenta;         
+            #endregion burbujaVerde
+
+
 
 
             this.alto = alto;
@@ -198,6 +216,37 @@ namespace BubbleBobble.Vista
             screen.Blit(pared);
         }
 
+        public void Dibujar(BurbujaDisparada bdisp)
+        {
+            Point posicion=APosicionVisual(new Point(bdisp.getPosicion().X,bdisp.getPosicion().Y+bdisp.getAlto()));
+            if (bdisp.DistanciaRecorrida <= 1)
+            {
+                bvd1.Position = posicion;
+                screen.Blit(bvd1);
+            }
+            else
+            {
+                if (bdisp.DistanciaRecorrida <= 3)
+                {
+                    bvd2.Position = posicion;
+                    screen.Blit(bvd2);
+                }
+                else
+                {
+                    if (bdisp.DistanciaRecorrida <=5)
+                    {
+                        bvd3.Position = posicion;
+                        screen.Blit(bvd3);
+                    }
+                    else
+                    {
+                        bvd4.Position = posicion;
+                        screen.Blit(bvd4);
+                    }
+                }
+            }
+        }
+
 
 
         public void Dibujar(Laberinto laberinto)
@@ -216,7 +265,10 @@ namespace BubbleBobble.Vista
             }
             Dibujar(laberinto.jugador);
             foreach (ObjetoDisparado ob in laberinto.ObjetosDisparados)
-                Dibujar(ob);
+            {
+                if(ob is BurbujaDisparada)
+                    Dibujar((BurbujaDisparada)ob);
+            }
             Video.Update();
         }
 

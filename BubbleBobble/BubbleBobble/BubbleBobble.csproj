@@ -123,4 +123,22 @@
   <ItemGroup>
     <None Include="Resources\rt2i.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvd2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvd3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvd42.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvd42.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvd4.png" />
+  </ItemGroup>
 </Project>

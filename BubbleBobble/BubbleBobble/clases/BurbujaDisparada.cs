@@ -84,5 +84,15 @@ namespace BubbleBobble.clases
             }
         }
 
+        public int DistanciaRecorrida
+        {
+            get { return this.distanciaRecorrida; }
+        }
+
+        public int DistanciaMaxima
+        {
+            get { return this.distanciaMaxima; }
+        }
+
     }
 }
