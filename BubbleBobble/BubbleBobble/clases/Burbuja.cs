@@ -49,7 +49,85 @@ namespace BubbleBobble.clases
                 estado = EstadoBurbuja.Rev1;
                 return;
             }
+            int arriba = 0;
+            int abajo = 0;
+            int izquierda = 0;
+            int derecha = 0;
 
+            if (b1 is Aire)
+            {
+                switch (((Aire)b1).DireccionCorriente)
+                {
+                    case DireccionCorriente.Arriba:
+                        arriba++;
+                        break;
+                    case DireccionCorriente.Abajo:
+                        abajo++;
+                        break;
+                    case DireccionCorriente.Derecha:
+                        derecha++;
+                        break;
+                    case DireccionCorriente.Izquierda:
+                        izquierda++;
+                        break;
+                }
+            }
+            int m = mayor(arriba, abajo, izquierda, derecha);
+            switch(m)
+            {
+                case 1:
+                    subirUno();
+                    break;
+                case 2:
+                    bajarUno();
+                    break;
+                case 3:
+                    izquierdaUno();
+                    break;
+                case 4:
+                    derechaUno();
+                    break;
+            }
+
+
+        }
+
+        int mayor(int a, int b, int c, int d)
+        {
+            if (a > b)
+            {
+                if (a > c)
+                {
+                    if (a > d)
+                        return 1;
+                    else
+                        return 4;
+                }
+                else
+                {
+                    if (c > d)
+                        return 3;
+                    else
+                        return 4;
+                }
+            }
+            else
+            {
+                if (b > c)
+                {
+                    if (b > d)
+                        return 2;
+                    else
+                        return 4;
+                }
+                else
+                {
+                    if (c > d)
+                        return 3;
+                    else
+                        return 4;
+                }
+            }
         }
     }
 }
