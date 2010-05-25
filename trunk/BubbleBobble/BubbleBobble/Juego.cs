@@ -66,7 +66,16 @@ namespace BubbleBobble
                 {
                     disparado.vivir();
                 }
-                catch (Exception ex) {  }
+                catch (Exception) {  }
+            }
+            for (int x = 0; x < lab.Burbujas.Count; x++)
+            {
+                Burbuja burbuja = lab.Burbujas[x];
+                try
+                {
+                    burbuja.vivir();
+                }
+                catch (Exception) { }
             }
             foreach (IEnemigo enemigo in lab.Enemigos)
                 enemigo.vivir();

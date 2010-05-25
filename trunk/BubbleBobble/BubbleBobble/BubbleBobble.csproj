@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="clases\Aire.cs" />
     <Compile Include="clases\Bloque.cs" />
+    <Compile Include="clases\Burbuja.cs" />
     <Compile Include="clases\BurbujaDisparada.cs" />
     <Compile Include="clases\IDibujable.cs" />
     <Compile Include="clases\IEnemigo.cs" />
@@ -124,21 +125,18 @@
     <None Include="Resources\rt2i.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bvd1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\bvd2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bvd3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bvd1.png" />
+    <None Include="Resources\bvd4.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bvd42.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bvd42.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bvd4.png" />
+    <None Include="Resources\bv.PNG" />
   </ItemGroup>
 </Project>

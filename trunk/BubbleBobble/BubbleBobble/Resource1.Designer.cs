@@ -102,6 +102,13 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap bv {
+            get {
+                object obj = ResourceManager.GetObject("bv", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bvd1 {
             get {
                 object obj = ResourceManager.GetObject("bvd1", resourceCulture);
