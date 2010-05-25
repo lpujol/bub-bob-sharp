@@ -5,11 +5,20 @@ using System.Drawing;
 
 namespace BubbleBobble.clases
 {
+    public enum DireccionCorriente { Izquierda, Derecha, Arriba, Abajo };
+
     public class Aire:Bloque
     {
-        public Aire(Point posicion):base(2,2,posicion)
-        {
+        private DireccionCorriente direccion;
 
+        public Aire(Point posicion,DireccionCorriente direccion):base(2,2,posicion)
+        {
+            this.direccion = direccion;
+        }
+
+        public DireccionCorriente DireccionCorriente
+        {
+            get { return this.direccion; }
         }
     }
 }

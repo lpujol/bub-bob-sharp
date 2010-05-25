@@ -10,6 +10,7 @@ namespace BubbleBobble.clases
         public Jugador jugador;
         private List<IEnemigo> enemigos;
         private List<ObjetoDisparado> objetosDisparados;
+        private List<Burbuja> burbujas;
 
         public Laberinto()
         {
@@ -21,7 +22,7 @@ namespace BubbleBobble.clases
                     if(x==0 ||x==2||x==60|| x==62||y==0 || y==50)
                         bloques[x,y]=new Pared(new System.Drawing.Point(x,y));
                     else
-                        bloques[x, y] = new Aire(new System.Drawing.Point(x, y));
+                        bloques[x, y] = new Aire(new System.Drawing.Point(x, y),DireccionCorriente.Arriba);
                 }
             }
             bloques[4,10]=new Pared(new System.Drawing.Point(4,10));
@@ -60,6 +61,7 @@ namespace BubbleBobble.clases
             enemigos.Add(robotito);
 
             objetosDisparados = new List<ObjetoDisparado>();
+            burbujas = new List<Burbuja>();
         }
 
         public List<IEnemigo> Enemigos
@@ -152,9 +154,15 @@ namespace BubbleBobble.clases
             get { return this.objetosDisparados; }
         }
 
+        public List<Burbuja> Burbujas
+        {
+            get { return this.burbujas; }
+        }
+
         internal void pasarABurbujaRegular(BurbujaDisparada burbujaDisparada)
         {
             objetosDisparados.Remove(burbujaDisparada);
+            burbujas.Add(new Burbuja(burbujaDisparada.getPosicion()));
         }
     }
 }

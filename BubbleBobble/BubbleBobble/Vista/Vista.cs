@@ -26,6 +26,7 @@ namespace BubbleBobble.Vista
         Sprite rob0, rob1, rob2, rob3;
         Sprite rob0i, rob1i, rob2i, rob3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
+        Sprite bv;
         int estadoCamina;
         public Vista(int ancho, int alto)
         {
@@ -55,6 +56,25 @@ namespace BubbleBobble.Vista
             bubc3i.TransparentColor = Color.Magenta;
             #endregion spritesBub
 
+            #region burbujaVerde
+            bvd1 = new Sprite(new Surface(Resource1.bvd1));
+            bvd2 = new Sprite(new Surface(Resource1.bvd2));
+            bvd3 = new Sprite(new Surface(Resource1.bvd3));
+            bvd4 = new Sprite(new Surface(Resource1.bvd4));
+            bv = new Sprite(new Surface(Resource1.bv));
+
+            bvd1.Transparent = true; 
+            bvd1.TransparentColor = Color.Magenta;
+            bvd2.Transparent = true;
+            bvd2.TransparentColor = Color.Magenta;
+            bvd3.Transparent = true;           
+            bvd3.TransparentColor = Color.Magenta;                        
+            bvd4.Transparent = true;
+            bvd4.TransparentColor = Color.Magenta;
+            bv.Transparent = true;
+            bv.TransparentColor = Color.Magenta;
+            #endregion burbujaVerde
+
             #region spriteRobotito
             rob0 = new Sprite(new Surface(Resource1.rt0));
             rob0i = new Sprite(new Surface(Resource1.rt0i));
@@ -82,20 +102,7 @@ namespace BubbleBobble.Vista
             rob3i.TransparentColor = Color.Magenta;
             #endregion spriteRobotito
 
-            #region burbujaVerde
-            bvd1 = new Sprite(new Surface(Resource1.bvd1));
-            bvd1.TransparentColor = Color.Magenta;
-            bvd1.Transparent = true;
-            bvd2 = new Sprite(new Surface(Resource1.bvd2));
-            bvd2.TransparentColor = Color.Magenta;
-            bvd2.Transparent = true;
-            bvd3 = new Sprite(new Surface(Resource1.bvd3));
-            bvd3.TransparentColor = Color.Magenta;
-            bvd3.Transparent = true;
-            bvd4 = new Sprite(new Surface(Resource1.bvd4)); 
-            bvd4.Transparent = true;
-            bvd4.TransparentColor = Color.Magenta;         
-            #endregion burbujaVerde
+            
 
 
 
@@ -216,6 +223,13 @@ namespace BubbleBobble.Vista
             screen.Blit(pared);
         }
 
+        public void Dibujar(Burbuja burbuja)
+        {
+            Point posicion = APosicionVisual(new Point(burbuja.getPosicion().X, burbuja.getPosicion().Y + burbuja.getAlto()));
+            bv.Position = posicion;
+            screen.Blit(bv);
+        }
+
         public void Dibujar(BurbujaDisparada bdisp)
         {
             Point posicion=APosicionVisual(new Point(bdisp.getPosicion().X,bdisp.getPosicion().Y+bdisp.getAlto()));
@@ -268,6 +282,10 @@ namespace BubbleBobble.Vista
             {
                 if(ob is BurbujaDisparada)
                     Dibujar((BurbujaDisparada)ob);
+            }
+            foreach (Burbuja b in laberinto.Burbujas)
+            {
+                Dibujar(b);
             }
             Video.Update();
         }
