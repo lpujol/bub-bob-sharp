@@ -29,17 +29,22 @@ namespace BubbleBobble.clases
 
         public override void vivir()
         {
-            int n = Robotito.r.Next(20);
+            int n = Robotito.r.Next(30);
             if (n == 15)
                 saltar();
-            if (n % 6 == 0)
+            if (n % 8 == 0)
             {
-                if (this.direccion == Direccion.derecha)
-                    this.direccion = Direccion.izquierda;
-                else
-                    this.direccion = Direccion.derecha;
+                cambiarDireccion();
             }
             base.vivir();
+        }
+
+        private void cambiarDireccion()
+        {
+            if (this.direccion == Direccion.derecha)
+                this.direccion = Direccion.izquierda;
+            else
+                this.direccion = Direccion.derecha;
         }
 
         public override ObjetoDisparado getObjetoDisparado()
