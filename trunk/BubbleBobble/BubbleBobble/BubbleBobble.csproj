@@ -79,13 +79,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pared1.PNG" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pared01.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bubbles.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bubc1.PNG" />
