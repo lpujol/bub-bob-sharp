@@ -19,10 +19,25 @@ namespace BubbleBobble.clases
             {
                 for (int y = 0; y < 52; y++)
                 {
-                    if(x==0 ||x==2||x==60|| x==62||y==0 || y==50)
-                        bloques[x,y]=new Pared(new System.Drawing.Point(x,y));
+                    if (x == 0 || x == 2 || x == 60 || x == 62 || y == 0 || y == 50)
+                        bloques[x, y] = new Pared(new System.Drawing.Point(x, y));
                     else
-                        bloques[x, y] = new Aire(new System.Drawing.Point(x, y),DireccionCorriente.Arriba);
+                    {
+                        if (y < 41)
+                            bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Arriba);
+                        else
+                        {
+                            if (x > 28 && x < 36)
+                                bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Abajo);
+                            else
+                            {
+                                if(x<30)
+                                    bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Derecha);
+                                else
+                                    bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Izquierda);
+                            }
+                        }
+                    }
                 }
             }
             bloques[4,10]=new Pared(new System.Drawing.Point(4,10));
