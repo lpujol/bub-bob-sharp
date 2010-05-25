@@ -10,16 +10,24 @@ namespace BubbleBobble.clases
         int velocidad;
         int distanciaMaxima;
         int distanciaRecorrida;
+
+        bool inicia;
         public BurbujaDisparada(Point posicion, Direccion direccion,Laberinto laberinto)
             : base(posicion, direccion,laberinto)
         {
             velocidad = 3;
             distanciaRecorrida = 0;
             distanciaMaxima = 20;
+            inicia = true;
         }
 
         public override void vivir()
         {
+            if (inicia)
+            {
+                inicia = false;
+                return;
+            }
             if (this.Direccion == Direccion.derecha)
             {
                 for (int x = 0; x < velocidad; x++)
@@ -35,6 +43,7 @@ namespace BubbleBobble.clases
                             else
                             {
                                 x = velocidad;
+                                distanciaRecorrida = distanciaMaxima;
                                 laberinto.pasarABurbujaRegular(this);
                             }
                             distanciaRecorrida++;
@@ -61,6 +70,7 @@ namespace BubbleBobble.clases
                         else
                         {
                             x = velocidad;
+                            distanciaRecorrida = distanciaMaxima;
                             laberinto.pasarABurbujaRegular(this);
                         }
                         distanciaRecorrida++;

@@ -19,7 +19,7 @@ namespace BubbleBobble.clases
 
         public override ObjetoDisparado getObjetoDisparado()
         {
-            return new BurbujaDisparada(new Point(getPosicion().X+(this.direccion==Direccion.derecha?4:-4), getPosicion().Y), this.direccion,this.laberinto);
+            return new BurbujaDisparada(new Point(getPosicion().X+(this.direccion==Direccion.derecha?3:-3), getPosicion().Y), this.direccion,this.laberinto);
         }
     }
 }
