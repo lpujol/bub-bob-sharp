@@ -14,6 +14,8 @@ namespace BubbleBobble.clases
         protected bool moviendose;
         protected Direccion direccion;
         protected int velocidad;
+        protected int tiempoDesdeElUltimoDisparo;
+        protected int permitidoEntreDisparos;
 
         public PersonajeTerrestre(int ancho, int alto, Point posicion,Direccion direccion)
             : base(ancho, alto, posicion)
@@ -22,6 +24,8 @@ namespace BubbleBobble.clases
             moviendose = false;
             this.direccion = direccion;
             velocidad = 1;
+            permitidoEntreDisparos = 8;
+            tiempoDesdeElUltimoDisparo = permitidoEntreDisparos;
         }
 
         public PersonajeTerrestre(int ancho, int alto,Direccion direccion)
@@ -129,6 +133,8 @@ namespace BubbleBobble.clases
                 if (laberinto.esOcupableDesdeArriba(puntos))
                     estado = Estado.cayendo;
             }
+            if(tiempoDesdeElUltimoDisparo<=permitidoEntreDisparos)
+                tiempoDesdeElUltimoDisparo++;
         }
 
         public void saltar()
@@ -140,9 +146,14 @@ namespace BubbleBobble.clases
 
         public abstract ObjetoDisparado getObjetoDisparado();
 
+        
         public void Disparar()
         {
-            laberinto.agregarDisparo(this.getObjetoDisparado());
+            if (tiempoDesdeElUltimoDisparo > permitidoEntreDisparos)
+            {
+                laberinto.agregarDisparo(this.getObjetoDisparado());
+                tiempoDesdeElUltimoDisparo = 0;
+            }
         }
         
         
