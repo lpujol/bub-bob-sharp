@@ -118,15 +118,15 @@
     <None Include="Resources\rt3.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rt3i.PNG" />
+    <None Include="Resources\rt3i.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rt2i.PNG" />
+    <None Include="Resources\rt0i.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rt1i.PNG" />
+    <None Include="Resources\rt1i.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rt0i.PNG" />
+    <None Include="Resources\rt2i.png" />
   </ItemGroup>
 </Project>
