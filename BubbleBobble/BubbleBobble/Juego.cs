@@ -66,7 +66,7 @@ namespace BubbleBobble
                 {
                     disparado.vivir();
                 }
-                catch (Exception) { }
+                catch (Exception ex) {  }
             }
             foreach (IEnemigo enemigo in lab.Enemigos)
                 enemigo.vivir();

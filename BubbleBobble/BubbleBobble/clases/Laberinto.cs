@@ -81,27 +81,39 @@ namespace BubbleBobble.clases
 
         private bool esOcupableDesdeDerecha(System.Drawing.Point punto)
         {
-            if((punto.X%2)!=0) return true;
-            if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X + 2, punto.Y].GetType())
-                return false;
-            return true;
+            try
+            {
+                if ((punto.X % 2) != 0) return true;
+                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X + 2, punto.Y].GetType())
+                    return false;
+                return true;
+            }
+            catch (Exception) { return false; }
         }
 
         private bool esOcupableDesdeIzquierda(System.Drawing.Point punto)
         {
-            if ((punto.X % 2) != 0) return true;
-            if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X - 1, punto.Y].GetType())
-                return false;
-            return true;
+            try
+            {
+                if ((punto.X % 2) != 0) return true;
+                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X - 1, punto.Y].GetType())
+                    return false;
+                return true;
+            }
+            catch (Exception) { return false; }
         }
 
         private bool esOcupableDesdeArriba(System.Drawing.Point punto)
         {
-            if ((punto.Y % 2) != 0) return true;
-            if (bloques[punto.X, punto.Y] is Aire) return true;
-            if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X, punto.Y+2].GetType())
-                return false;
-            return true;
+            try
+            {
+                if ((punto.Y % 2) != 0) return true;
+                if (bloques[punto.X, punto.Y] is Aire) return true;
+                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X, punto.Y + 2].GetType())
+                    return false;
+                return true;
+            }
+            catch (Exception) { return false; }
         }
         private bool esOcupableDesdeAbajo(System.Drawing.Point punto,Personaje personaje)
         {
