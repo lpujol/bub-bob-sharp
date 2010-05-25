@@ -39,7 +39,17 @@ namespace BubbleBobble.clases
                             for (int n = 0; n < getAlto(); n++)
                                 puntos.Add(new Point(this.getPosicion().X + getAncho(), getPosicion().Y + n));
                             if (laberinto.esOcupableDesdeIzquierda(puntos))
+                            {
                                 derechaUno();
+                                foreach (IEnemigo enemigo in laberinto.Enemigos)
+                                {
+                                    if (this.colisionaCon((Objeto)enemigo))
+                                    {
+                                        laberinto.burbujaAtrapaEnemigo(this, enemigo);
+                                        continue;
+                                    }
+                                }
+                            }
                             else
                             {
                                 x = velocidad;
@@ -66,7 +76,17 @@ namespace BubbleBobble.clases
                         for (int n = 0; n < getAlto(); n++)
                             puntos.Add(new Point(this.getPosicion().X - 2, getPosicion().Y + n));
                         if (laberinto.esOcupableDesdeDerecha(puntos))
+                        {
                             izquierdaUno();
+                            foreach (IEnemigo enemigo in laberinto.Enemigos)
+                            {
+                                if (this.colisionaCon((Objeto)enemigo))
+                                {
+                                    laberinto.burbujaAtrapaEnemigo(this, enemigo);
+                                    continue;
+                                }
+                            }
+                        }
                         else
                         {
                             x = velocidad;

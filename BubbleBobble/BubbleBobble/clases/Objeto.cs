@@ -39,6 +39,11 @@ namespace BubbleBobble.clases
             return this.posicion;
         }
 
+        public void setPosicion(Point punto)
+        {
+            this.posicion = punto;
+        }
+
         #endregion
 
         /// <summary>
