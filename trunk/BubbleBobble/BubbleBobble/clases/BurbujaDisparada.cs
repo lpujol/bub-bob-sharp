@@ -43,7 +43,7 @@ namespace BubbleBobble.clases
                                 derechaUno();
                                 foreach (IEnemigo enemigo in laberinto.Enemigos)
                                 {
-                                    if (this.colisionaCon((Objeto)enemigo))
+                                    if (this.intersecta((Objeto)enemigo))
                                     {
                                         laberinto.burbujaAtrapaEnemigo(this, enemigo);
                                         continue;
@@ -80,7 +80,7 @@ namespace BubbleBobble.clases
                             izquierdaUno();
                             foreach (IEnemigo enemigo in laberinto.Enemigos)
                             {
-                                if (this.colisionaCon((Objeto)enemigo))
+                                if (this.intersecta((Objeto)enemigo))
                                 {
                                     laberinto.burbujaAtrapaEnemigo(this, enemigo);
                                     continue;
