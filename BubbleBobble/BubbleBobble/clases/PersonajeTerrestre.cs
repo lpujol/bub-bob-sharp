@@ -137,6 +137,13 @@ namespace BubbleBobble.clases
                 if(estado!=Estado.ssalto1 && estado!=Estado.ssalto2 && estado!= Estado.ssalto3)
                     estado = Estado.salto1;
         }
+
+        public abstract ObjetoDisparado getObjetoDisparado();
+
+        public void Disparar()
+        {
+            laberinto.agregarDisparo(this.getObjetoDisparado());
+        }
         
         
     }

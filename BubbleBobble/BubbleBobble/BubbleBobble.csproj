@@ -41,12 +41,14 @@
   <ItemGroup>
     <Compile Include="clases\Aire.cs" />
     <Compile Include="clases\Bloque.cs" />
+    <Compile Include="clases\BurbujaDisparada.cs" />
     <Compile Include="clases\IDibujable.cs" />
     <Compile Include="clases\IEnemigo.cs" />
     <Compile Include="clases\Ivivo.cs" />
     <Compile Include="clases\Jugador.cs" />
     <Compile Include="clases\Laberinto.cs" />
     <Compile Include="clases\Objeto.cs" />
+    <Compile Include="clases\ObjetoDisparado.cs" />
     <Compile Include="clases\ObjetoVivo.cs" />
     <Compile Include="clases\Pared.cs" />
     <Compile Include="clases\Personaje.cs" />

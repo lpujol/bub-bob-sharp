@@ -67,6 +67,8 @@ namespace BubbleBobble.Controlador
         {
             if (key == arriba)
                 jugador.saltar();
+            if (key == fuego)
+                jugador.Disparar();
         }
 
         public Key Izquierda

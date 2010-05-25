@@ -215,6 +215,8 @@ namespace BubbleBobble.Vista
                     Dibujar((Robotito)enemigo);
             }
             Dibujar(laberinto.jugador);
+            foreach (ObjetoDisparado ob in laberinto.ObjetosDisparados)
+                Dibujar(ob);
             Video.Update();
         }
 
