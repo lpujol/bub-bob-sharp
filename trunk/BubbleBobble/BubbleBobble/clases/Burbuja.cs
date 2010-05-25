@@ -44,11 +44,11 @@ namespace BubbleBobble.clases
             Bloque b2 = laberinto.bloqueEn(x + 2, y);
             Bloque b3 = laberinto.bloqueEn(x, y + 2);
             Bloque b4 = laberinto.bloqueEn(x + 2, y + 2);
-            if (b1 is Pared || b2 is Pared || b3 is Pared || b4 is Pared)
-            {
+            //if (b1 is Pared || b2 is Pared || b3 is Pared || b4 is Pared)
+            /*{
                 estado = EstadoBurbuja.Rev1;
                 return;
-            }
+            }*/
             int arriba = 0;
             int abajo = 0;
             int izquierda = 0;
