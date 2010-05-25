@@ -139,4 +139,10 @@
   <ItemGroup>
     <None Include="Resources\bv.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvr1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bvr2.PNG" />
+  </ItemGroup>
 </Project>

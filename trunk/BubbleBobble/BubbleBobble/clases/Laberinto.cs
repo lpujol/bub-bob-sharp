@@ -162,7 +162,12 @@ namespace BubbleBobble.clases
         internal void pasarABurbujaRegular(BurbujaDisparada burbujaDisparada)
         {
             objetosDisparados.Remove(burbujaDisparada);
-            burbujas.Add(new Burbuja(burbujaDisparada.getPosicion()));
+            burbujas.Add(new Burbuja(burbujaDisparada.getPosicion(),this));
+        }
+
+        internal void reventarBurbuja(Burbuja burbuja)
+        {
+            burbujas.Remove(burbuja);
         }
     }
 }
