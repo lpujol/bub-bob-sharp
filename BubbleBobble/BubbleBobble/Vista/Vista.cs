@@ -26,7 +26,7 @@ namespace BubbleBobble.Vista
         Sprite rob0, rob1, rob2, rob3;
         Sprite rob0i, rob1i, rob2i, rob3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
-        Sprite bv;
+        Sprite bv, bvr1, bvr2;
         int estadoCamina;
         public Vista(int ancho, int alto)
         {
@@ -62,6 +62,8 @@ namespace BubbleBobble.Vista
             bvd3 = new Sprite(new Surface(Resource1.bvd3));
             bvd4 = new Sprite(new Surface(Resource1.bvd4));
             bv = new Sprite(new Surface(Resource1.bv));
+            bvr1 = new Sprite(new Surface(Resource1.bvr1));
+            bvr2 = new Sprite(new Surface(Resource1.bvr2));
 
             bvd1.Transparent = true; 
             bvd1.TransparentColor = Color.Magenta;
@@ -73,6 +75,10 @@ namespace BubbleBobble.Vista
             bvd4.TransparentColor = Color.Magenta;
             bv.Transparent = true;
             bv.TransparentColor = Color.Magenta;
+            bvr1.Transparent = true;
+            bvr1.TransparentColor = Color.Magenta;
+            bvr2.Transparent = true;
+            bvr2.TransparentColor = Color.Magenta;
             #endregion burbujaVerde
 
             #region spriteRobotito
@@ -226,8 +232,24 @@ namespace BubbleBobble.Vista
         public void Dibujar(Burbuja burbuja)
         {
             Point posicion = APosicionVisual(new Point(burbuja.getPosicion().X, burbuja.getPosicion().Y + burbuja.getAlto()));
-            bv.Position = posicion;
-            screen.Blit(bv);
+            if (burbuja.Estado == EstadoBurbuja.Estable)
+            {
+                bv.Position = posicion;
+                screen.Blit(bv);
+            }
+            else
+            {
+                if (burbuja.Estado == EstadoBurbuja.Rev1)
+                {
+                    bvr1.Position = posicion;
+                    screen.Blit(bvr1);
+                }
+                else
+                {
+                    bvr2.Position = posicion;
+                    screen.Blit(bvr2);
+                }
+            }
         }
 
         public void Dibujar(BurbujaDisparada bdisp)
