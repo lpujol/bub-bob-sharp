@@ -69,5 +69,36 @@ namespace BubbleBobble.clases
             }
             return false;
         }
+
+        public bool intersecta(Objeto o)
+        {
+            List<Point> puntos = new List<Point>();
+            puntos.Add(o.getPosicion());
+            puntos.Add(new Point(o.getPosicion().X, o.getPosicion().Y));
+            puntos.Add(new Point(o.getPosicion().X, o.getPosicion().Y + o.getAlto()));
+            puntos.Add(new Point(o.getPosicion().X + o.getAncho(), o.getPosicion().Y));
+            puntos.Add(new Point(o.getPosicion().X + o.getAncho(), o.getPosicion().Y + o.getAlto()));
+            foreach (Point p in puntos)
+            {
+                if (p.X >= this.posicion.X && p.X <= (this.posicion.X + ancho))
+                {
+                    if (p.Y >= this.posicion.Y && p.Y <= (this.posicion.Y + alto))
+                    {
+                        if (this.posicion.X > o.posicion.X)
+                        {
+                            int medio = getAncho() / 2;
+                            if ((posicion.X - o.posicion.X) >= medio) return true;
+                        }
+                        else
+                        {
+                            int medio = getAncho() / 2;
+                            if ((o.posicion.X - posicion.X) >= medio) return true;
+                        }
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
