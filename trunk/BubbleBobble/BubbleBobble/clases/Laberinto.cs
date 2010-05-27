@@ -11,55 +11,57 @@ namespace BubbleBobble.clases
         private List<IEnemigo> enemigos;
         private List<ObjetoDisparado> objetosDisparados;
         private List<Burbuja> burbujas;
+        private int alto;
+        private int ancho;
+
+        private static Bloque[,] armarBloques()
+        {
+            Bloque[,] b = new Bloque[64, 52];
+            string cadena = Resource1.n0001;
+            int posicion = 0;
+            for (int y = 50; y >= 0; y -= 2)
+            {
+                for (int x = 0; x < 64; x += 2)
+                {
+                    while (cadena[posicion] == '\n' || cadena[posicion] == '\r')
+                        posicion++;
+                    b[x, y] = getBloqueSegunchar(cadena[posicion], new System.Drawing.Point(x, y));
+                    if (b[x, y] is Aire)
+                    {
+                        b[x, y + 1] = b[x, y];
+                        b[x + 1, y] = b[x, y];
+                        b[x + 1, y + 1] = b[x, y];
+                    }
+                    posicion++;                    
+                }
+            }
+            return b;
+        }
+
+        private static Bloque getBloqueSegunchar(char c,System.Drawing.Point posicion)
+        {
+            switch (c)
+            {
+                case 'x':
+                    return new Pared(posicion);
+                case '>':
+                    return new Aire(posicion, DireccionCorriente.Derecha);
+                case '<':
+                    return new Aire(posicion, DireccionCorriente.Izquierda);
+                case '^':
+                    return new Aire(posicion, DireccionCorriente.Arriba);
+                case 'v':
+                    return new Aire(posicion, DireccionCorriente.Abajo);
+            }
+            return new Aire(posicion, DireccionCorriente.Abajo);
+        }
 
         public Laberinto()
         {
-            bloques = new Bloque[64, 52];
-            for (int x = 0; x < 64; x++)
-            {
-                for (int y = 0; y < 52; y++)
-                {
-                    if (x == 0 || x == 2 || x == 60 || x == 62 || y == 0 || y == 50)
-                        bloques[x, y] = new Pared(new System.Drawing.Point(x, y));
-                    else
-                    {
-                        if (y < 41)
-                            bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Arriba);
-                        else
-                        {
-                            if (x > 28 && x < 36)
-                                bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Abajo);
-                            else
-                            {
-                                if(x<30)
-                                    bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Derecha);
-                                else
-                                    bloques[x, y] = new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Izquierda);
-                            }
-                        }
-                    }
-                }
-            }
-            bloques[4,10]=new Pared(new System.Drawing.Point(4,10));
-            bloques[6,10]=new Pared(new System.Drawing.Point(6,10));
-            bloques[4, 20] = new Pared(new System.Drawing.Point(4, 20));
-            bloques[6, 20] = new Pared(new System.Drawing.Point(6, 20));
-            bloques[4, 30] = new Pared(new System.Drawing.Point(4, 30));
-            bloques[6, 30] = new Pared(new System.Drawing.Point(6, 30));
-
-            bloques[56, 10] = new Pared(new System.Drawing.Point(56, 10));
-            bloques[58, 10] = new Pared(new System.Drawing.Point(58, 10));
-            bloques[56, 20] = new Pared(new System.Drawing.Point(56, 20));
-            bloques[58, 20] = new Pared(new System.Drawing.Point(58, 20));
-            bloques[56, 30] = new Pared(new System.Drawing.Point(56, 30));
-            bloques[58, 30] = new Pared(new System.Drawing.Point(58, 30));
-
-            for (int x = 0; x < 36; x++)
-            {
-                bloques[x + 14, 10] = new Pared(new System.Drawing.Point(x + 14, 10));
-                bloques[x + 14, 20] = new Pared(new System.Drawing.Point(x + 14, 20));
-                bloques[x + 14, 30] = new Pared(new System.Drawing.Point(x + 14, 30));
-            }
+            alto = 52;
+            ancho = 64;
+            bloques = Laberinto.armarBloques();
+            
             jugador = new Jugador(new System.Drawing.Point(6, 2),Direccion.derecha);
             Robotito robotito = new Robotito(new System.Drawing.Point(24, 32), Direccion.derecha);
             jugador.Laberinto = this;
@@ -86,7 +88,10 @@ namespace BubbleBobble.clases
 
         public Bloque bloqueEn(int x, int y)
         {
-            return bloques[x, y];
+            if (y >= 0 && y < alto)
+                return bloques[x, y];
+            else
+                return null;
         }
 
         public bool esOcupableDesdeDerecha(List<System.Drawing.Point> puntos)
