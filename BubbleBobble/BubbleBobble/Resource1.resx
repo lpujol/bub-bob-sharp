@@ -136,6 +136,9 @@
   <data name="bobc3i" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bobc3i.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bobfte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bobfte.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bubc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bubc1.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +159,9 @@
   </data>
   <data name="bubcm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bubcm.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bubfte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bubfte.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bv" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bv.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -179,7 +185,10 @@
     <value>Resources\bvr2.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="n0001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\0001.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>Resources\0001.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="n0002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\0002.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="pared01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\pared01.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
