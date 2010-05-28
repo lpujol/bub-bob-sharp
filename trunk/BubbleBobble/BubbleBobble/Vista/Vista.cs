@@ -215,6 +215,8 @@ namespace BubbleBobble.Vista
             }
             if(paradibujar!=null)
             {
+                if (robotito.Atrapado)
+                    paradibujar = rob0;
                 paradibujar.Position=posicion;
                 screen.Blit(paradibujar);
             }
@@ -309,7 +311,8 @@ namespace BubbleBobble.Vista
                 if (enemigo is Robotito)
                     Dibujar((Robotito)enemigo);
             }
-            Dibujar(laberinto.jugador);
+            foreach(Jugador jugador in laberinto.Jugadores)
+                Dibujar(jugador);
             foreach (ObjetoDisparado ob in laberinto.ObjetosDisparados)
             {
                 if(ob is BurbujaDisparada)

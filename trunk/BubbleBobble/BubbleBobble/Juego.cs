@@ -20,7 +20,7 @@ namespace BubbleBobble
             vista = new Vista.Vista(800, 600);
             lab = new Laberinto();
             controladores = new List<BubbleBobble.Controlador.Controlador>();
-            controladores.Add(new BubbleBobble.Controlador.Controlador(lab.jugador, Key.LeftArrow, Key.UpArrow, Key.RightArrow, Key.Space));
+            controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[0], Key.LeftArrow, Key.UpArrow, Key.RightArrow, Key.Space));
             Events.Fps = 15;
             Events.Tick+=new EventHandler<TickEventArgs>(Events_Tick);
             Events.KeyboardDown += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardDown);
@@ -58,7 +58,8 @@ namespace BubbleBobble
 
         void Events_Tick(object sender, TickEventArgs e)
         {
-            lab.jugador.vivir();
+            for (int x = 0; x < lab.Jugadores.Count; x++)
+                lab.Jugadores[x].vivir();
             for (int x = 0; x < lab.ObjetosDisparados.Count; x++)
             {
                 ObjetoDisparado disparado = lab.ObjetosDisparados[x];
