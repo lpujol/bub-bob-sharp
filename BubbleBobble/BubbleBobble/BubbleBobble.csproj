@@ -181,4 +181,7 @@
   <ItemGroup>
     <None Include="Resources\bubfte.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renc.png" />
+  </ItemGroup>
 </Project>

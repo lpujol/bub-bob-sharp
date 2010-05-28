@@ -193,6 +193,9 @@
   <data name="pared01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\pared01.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="renc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\renc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="rt0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\rt0.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
