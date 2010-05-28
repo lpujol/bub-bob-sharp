@@ -172,4 +172,13 @@
   <ItemGroup>
     <None Include="Resources\bobc2i.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0002.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobfte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubfte.png" />
+  </ItemGroup>
 </Project>

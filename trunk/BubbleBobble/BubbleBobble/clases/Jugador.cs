@@ -16,6 +16,7 @@ namespace BubbleBobble.clases
         int vidas;
         Point posicionInicial;
         int estadoCamina;
+        bool cambiaDir;
 
         public Jugador(Direccion direccion)
             : base(4, 4, direccion)
@@ -38,6 +39,7 @@ namespace BubbleBobble.clases
             transcurridoInmortal = 0;            
             vidas = 3;
             estadoCamina = 0;
+            cambiaDir = false;
         }
 
         public override ObjetoDisparado getObjetoDisparado()
@@ -128,6 +130,24 @@ namespace BubbleBobble.clases
                 else
                     this.estadoCamina = value; 
             }
+        }
+
+
+        internal void cambiaDireccion()
+        {
+            cambiaDir = true;
+        }
+
+        public bool CambiaDir
+        {
+            get {
+
+                if (!cambiaDir) return false;
+                cambiaDir = false;
+                return true;
+                    
+                }           
+            
         }
     }
 }

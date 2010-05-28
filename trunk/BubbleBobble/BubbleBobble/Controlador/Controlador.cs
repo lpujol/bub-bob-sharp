@@ -34,11 +34,15 @@ namespace BubbleBobble.Controlador
             if (key == izquierda)
             {
                 presionadoIzquierda = true;
+                if (jugador.Direccion == Direccion.derecha)
+                    jugador.cambiaDireccion();
                 jugador.Direccion = Direccion.izquierda;
             }
             if (key == derecha)
             {
                 presionadoDerecha = true;
+                if (jugador.Direccion == Direccion.izquierda)
+                    jugador.cambiaDireccion();
                 jugador.Direccion = Direccion.derecha;
             }
             if (presionadoDerecha || presionadoIzquierda)

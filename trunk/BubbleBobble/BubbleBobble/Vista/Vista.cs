@@ -58,6 +58,10 @@ namespace BubbleBobble.Vista
             bubc3i.Transparent = true;
             bubc3i.TransparentColor = Color.Magenta;
 
+            Sprite frente = new Sprite(new Surface(Resource1.bubfte));
+            frente.Transparent = true;
+            frente.TransparentColor = Color.Magenta;
+
             Sprite bvm = new Sprite(new Surface(Resource1.bubcm));
             bvm.Transparent = true;
             bvm.TransparentColor = Color.Magenta;
@@ -69,6 +73,7 @@ namespace BubbleBobble.Vista
             bub.Add("izquierda2", bubc2i);
             bub.Add("izquierda3", bubc3i);
             bub.Add("muerto1", bvm);
+            bub.Add("frente", frente);
 
             #endregion spritesBub
 
@@ -96,6 +101,10 @@ namespace BubbleBobble.Vista
             bubc3i.Transparent = true;
             bubc3i.TransparentColor = Color.Magenta;
 
+            frente = new Sprite(new Surface(Resource1.bobfte));
+            frente.Transparent = true;
+            frente.TransparentColor = Color.Magenta;
+
             bvm = new Sprite(new Surface(Resource1.bubcm));
             bvm.Transparent = true;
             bvm.TransparentColor = Color.Magenta;
@@ -107,6 +116,7 @@ namespace BubbleBobble.Vista
             bob.Add("izquierda2", bubc2i);
             bob.Add("izquierda3", bubc3i);
             bob.Add("muerto1", bvm);
+            bob.Add("frente", frente);
             
 
             #endregion spritesBob
@@ -198,6 +208,12 @@ namespace BubbleBobble.Vista
             {
                 sprites["muerto1"].Position = posicion;
                 screen.Blit(sprites["muerto1"]);
+                return;
+            }
+            if (jugador.CambiaDir)
+            {
+                sprites["frente"].Position = posicion;
+                screen.Blit(sprites["frente"]);
                 return;
             }
             if(!jugador.Moviendose) jugador.EstadoCamina=1;

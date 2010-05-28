@@ -102,6 +102,13 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap bobfte {
+            get {
+                object obj = ResourceManager.GetObject("bobfte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bubc1 {
             get {
                 object obj = ResourceManager.GetObject("bubc1", resourceCulture);
@@ -147,6 +154,13 @@ namespace BubbleBobble {
         internal static System.Drawing.Bitmap bubcm {
             get {
                 object obj = ResourceManager.GetObject("bubcm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bubfte {
+            get {
+                object obj = ResourceManager.GetObject("bubfte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -221,6 +235,30 @@ namespace BubbleBobble {
         internal static string n0001 {
             get {
                 return ResourceManager.GetString("n0001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;vvvv&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
+        ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;vvvv&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
+        ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;vvvv&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
+        ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
+        ///xx^^^^^^^^^^^xxxxxx^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^xxxxx^^xxxxx^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string n0002 {
+            get {
+                return ResourceManager.GetString("n0002", resourceCulture);
             }
         }
         
