@@ -63,7 +63,10 @@ namespace BubbleBobble.clases
             bloques = Laberinto.armarBloques();
 
             jugadores = new List<Jugador>();
-            Jugador jugador = new Jugador(new System.Drawing.Point(6, 2),Direccion.derecha);
+            Jugador jugador = new Bub();
+            jugador.Laberinto = this;
+            jugadores.Add(jugador);
+            jugador = new Bob();
             jugador.Laberinto = this;
             jugadores.Add(jugador);
 
