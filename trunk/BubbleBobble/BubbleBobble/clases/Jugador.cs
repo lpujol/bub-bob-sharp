@@ -15,6 +15,7 @@ namespace BubbleBobble.clases
         bool inmortal;
         int vidas;
         Point posicionInicial;
+        int estadoCamina;
 
         public Jugador(Direccion direccion)
             : base(4, 4, direccion)
@@ -24,6 +25,7 @@ namespace BubbleBobble.clases
             maximoInmortal = 30;
             transcurridoInmortal = 0;
             vidas = 3;
+            estadoCamina = 0;
         }
 
         public Jugador(Point posicion, Direccion direccion)
@@ -35,6 +37,7 @@ namespace BubbleBobble.clases
             maximoInmortal = 30;
             transcurridoInmortal = 0;            
             vidas = 3;
+            estadoCamina = 0;
         }
 
         public override ObjetoDisparado getObjetoDisparado()
@@ -114,6 +117,17 @@ namespace BubbleBobble.clases
         {
             if(!muerto)
                 base.Disparar();
+        }
+
+        public int EstadoCamina
+        {
+            get { return this.estadoCamina; }
+            set {
+                if (value > 6)
+                    this.estadoCamina = 1;
+                else
+                    this.estadoCamina = value; 
+            }
         }
     }
 }

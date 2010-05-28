@@ -21,26 +21,66 @@ namespace BubbleBobble.Vista
 
         Surface screen;
         Sprite pared;
-        Sprite bubc1, bubc2, bubc3;
-        Sprite bubc1i, bubc2i, bubc3i;
+        //Sprite bubc1, bubc2, bubc3;
+        //Sprite bubc1i, bubc2i, bubc3i;
         Sprite rob0, rob1, rob2, rob3;
         Sprite rob0i, rob1i, rob2i, rob3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
         Sprite bv, bvr1, bvr2;
-        Sprite bvm;
-        int estadoCamina;
+        //Sprite bvm;
+        Dictionary<string, Sprite> bub;
+        Dictionary<string, Sprite> bob;
         public Vista(int ancho, int alto)
         {
             pared=new Sprite(new Surface(Resource1.pared01));
 
             #region spritesBub
-            estadoCamina = 1;
-            bubc1 = new Sprite(new Surface(Resource1.bubc1));
-            bubc2 = new Sprite(new Surface(Resource1.bubc2));
-            bubc3 = new Sprite(new Surface(Resource1.bubc3));
-            bubc1i = new Sprite(new Surface(Resource1.bubc1i));
-            bubc2i = new Sprite(new Surface(Resource1.bubc2i));
-            bubc3i = new Sprite(new Surface(Resource1.bubc3i));
+            bub = new Dictionary<string, Sprite>();
+
+            Sprite bubc1 = new Sprite(new Surface(Resource1.bubc1));
+            Sprite bubc2 = new Sprite(new Surface(Resource1.bubc2));
+            Sprite bubc3 = new Sprite(new Surface(Resource1.bubc3));
+            Sprite bubc1i = new Sprite(new Surface(Resource1.bubc1i));
+            Sprite bubc2i = new Sprite(new Surface(Resource1.bubc2i));
+            Sprite bubc3i = new Sprite(new Surface(Resource1.bubc3i));
+
+            bubc1.Transparent = true;
+            bubc1.TransparentColor = Color.Magenta;
+            bubc2.Transparent = true;
+            bubc2.TransparentColor = Color.Magenta;
+            bubc3.Transparent = true;
+            bubc3.TransparentColor = Color.Magenta;
+
+            bubc1i.Transparent = true;
+            bubc1i.TransparentColor = Color.Magenta;
+            bubc2i.Transparent = true;
+            bubc2i.TransparentColor = Color.Magenta;
+            bubc3i.Transparent = true;
+            bubc3i.TransparentColor = Color.Magenta;
+
+            Sprite bvm = new Sprite(new Surface(Resource1.bubcm));
+            bvm.Transparent = true;
+            bvm.TransparentColor = Color.Magenta;
+
+            bub.Add("derecha1", bubc1);
+            bub.Add("derecha2", bubc2);
+            bub.Add("derecha3", bubc3);
+            bub.Add("izquierda1", bubc1i);
+            bub.Add("izquierda2", bubc2i);
+            bub.Add("izquierda3", bubc3i);
+            bub.Add("muerto1", bvm);
+
+            #endregion spritesBub
+
+            #region spritesBob
+            bob = new Dictionary<string, Sprite>();
+
+            bubc1 = new Sprite(new Surface(Resource1.bobc1));
+            bubc2 = new Sprite(new Surface(Resource1.bobc2));
+            bubc3 = new Sprite(new Surface(Resource1.bobc3));
+            bubc1i = new Sprite(new Surface(Resource1.bobc1i));
+            bubc2i = new Sprite(new Surface(Resource1.bobc2i));
+            bubc3i = new Sprite(new Surface(Resource1.bobc3i));
 
             bubc1.Transparent = true;
             bubc1.TransparentColor = Color.Magenta;
@@ -60,7 +100,16 @@ namespace BubbleBobble.Vista
             bvm.Transparent = true;
             bvm.TransparentColor = Color.Magenta;
 
-            #endregion spritesBub
+            bob.Add("derecha1", bubc1);
+            bob.Add("derecha2", bubc2);
+            bob.Add("derecha3", bubc3);
+            bob.Add("izquierda1", bubc1i);
+            bob.Add("izquierda2", bubc2i);
+            bob.Add("izquierda3", bubc3i);
+            bob.Add("muerto1", bvm);
+            
+
+            #endregion spritesBob
 
             #region burbujaVerde
             bvd1 = new Sprite(new Surface(Resource1.bvd1));
@@ -144,55 +193,55 @@ namespace BubbleBobble.Vista
         {
             if (jugador.Inmortal && jugador.TranscurridoInmortal % 3 == 0) return;
             Point posicion = APosicionVisual(new Point(jugador.getPosicion().X, jugador.getPosicion().Y + jugador.getAlto()));
+            Dictionary<string, Sprite> sprites = (jugador is Bub?bub:bob);            
             if (jugador.Muerto)
             {
-                bvm.Position = posicion;
-                screen.Blit(bvm);
+                sprites["muerto1"].Position = posicion;
+                screen.Blit(sprites["muerto1"]);
                 return;
             }
-            if (estadoCamina > 6) estadoCamina = 1;
-            if(!jugador.Moviendose) estadoCamina=1;
-            int estadoC = (estadoCamina+1) / 2;
+            if(!jugador.Moviendose) jugador.EstadoCamina=1;
+            int estadoC = (jugador.EstadoCamina+1) / 2;
             switch (estadoC)
             {
                 case 3:
                     if (jugador.Direccion == Direccion.derecha)
                     {
-                        bubc3.Position = posicion;
-                        screen.Blit(bubc3);
+                        sprites["derecha3"].Position = posicion;
+                        screen.Blit(sprites["derecha3"]);
                     }
                     else
                     {
-                        bubc3i.Position = posicion;
-                        screen.Blit(bubc3i);
+                        sprites["izquierda3"].Position = posicion;
+                        screen.Blit(sprites["izquierda3"]);
                     }
                     break;
                 case 2:
                     if (jugador.Direccion == Direccion.derecha)
                     {
-                        bubc2.Position = posicion;
-                        screen.Blit(bubc2);
+                        sprites["derecha2"].Position = posicion;
+                        screen.Blit(sprites["derecha2"]);
                     }
                     else
                     {
-                        bubc2i.Position = posicion;
-                        screen.Blit(bubc2i);
+                        sprites["izquierda2"].Position = posicion;
+                        screen.Blit(sprites["izquierda2"]);
                     }
                     break;
                 case 1:
                     if (jugador.Direccion == Direccion.derecha)
                     {
-                        bubc1.Position = posicion;
-                        screen.Blit(bubc1);
+                        sprites["derecha1"].Position = posicion;
+                        screen.Blit(sprites["derecha1"]);
                     }
                     else
                     {
-                        bubc1i.Position = posicion;
-                        screen.Blit(bubc1i);
+                        sprites["izquierda1"].Position = posicion;
+                        screen.Blit(sprites["izquierda1"]);
                     }
                     break;
             }
-            estadoCamina++;
+            jugador.EstadoCamina++;
         }
 
         public void Dibujar(Robotito robotito)

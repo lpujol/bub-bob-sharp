@@ -39,6 +39,8 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="Bob.cs" />
+    <Compile Include="Bub.cs" />
     <Compile Include="clases\Aire.cs" />
     <Compile Include="clases\Bloque.cs" />
     <Compile Include="clases\Burbuja.cs" />
@@ -151,5 +153,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bubcm.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobc3i.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobc3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobc1i.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobc2i.png" />
   </ItemGroup>
 </Project>

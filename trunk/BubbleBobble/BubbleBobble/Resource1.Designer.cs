@@ -60,6 +60,48 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap bobc1 {
+            get {
+                object obj = ResourceManager.GetObject("bobc1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobc1i {
+            get {
+                object obj = ResourceManager.GetObject("bobc1i", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobc2 {
+            get {
+                object obj = ResourceManager.GetObject("bobc2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobc2i {
+            get {
+                object obj = ResourceManager.GetObject("bobc2i", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobc3 {
+            get {
+                object obj = ResourceManager.GetObject("bobc3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobc3i {
+            get {
+                object obj = ResourceManager.GetObject("bobc3i", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bubc1 {
             get {
                 object obj = ResourceManager.GetObject("bubc1", resourceCulture);
