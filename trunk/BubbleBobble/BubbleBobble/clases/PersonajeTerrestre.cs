@@ -147,7 +147,7 @@ namespace BubbleBobble.clases
         public abstract ObjetoDisparado getObjetoDisparado();
 
         
-        public void Disparar()
+        public virtual void Disparar()
         {
             if (tiempoDesdeElUltimoDisparo > permitidoEntreDisparos)
             {

@@ -210,7 +210,7 @@ namespace BubbleBobble.clases
 
         internal void matar(Jugador jugador)
         {
-            jugador.setPosicion(new System.Drawing.Point(6, 2));
+            jugador.reiniciar();// setPosicion(new System.Drawing.Point(6, 2));
         }
 
         internal void liberarEnemigo(BurbujaConEnemigo burbujaConEnemigo)
