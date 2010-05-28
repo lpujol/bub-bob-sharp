@@ -8,11 +8,13 @@ namespace BubbleBobble.clases
     public class Robotito:PersonajeTerrestre,IEnemigo
     {
         int estadoAnimacion;
+        bool atrapado;
         static Random r;
         public Robotito(Direccion direccion)
             : base(4, 4, direccion)
         {
             moviendose = true;
+            atrapado = false;
             estadoAnimacion = 0;
             if(Robotito.r==null)
                 Robotito.r = new Random(DateTime.Now.Millisecond);
@@ -23,6 +25,7 @@ namespace BubbleBobble.clases
         {
             moviendose = true;
             estadoAnimacion = 0;
+            atrapado = false;
             if (Robotito.r == null)
                 Robotito.r = new Random(DateTime.Now.Millisecond);
         }
@@ -37,6 +40,12 @@ namespace BubbleBobble.clases
                 cambiarDireccion();
             }
             base.vivir();
+            foreach (Jugador jugador in laberinto.Jugadores)
+            {
+                if (colisionaCon(jugador))
+                    jugador.matar();
+                    
+            }
         }
 
         private void cambiarDireccion()
@@ -67,6 +76,29 @@ namespace BubbleBobble.clases
                 if (estadoAnimacion > 3)
                     estadoAnimacion = 0;
             }
+        }
+
+        #endregion
+
+
+
+        public bool Atrapado
+        {
+            get { return this.atrapado; }
+        }
+
+        public void fueAtrapado()
+        {
+            atrapado = true;
+        }
+
+
+        #region Miembros de IEnemigo
+
+
+        public void fueLiberado()
+        {
+            atrapado = false;
         }
 
         #endregion

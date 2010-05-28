@@ -13,5 +13,9 @@ namespace BubbleBobble.clases
         }
 
         void vivir();
+
+        void fueAtrapado();
+
+        void fueLiberado();
     }
 }

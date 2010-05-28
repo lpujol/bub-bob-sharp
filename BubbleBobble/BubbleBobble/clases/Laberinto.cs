@@ -7,7 +7,7 @@ namespace BubbleBobble.clases
     public class Laberinto
     {
         Bloque[,] bloques;
-        public Jugador jugador;
+        private List<Jugador> jugadores;
         private List<IEnemigo> enemigos;
         private List<ObjetoDisparado> objetosDisparados;
         private List<Burbuja> burbujas;
@@ -61,18 +61,19 @@ namespace BubbleBobble.clases
             alto = 52;
             ancho = 64;
             bloques = Laberinto.armarBloques();
-            
-            jugador = new Jugador(new System.Drawing.Point(6, 2),Direccion.derecha);
-            Robotito robotito = new Robotito(new System.Drawing.Point(24, 32), Direccion.derecha);
-            jugador.Laberinto = this;
-            robotito.Laberinto = this;
 
-            enemigos = new List<IEnemigo>();
+            jugadores = new List<Jugador>();
+            Jugador jugador = new Jugador(new System.Drawing.Point(6, 2),Direccion.derecha);
+            jugador.Laberinto = this;
+            jugadores.Add(jugador);
+
+            enemigos = new List<IEnemigo>();            
+            Robotito robotito = new Robotito(new System.Drawing.Point(24, 32), Direccion.derecha);
+            robotito.Laberinto = this;
             enemigos.Add(robotito);
             robotito = new Robotito(new System.Drawing.Point(24, 38), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
-
             robotito = new Robotito(new System.Drawing.Point(24, 42), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
@@ -196,9 +197,28 @@ namespace BubbleBobble.clases
         internal void burbujaAtrapaEnemigo(BurbujaDisparada burbujaDisparada, IEnemigo enemigo)
         {
             objetosDisparados.Remove(burbujaDisparada);
+            enemigo.fueAtrapado();
             Burbuja nueva = new BurbujaConEnemigo(burbujaDisparada.getPosicion(),this, enemigo);
             enemigos.Remove(enemigo);
             burbujas.Add(nueva);
+        }
+
+        public List<Jugador> Jugadores
+        {
+            get { return this.jugadores; }
+        }
+
+        internal void matar(Jugador jugador)
+        {
+            jugador.setPosicion(new System.Drawing.Point(6, 2));
+        }
+
+        internal void liberarEnemigo(BurbujaConEnemigo burbujaConEnemigo)
+        {
+            IEnemigo enemigo = burbujaConEnemigo.liberarEnemigo();
+            enemigo.fueLiberado();
+            enemigos.Add(enemigo);
+            burbujaConEnemigo.pinchar();
         }
     }
 }

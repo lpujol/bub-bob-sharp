@@ -21,6 +21,11 @@ namespace BubbleBobble.clases
             get { return this.estado; }
         }
 
+        public void pinchar()
+        {
+            this.estado = EstadoBurbuja.Rev1;
+        }
+
         public override void vivir()
         {
             if (estado == EstadoBurbuja.Rev2)
@@ -38,6 +43,41 @@ namespace BubbleBobble.clases
                 estado = EstadoBurbuja.Rev1;
                 return;
             }
+            foreach (Jugador jugador in laberinto.Jugadores)
+            {
+                if (colisionaCon(jugador))
+                {
+                    if (jugador.getPosicion().Y == getPosicion().Y + getAlto())
+                    {
+                    }
+                    else
+                    {
+                        if (jugador.Direccion == Direccion.derecha)
+                        {
+                            if (getPosicion().X >= jugador.getPosicion().X + getAncho() - 1)
+                            {
+                            }
+                            else
+                            {
+                                estado = EstadoBurbuja.Rev1;
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            if ((getPosicion().X + getAncho() - 1) <= jugador.getPosicion().X)
+                            {
+                            }
+                            else
+                            {
+                                estado = EstadoBurbuja.Rev1;
+                                return;
+                            }
+                        }
+                    }                    
+                }
+            }
+
             int x=(getPosicion().X/2)*2;
             int y=(getPosicion().Y/2)*2;
             Bloque b1 = laberinto.bloqueEn(x, y);
@@ -57,6 +97,60 @@ namespace BubbleBobble.clases
             if (b1 is Aire)
             {
                 switch (((Aire)b1).DireccionCorriente)
+                {
+                    case DireccionCorriente.Arriba:
+                        arriba++;
+                        break;
+                    case DireccionCorriente.Abajo:
+                        abajo++;
+                        break;
+                    case DireccionCorriente.Derecha:
+                        derecha++;
+                        break;
+                    case DireccionCorriente.Izquierda:
+                        izquierda++;
+                        break;
+                }
+            }
+            if (b2 is Aire)
+            {
+                switch (((Aire)b2).DireccionCorriente)
+                {
+                    case DireccionCorriente.Arriba:
+                        arriba++;
+                        break;
+                    case DireccionCorriente.Abajo:
+                        abajo++;
+                        break;
+                    case DireccionCorriente.Derecha:
+                        derecha++;
+                        break;
+                    case DireccionCorriente.Izquierda:
+                        izquierda++;
+                        break;
+                }
+            }
+            if (b3 is Aire)
+            {
+                switch (((Aire)b3).DireccionCorriente)
+                {
+                    case DireccionCorriente.Arriba:
+                        arriba++;
+                        break;
+                    case DireccionCorriente.Abajo:
+                        abajo++;
+                        break;
+                    case DireccionCorriente.Derecha:
+                        derecha++;
+                        break;
+                    case DireccionCorriente.Izquierda:
+                        izquierda++;
+                        break;
+                }
+            }
+            if (b4 is Aire)
+            {
+                switch (((Aire)b4).DireccionCorriente)
                 {
                     case DireccionCorriente.Arriba:
                         arriba++;
