@@ -26,7 +26,9 @@ namespace BubbleBobble.Vista
         Sprite rob0, rob1, rob2, rob3;
         Sprite rob0i, rob1i, rob2i, rob3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
+        Sprite renc;
         Sprite bv, bvr1, bvr2;
+
         //Sprite bvm;
         Dictionary<string, Sprite> bub;
         Dictionary<string, Sprite> bob;
@@ -171,6 +173,10 @@ namespace BubbleBobble.Vista
             rob3.TransparentColor = Color.Magenta;
             rob3i.Transparent = true;
             rob3i.TransparentColor = Color.Magenta;
+
+            renc = new Sprite(new Surface(Resource1.renc));
+            renc.Transparent = true;
+            renc.TransparentColor = Color.Magenta;
             #endregion spriteRobotito
 
             
@@ -294,7 +300,7 @@ namespace BubbleBobble.Vista
             if(paradibujar!=null)
             {
                 if (robotito.Atrapado)
-                    paradibujar = rob0;
+                    paradibujar = renc;
                 paradibujar.Position=posicion;
                 screen.Blit(paradibujar);
             }
