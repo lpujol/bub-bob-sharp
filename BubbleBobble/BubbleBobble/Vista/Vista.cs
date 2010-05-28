@@ -27,6 +27,7 @@ namespace BubbleBobble.Vista
         Sprite rob0i, rob1i, rob2i, rob3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
         Sprite bv, bvr1, bvr2;
+        Sprite bvm;
         int estadoCamina;
         public Vista(int ancho, int alto)
         {
@@ -54,6 +55,11 @@ namespace BubbleBobble.Vista
             bubc2i.TransparentColor = Color.Magenta;
             bubc3i.Transparent = true;
             bubc3i.TransparentColor = Color.Magenta;
+
+            bvm = new Sprite(new Surface(Resource1.bubcm));
+            bvm.Transparent = true;
+            bvm.TransparentColor = Color.Magenta;
+
             #endregion spritesBub
 
             #region burbujaVerde
@@ -136,7 +142,14 @@ namespace BubbleBobble.Vista
 
         public void Dibujar(Jugador jugador)
         {
+            if (jugador.Inmortal && jugador.TranscurridoInmortal % 3 == 0) return;
             Point posicion = APosicionVisual(new Point(jugador.getPosicion().X, jugador.getPosicion().Y + jugador.getAlto()));
+            if (jugador.Muerto)
+            {
+                bvm.Position = posicion;
+                screen.Blit(bvm);
+                return;
+            }
             if (estadoCamina > 6) estadoCamina = 1;
             if(!jugador.Moviendose) estadoCamina=1;
             int estadoC = (estadoCamina+1) / 2;
