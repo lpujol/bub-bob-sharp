@@ -82,7 +82,7 @@ namespace BubbleBobble.clases
             enemigos.Add(robotito);
 
             objetosDisparados = new List<ObjetoDisparado>();
-            burbujas = new List<Burbuja>();
+            burbujas = new List<Burbuja>();            
         }
 
         public List<IEnemigo> Enemigos
@@ -95,7 +95,8 @@ namespace BubbleBobble.clases
             if (y >= 0 && y < alto)
                 return bloques[x, y];
             else
-                return null;
+                //return null;
+                return new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Abajo);
         }
 
         public bool esOcupableDesdeDerecha(List<System.Drawing.Point> puntos)
