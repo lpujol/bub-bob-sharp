@@ -17,7 +17,7 @@ namespace BubbleBobble.clases
         private static Bloque[,] armarBloques()
         {
             Bloque[,] b = new Bloque[64, 52];
-            string cadena = Resource1.n0001;
+            string cadena = Resource1.n0002;
             int posicion = 0;
             for (int y = 50; y >= 0; y -= 2)
             {
@@ -95,6 +95,15 @@ namespace BubbleBobble.clases
             if (y >= 0 && y < alto)
                 return bloques[x, y];
             else
+                return null;
+                //return new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Abajo);
+        }
+
+        public Bloque bloqueEnP(int x, int y)
+        {
+            if (y >= 0 && y < alto-2)
+                return bloques[x, y];
+            else
                 //return null;
                 return new Aire(new System.Drawing.Point(x, y), DireccionCorriente.Abajo);
         }
@@ -135,7 +144,7 @@ namespace BubbleBobble.clases
             try
             {
                 if ((punto.Y % 2) != 0) return true;
-                if (bloques[punto.X, punto.Y] is Aire) return true;
+                if (bloqueEnP(punto.X, punto.Y) is Aire) return true;
                 if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X, punto.Y + 2].GetType())
                     return false;
                 return true;
