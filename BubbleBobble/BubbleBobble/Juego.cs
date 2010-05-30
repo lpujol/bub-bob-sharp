@@ -22,6 +22,8 @@ namespace BubbleBobble
             controladores = new List<BubbleBobble.Controlador.Controlador>();
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[0], Key.LeftArrow, Key.UpArrow, Key.RightArrow, Key.Space));
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[1], Key.A, Key.W, Key.D, Key.LeftShift));
+            
+            //inicializar eventos
             Events.Fps = 15;
             Events.Tick+=new EventHandler<TickEventArgs>(Events_Tick);
             Events.KeyboardDown += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardDown);
@@ -29,6 +31,11 @@ namespace BubbleBobble
             Events.Quit += new EventHandler<QuitEventArgs>(Events_Quit);
         }
 
+        /// <summary>
+        /// Para cuando se cierra la ventana con la X
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Events_Quit(object sender, QuitEventArgs e)
         {
             Events.QuitApplication();
