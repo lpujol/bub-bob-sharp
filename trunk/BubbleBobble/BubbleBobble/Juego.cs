@@ -36,6 +36,7 @@ namespace BubbleBobble
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        ///
         void Events_Quit(object sender, QuitEventArgs e)
         {
             Events.QuitApplication();

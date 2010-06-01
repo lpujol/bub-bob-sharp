@@ -148,6 +148,7 @@ namespace BubbleBobble.Vista
             bvr2.TransparentColor = Color.Magenta;
             #endregion burbujaVerde
 
+            //Resource1.bobc1.
             #region spriteRobotito
             rob0 = new Sprite(new Surface(Resource1.rt0));
             rob0i = new Sprite(new Surface(Resource1.rt0i));
@@ -178,11 +179,6 @@ namespace BubbleBobble.Vista
             renc.Transparent = true;
             renc.TransparentColor = Color.Magenta;
             #endregion spriteRobotito
-
-            
-
-
-
 
             this.alto = alto;
             this.ancho = ancho;

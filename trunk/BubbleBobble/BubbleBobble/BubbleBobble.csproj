@@ -67,6 +67,7 @@
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Vista.cs" />
+    <Compile Include="Vista\VistaJugador.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL" />
