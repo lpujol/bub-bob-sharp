@@ -25,6 +25,7 @@ namespace BubbleBobble
             
             //inicializar eventos
             Events.Fps = 15;
+            System.Console.WriteLine(Events.Fps.ToString());
             Events.Tick+=new EventHandler<TickEventArgs>(Events_Tick);
             Events.KeyboardDown += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardDown);
             Events.KeyboardUp += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardUp);
@@ -67,6 +68,7 @@ namespace BubbleBobble
 
         void Events_Tick(object sender, TickEventArgs e)
         {
+            System.Console.WriteLine(Events.Fps.ToString());
             for (int x = 0; x < lab.Jugadores.Count; x++)
                 lab.Jugadores[x].vivir();
             for (int x = 0; x < lab.ObjetosDisparados.Count; x++)

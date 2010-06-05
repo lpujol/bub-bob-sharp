@@ -54,6 +54,8 @@ namespace BubbleBobble.clases
             switch (this.estado)
             {
                 case Estado.cayendo:
+                    if (getPosicion().Y < -getAlto())
+                        setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
                     for (int x = 0; x < 2; x++)
                     {
                         List<Point> puntos=new List<Point>();

@@ -262,9 +262,61 @@ namespace BubbleBobble {
             }
         }
         
+        /// <summary>
+        ///   Busca una cadena traducida similar a xxxxxxxxx^^^^xxxxxx^^^^xxxxxxxxx
+        ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;vvvv&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
+        ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;vvvv&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
+        ///xx^^^^^^^^^^^^vvvv^^^^^^^^^^^^xx
+        ///xx^^^^^^^^^^^^^^^^^^^^^^^^^^^^xx
+        ///xx^^^xxxxxxxx&gt;^^^^&lt;xxxxxxxx^^^xx
+        ///xx^^^x&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;x^^^xx
+        ///xx^^^x&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;x^^^xx
+        ///xx^^^x&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;x^^^xx
+        ///xx^^^x&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;x^^^xx
+        ///xx^^^xxxxxxxxx&gt;^^&lt;xxxxxxxxx^^^xx
+        ///xx^^^x&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;x^^^xx
+        ///xx^^^x&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;^^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;x^^^xx
+        ///xx^^^x^^^^^^^^^^^^^^^^^^^^x^^^xx
+        ///xx^^^x^^^^^^^^^^^^^^^^^^^^x^^^xx
+        ///xx [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string n0003 {
+            get {
+                return ResourceManager.GetString("n0003", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap pared01 {
             get {
                 object obj = ResourceManager.GetObject("pared01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pared2 {
+            get {
+                object obj = ResourceManager.GetObject("pared2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pared3 {
+            get {
+                object obj = ResourceManager.GetObject("pared3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pared4 {
+            get {
+                object obj = ResourceManager.GetObject("pared4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pared5 {
+            get {
+                object obj = ResourceManager.GetObject("pared5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
