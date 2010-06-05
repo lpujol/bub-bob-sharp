@@ -145,7 +145,10 @@ namespace BubbleBobble.clases
             {
                 if ((punto.Y % 2) != 0) return true;
                 if (bloqueEnP(punto.X, punto.Y) is Aire) return true;
-                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X, punto.Y + 2].GetType())
+                Bloque b1=bloques[punto.X, punto.Y];
+                Bloque b2=bloques[punto.X, punto.Y + 2];
+                if (b1 == null && b2 == null) return true;
+                if (b1.GetType() != b2.GetType())
                     return false;
                 return true;
             }
