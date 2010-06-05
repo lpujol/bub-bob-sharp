@@ -68,7 +68,7 @@ namespace BubbleBobble
 
         void Events_Tick(object sender, TickEventArgs e)
         {
-            System.Console.WriteLine(Events.Fps.ToString());
+            //System.Console.WriteLine(Events.Fps.ToString());
             for (int x = 0; x < lab.Jugadores.Count; x++)
                 lab.Jugadores[x].vivir();
             for (int x = 0; x < lab.ObjetosDisparados.Count; x++)

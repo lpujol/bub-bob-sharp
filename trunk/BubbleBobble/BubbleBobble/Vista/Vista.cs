@@ -20,7 +20,7 @@ namespace BubbleBobble.Vista
         int margenIzquierdo;
 
         Surface screen;
-        Sprite pared;
+        Dictionary<string,Sprite> pared;
         //Sprite bubc1, bubc2, bubc3;
         //Sprite bubc1i, bubc2i, bubc3i;
         Sprite rob0, rob1, rob2, rob3;
@@ -34,7 +34,12 @@ namespace BubbleBobble.Vista
         Dictionary<string, Sprite> bob;
         public Vista(int ancho, int alto)
         {
-            pared=new Sprite(new Surface(Resource1.pared01));
+            pared = new Dictionary<string, Sprite>();
+            pared.Add("pared01",new Sprite(new Surface(Resource1.pared01)));
+            pared.Add("pared2", new Sprite(new Surface(Resource1.pared2)));
+            pared.Add("pared3", new Sprite(new Surface(Resource1.pared3)));
+            pared.Add("pared4", new Sprite(new Surface(Resource1.pared4)));
+            pared.Add("pared5", new Sprite(new Surface(Resource1.pared5)));
 
             #region spritesBub
             bub = new Dictionary<string, Sprite>();
@@ -304,11 +309,11 @@ namespace BubbleBobble.Vista
             
         }
 
-        public void Dibujar(Pared dibujable)
+        public void Dibujar(Pared dibujable,string cual)
         {
             Point posicion = APosicionVisual(new Point(dibujable.getPosicion().X, dibujable.getPosicion().Y + dibujable.getAlto()));
-            pared.Position = posicion;
-            screen.Blit(pared);
+            pared[cual].Position = posicion;
+            screen.Blit(pared[cual]);
         }
 
         public void Dibujar(Burbuja burbuja)
@@ -384,7 +389,7 @@ namespace BubbleBobble.Vista
                 for (int y = 0; y < 52; y+=2)
                 {
                     if(laberinto.bloqueEn(x,y) is Pared)
-                        Dibujar((Pared)laberinto.bloqueEn(x, y));
+                        Dibujar((Pared)laberinto.bloqueEn(x, y),laberinto.Pared);
                 }
             foreach (IEnemigo enemigo in laberinto.Enemigos)
             {

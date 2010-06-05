@@ -13,8 +13,9 @@ namespace BubbleBobble.clases
         private List<Burbuja> burbujas;
         private int alto;
         private int ancho;
+        private string pared;
 
-        private static Bloque[,] armarBloques()
+        private static Bloque[,] armarBloques(out string pared)
         {
             Bloque[,] b = new Bloque[64, 52];
             string cadena = Resource1.n0003;
@@ -35,6 +36,8 @@ namespace BubbleBobble.clases
                     posicion++;                    
                 }
             }
+            string resto = cadena.Substring(posicion+2);
+            pared = resto;
             return b;
         }
 
@@ -60,7 +63,7 @@ namespace BubbleBobble.clases
         {
             alto = 52;
             ancho = 64;
-            bloques = Laberinto.armarBloques();
+            bloques = Laberinto.armarBloques(out this.pared);
 
             jugadores = new List<Jugador>();
             Jugador jugador = new Bub();
@@ -83,6 +86,11 @@ namespace BubbleBobble.clases
 
             objetosDisparados = new List<ObjetoDisparado>();
             burbujas = new List<Burbuja>();            
+        }
+
+        public string Pared
+        {
+            get { return this.pared; }
         }
 
         public List<IEnemigo> Enemigos
