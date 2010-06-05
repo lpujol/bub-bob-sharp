@@ -190,8 +190,23 @@
   <data name="n0002" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\0002.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="n0003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\n003.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="pared01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\pared01.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pared2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pared2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pared3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pared3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pared4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pared4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pared5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pared5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="renc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\renc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

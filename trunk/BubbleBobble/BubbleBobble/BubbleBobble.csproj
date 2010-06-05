@@ -185,4 +185,19 @@
   <ItemGroup>
     <None Include="Resources\renc.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pared2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pared3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pared4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pared5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n003.txt" />
+  </ItemGroup>
 </Project>

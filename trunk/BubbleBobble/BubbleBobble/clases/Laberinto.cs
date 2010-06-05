@@ -17,7 +17,7 @@ namespace BubbleBobble.clases
         private static Bloque[,] armarBloques()
         {
             Bloque[,] b = new Bloque[64, 52];
-            string cadena = Resource1.n0002;
+            string cadena = Resource1.n0003;
             int posicion = 0;
             for (int y = 50; y >= 0; y -= 2)
             {
@@ -232,6 +232,11 @@ namespace BubbleBobble.clases
             enemigo.fueLiberado();
             enemigos.Add(enemigo);
             burbujaConEnemigo.pinchar();
+        }
+
+        internal int getAlto()
+        {
+            return this.alto;
         }
     }
 }

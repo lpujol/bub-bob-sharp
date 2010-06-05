@@ -7,6 +7,11 @@ namespace BubbleBobble.Vista
 {
     public class VistaJugador
     {
-        
+        Jugador jugador;
+        public VistaJugador(Jugador jugador)
+        {
+
+        }
+
     }
 }
