@@ -50,6 +50,7 @@ namespace BubbleBobble.clases
         internal void matar()
         {
             muerto = true;
+            estado = Estado.cayendo;
         }
 
         public override void vivir()
@@ -66,6 +67,32 @@ namespace BubbleBobble.clases
                 else
                 {
                     transcurridoMuerto++;
+                }
+                if (this.estado == Estado.cayendo)
+                {
+                    if (getPosicion().Y < -getAlto())
+                        setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
+                    for (int x = 0; x < 2; x++)
+                    {
+                        List<Point> puntos = new List<Point>();
+                        for (int n = 0; n <= getAncho(); n++)
+                        {
+                            if (getPosicion().X % 2 != 0)
+                                puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - 2));
+                            else
+                            {
+                                if (n != getAncho())
+                                    puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - 2));
+                            }
+                        }
+                        if (laberinto.esOcupableDesdeArriba(puntos))
+                            bajarUno();
+                        else
+                        {
+                            x = 3;
+                            estado = Estado.caminando;
+                        }
+                    }
                 }
             }
             else
