@@ -32,6 +32,7 @@ namespace BubbleBobble.Vista
         //Sprite bvm;
         Dictionary<string, Sprite> bub;
         Dictionary<string, Sprite> bob;
+        Dictionary<string, Sprite> robotito;
         public Vista(int ancho, int alto)
         {
             pared = new Dictionary<string, Sprite>();
@@ -219,6 +220,31 @@ namespace BubbleBobble.Vista
             renc = new Sprite(new Surface(Resource1.renc));
             renc.Transparent = true;
             renc.TransparentColor = Color.Magenta;
+            Sprite renc1 = new Sprite(new Surface(Resource1.renc1));
+            renc1.Transparent = true;
+            renc1.TransparentColor = Color.Magenta;
+            Sprite renc2 = new Sprite(new Surface(Resource1.renc2));
+            renc2.Transparent = true;
+            renc2.TransparentColor = Color.Magenta;
+            Sprite rfrente = new Sprite(new Surface(Resource1.rtf));
+            rfrente.Transparent = true;
+            rfrente.TransparentColor = Color.Magenta;
+
+
+            robotito = new Dictionary<string, Sprite>();
+            robotito.Add("derecha0", rob0);
+            robotito.Add("derecha1", rob1);
+            robotito.Add("derecha2", rob2);
+            robotito.Add("derecha3", rob3);
+            robotito.Add("izquierda0", rob0i);
+            robotito.Add("izquierda1", rob1i);
+            robotito.Add("izquierda2", rob2i);
+            robotito.Add("izquierda3", rob3i);
+            robotito.Add("encerradomedio", renc);
+            robotito.Add("encerrado1", renc1);
+            robotito.Add("encerrado2", renc2);
+            robotito.Add("frente", rfrente);
+
             #endregion spriteRobotito
 
             this.alto = alto;
@@ -256,8 +282,8 @@ namespace BubbleBobble.Vista
         public void Dibujar(Robotito robotito)
         {
             Point posicion = APosicionVisual(new Point(robotito.getPosicion().X, robotito.getPosicion().Y + robotito.getAlto()));
-            Sprite paradibujar=null;
-            switch (robotito.Estado)
+            Sprite paradibujar = robotito.Vista.getSprite();
+            /*switch (robotito.Estado)
             {
                 case 0:
                     if (robotito.Direccion == Direccion.derecha)
@@ -283,15 +309,14 @@ namespace BubbleBobble.Vista
                     else
                         paradibujar = rob3i;
                     break;
-            }
+            }*/
             if(paradibujar!=null)
             {
-                if (robotito.Atrapado)
-                    paradibujar = renc;
+                //if (robotito.Atrapado)
+                //    paradibujar = renc;
                 paradibujar.Position=posicion;
                 screen.Blit(paradibujar);
-            }
-            robotito.Estado++;
+            }            
             
         }
 
@@ -410,6 +435,11 @@ namespace BubbleBobble.Vista
         internal void setBob(Jugador jugador)
         {
             jugador.Vista = new VistaJugador(jugador, bob);
+        }
+
+        internal void setRobotito(Robotito robotito)
+        {
+            robotito.Vista = new VistaEnemigoTerrestre(robotito, this.robotito);
         }
     }
 }

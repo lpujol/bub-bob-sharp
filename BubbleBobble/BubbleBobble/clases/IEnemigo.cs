@@ -6,11 +6,6 @@ namespace BubbleBobble.clases
 {
     public interface IEnemigo
     {
-        int Estado
-        {
-            get;
-            set;
-        }
 
         void vivir();
 

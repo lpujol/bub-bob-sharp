@@ -14,9 +14,7 @@ namespace BubbleBobble.clases
         int maximoInmortal;
         bool inmortal;
         int vidas;
-        Point posicionInicial;
-        int estadoCamina;
-        bool cambiaDir;
+        Point posicionInicial;        
 
         public Jugador(Direccion direccion)
             : base(4, 4, direccion)
@@ -25,8 +23,7 @@ namespace BubbleBobble.clases
             transcurridoMuerto = 0;
             maximoInmortal = 30;
             transcurridoInmortal = 0;
-            vidas = 3;
-            estadoCamina = 0;
+            vidas = 3;            
         }
 
         public Jugador(Point posicion, Direccion direccion)
@@ -37,8 +34,7 @@ namespace BubbleBobble.clases
             transcurridoMuerto = 0;
             maximoInmortal = 30;
             transcurridoInmortal = 0;            
-            vidas = 3;
-            estadoCamina = 0;
+            vidas = 3;           
             cambiaDir = false;
         }
 
@@ -147,22 +143,6 @@ namespace BubbleBobble.clases
             if(!muerto)
                 base.Disparar();
         }
-
-       internal void cambiaDireccion()
-        {
-            cambiaDir = true;
-        }
-
-        public bool CambiaDir
-        {
-            get {
-
-                if (!cambiaDir) return false;
-                cambiaDir = false;
-                return true;
-                    
-                }           
-            
-        }
+       
     }
 }

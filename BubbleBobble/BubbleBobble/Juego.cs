@@ -24,6 +24,11 @@ namespace BubbleBobble
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[1], Key.A, Key.W, Key.D, Key.LeftShift));
             vista.setBub(lab.Jugadores[0]);
             vista.setBob(lab.Jugadores[1]);
+            foreach(IEnemigo enemigo in lab.Enemigos)
+            {
+                if (enemigo is Robotito)
+                    vista.setRobotito((Robotito)enemigo);
+            }
             //inicializar eventos
             Events.Fps = 15;
             System.Console.WriteLine(Events.Fps.ToString());

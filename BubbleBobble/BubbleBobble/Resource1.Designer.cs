@@ -384,6 +384,20 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap renc1 {
+            get {
+                object obj = ResourceManager.GetObject("renc1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap renc2 {
+            get {
+                object obj = ResourceManager.GetObject("renc2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap rt0 {
             get {
                 object obj = ResourceManager.GetObject("rt0", resourceCulture);
@@ -436,6 +450,13 @@ namespace BubbleBobble {
         internal static System.Drawing.Bitmap rt3i {
             get {
                 object obj = ResourceManager.GetObject("rt3i", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap rtf {
+            get {
+                object obj = ResourceManager.GetObject("rtf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
