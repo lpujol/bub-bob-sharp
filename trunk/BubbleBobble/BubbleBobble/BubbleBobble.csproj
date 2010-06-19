@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Vista\Ivista.cs" />
     <Compile Include="Vista\Vista.cs" />
+    <Compile Include="Vista\VistaEnemigoTerrestre.cs" />
     <Compile Include="Vista\VistaJugador.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,5 +225,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bubm4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rtf.png" />
   </ItemGroup>
 </Project>

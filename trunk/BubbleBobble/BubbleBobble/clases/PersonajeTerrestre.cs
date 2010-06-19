@@ -8,6 +8,7 @@ namespace BubbleBobble.clases
     public enum Estado { salto1,salto2,salto3,ssalto1,ssalto2,ssalto3,cayendo,caminando}
     public enum EstadoDisparo { d1,d2,d3}
     public enum Direccion { izquierda, derecha}
+    
     public abstract class PersonajeTerrestre:Personaje
     {
         protected Estado estado;
@@ -16,6 +17,8 @@ namespace BubbleBobble.clases
         protected int velocidad;
         protected int tiempoDesdeElUltimoDisparo;
         protected int permitidoEntreDisparos;
+        protected bool atrapado;
+        protected bool cambiaDir;
 
         public PersonajeTerrestre(int ancho, int alto, Point posicion,Direccion direccion)
             : base(ancho, alto, posicion)
@@ -156,6 +159,40 @@ namespace BubbleBobble.clases
                 laberinto.agregarDisparo(this.getObjetoDisparado());
                 tiempoDesdeElUltimoDisparo = 0;
             }
+        }
+
+        public bool Atrapado
+        {
+            get { return this.atrapado; }
+            set { this.atrapado = value; }
+        }
+
+        public void fueAtrapado()
+        {
+            atrapado = true;
+        }
+
+        public void fueLiberado()
+        {
+            atrapado = false;
+        }
+
+        public void cambiaDireccion()
+        {
+            cambiaDir = true;
+        }
+
+        public bool CambiaDir
+        {
+            get
+            {
+
+                if (!cambiaDir) return false;
+                cambiaDir = false;
+                return true;
+
+            }
+
         }
         
         
