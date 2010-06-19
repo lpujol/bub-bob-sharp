@@ -66,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Ivista.cs" />
     <Compile Include="Vista\Vista.cs" />
     <Compile Include="Vista\VistaJugador.cs" />
   </ItemGroup>
@@ -199,5 +200,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\n003.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobm2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobm3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bobm4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubm2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubm3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubm4.png" />
   </ItemGroup>
 </Project>

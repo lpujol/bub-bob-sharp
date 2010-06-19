@@ -26,6 +26,8 @@ namespace BubbleBobble.clases
             this.estado = EstadoBurbuja.Rev1;
         }
 
+        int delay = 2;
+        int count = 0;
         public override void vivir()
         {
             if (estado == EstadoBurbuja.Rev2)
@@ -77,13 +79,16 @@ namespace BubbleBobble.clases
                     }                    
                 }
             }
+            //count++;
+            //if (count < delay) return;
+            //count = 0;
 
-            int x=(getPosicion().X/2)*2;
+            /*int x=(getPosicion().X/2)*2;
             int y=(getPosicion().Y/2)*2;
             Bloque b1 = laberinto.bloqueEn(x, y);
             Bloque b2 = laberinto.bloqueEn(x + 2, y);
             Bloque b3 = laberinto.bloqueEn(x, y + 2);
-            Bloque b4 = laberinto.bloqueEn(x + 2, y + 2);
+            Bloque b4 = laberinto.bloqueEn(x + 2, y + 2);*/
             //if (b1 is Pared || b2 is Pared || b3 is Pared || b4 is Pared)
             /*{
                 estado = EstadoBurbuja.Rev1;
@@ -94,7 +99,7 @@ namespace BubbleBobble.clases
             int izquierda = 0;
             int derecha = 0;
 
-            if (b1 is Aire)
+            /*if (b1 is Aire)
             {
                 switch (((Aire)b1).DireccionCorriente)
                 {
@@ -164,6 +169,31 @@ namespace BubbleBobble.clases
                     case DireccionCorriente.Izquierda:
                         izquierda++;
                         break;
+                }
+            }*/
+            for (int x = 0; x < getAncho(); x++)
+            {
+                for (int y = 0; y < getAlto(); y++)
+                {
+                    Bloque b = laberinto.bloqueEn(getPosicion().X + x, getPosicion().Y + y);
+                    if (b is Aire)
+                    {
+                        switch (((Aire)b).DireccionCorriente)
+                        {
+                            case DireccionCorriente.Arriba:
+                                arriba++;
+                                break;
+                            case DireccionCorriente.Abajo:
+                                abajo++;
+                                break;
+                            case DireccionCorriente.Derecha:
+                                derecha++;
+                                break;
+                            case DireccionCorriente.Izquierda:
+                                izquierda++;
+                                break;
+                        }
+                    }
                 }
             }
             int m = mayor(arriba, abajo, izquierda, derecha);
