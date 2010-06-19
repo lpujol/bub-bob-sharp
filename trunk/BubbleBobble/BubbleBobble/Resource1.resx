@@ -139,6 +139,18 @@
   <data name="bobfte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bobfte.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bobm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bobm1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bobm2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bobm2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bobm3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bobm3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bobm4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bobm4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bubc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bubc1.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +174,18 @@
   </data>
   <data name="bubfte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bubfte.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bubm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bubm1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bubm2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bubm2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bubm3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bubm3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bubm4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bubm4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bv" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bv.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -109,6 +109,34 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap bobm1 {
+            get {
+                object obj = ResourceManager.GetObject("bobm1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobm2 {
+            get {
+                object obj = ResourceManager.GetObject("bobm2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobm3 {
+            get {
+                object obj = ResourceManager.GetObject("bobm3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bobm4 {
+            get {
+                object obj = ResourceManager.GetObject("bobm4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bubc1 {
             get {
                 object obj = ResourceManager.GetObject("bubc1", resourceCulture);
@@ -161,6 +189,34 @@ namespace BubbleBobble {
         internal static System.Drawing.Bitmap bubfte {
             get {
                 object obj = ResourceManager.GetObject("bubfte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bubm1 {
+            get {
+                object obj = ResourceManager.GetObject("bubm1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bubm2 {
+            get {
+                object obj = ResourceManager.GetObject("bubm2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bubm3 {
+            get {
+                object obj = ResourceManager.GetObject("bubm3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bubm4 {
+            get {
+                object obj = ResourceManager.GetObject("bubm4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

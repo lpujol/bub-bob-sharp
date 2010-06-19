@@ -121,19 +121,7 @@ namespace BubbleBobble.clases
                 base.Disparar();
         }
 
-        public int EstadoCamina
-        {
-            get { return this.estadoCamina; }
-            set {
-                if (value > 6)
-                    this.estadoCamina = 1;
-                else
-                    this.estadoCamina = value; 
-            }
-        }
-
-
-        internal void cambiaDireccion()
+       internal void cambiaDireccion()
         {
             cambiaDir = true;
         }

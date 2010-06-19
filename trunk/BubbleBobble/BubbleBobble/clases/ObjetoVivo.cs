@@ -5,6 +5,7 @@ namespace BubbleBobble.clases
     public abstract class ObjetoVivo:Objeto,Ivivo
     {
         protected Laberinto laberinto;
+        protected Vista.Ivista vista;
 
         public ObjetoVivo(int ancho, int alto, Point posicion) :
             base(ancho, alto, posicion)
@@ -42,5 +43,10 @@ namespace BubbleBobble.clases
         }
 
         public abstract void vivir();
+        public Vista.Ivista Vista
+        {
+            get { return this.vista; }
+            set { this.vista = value; }
+        }
     }
 }

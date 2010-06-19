@@ -22,7 +22,8 @@ namespace BubbleBobble
             controladores = new List<BubbleBobble.Controlador.Controlador>();
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[0], Key.LeftArrow, Key.UpArrow, Key.RightArrow, Key.Space));
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[1], Key.A, Key.W, Key.D, Key.LeftShift));
-            
+            vista.setBub(lab.Jugadores[0]);
+            vista.setBob(lab.Jugadores[1]);
             //inicializar eventos
             Events.Fps = 15;
             System.Console.WriteLine(Events.Fps.ToString());
