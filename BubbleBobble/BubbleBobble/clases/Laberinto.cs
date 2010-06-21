@@ -80,9 +80,9 @@ namespace BubbleBobble.clases
             robotito = new Robotito(new System.Drawing.Point(24, 38), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
-            robotito = new Robotito(new System.Drawing.Point(24, 42), Direccion.derecha);
-            robotito.Laberinto = this;
-            enemigos.Add(robotito);
+            Viejita viej = new Viejita(new System.Drawing.Point(24, 42), Direccion.derecha);
+            viej.Laberinto = this;
+            enemigos.Add(viej);
 
             objetosDisparados = new List<ObjetoDisparado>();
             burbujas = new List<Burbuja>();            

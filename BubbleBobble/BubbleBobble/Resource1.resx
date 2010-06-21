@@ -268,4 +268,40 @@
   <data name="rtf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\rtf.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vi1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vi2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vi3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vi3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vi4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vi4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vienc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vienc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vienc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vienc1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vienc2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vienc2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vif.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vii1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vii1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vii2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vii2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vii3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vii3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vii4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vii4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -58,6 +58,7 @@
     <Compile Include="clases\Personaje.cs" />
     <Compile Include="clases\PersonajeTerrestre.cs" />
     <Compile Include="clases\Robotito.cs" />
+    <Compile Include="clases\Viejita.cs" />
     <Compile Include="Controlador\Controlador.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="program.cs" />
@@ -234,5 +235,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rtf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vienc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vienc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vienc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vii1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vii2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vii3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vi4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vii4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vi1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vi2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vi3.png" />
   </ItemGroup>
 </Project>

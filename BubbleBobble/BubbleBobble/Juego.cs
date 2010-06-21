@@ -28,6 +28,8 @@ namespace BubbleBobble
             {
                 if (enemigo is Robotito)
                     vista.setRobotito((Robotito)enemigo);
+                if(enemigo is Viejita)
+                    vista.setViejita((Viejita)enemigo);
             }
             //inicializar eventos
             Events.Fps = 15;
