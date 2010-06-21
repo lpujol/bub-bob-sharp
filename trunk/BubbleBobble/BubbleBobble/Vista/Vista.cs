@@ -23,16 +23,14 @@ namespace BubbleBobble.Vista
         Dictionary<string,Sprite> pared;
         //Sprite bubc1, bubc2, bubc3;
         //Sprite bubc1i, bubc2i, bubc3i;
-        Sprite rob0, rob1, rob2, rob3;
-        Sprite rob0i, rob1i, rob2i, rob3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
-        Sprite renc;
         Sprite bv, bvr1, bvr2;
 
         //Sprite bvm;
         Dictionary<string, Sprite> bub;
         Dictionary<string, Sprite> bob;
         Dictionary<string, Sprite> robotito;
+        Dictionary<string, Sprite> viejita;
         public Vista(int ancho, int alto)
         {
             pared = new Dictionary<string, Sprite>();
@@ -44,7 +42,6 @@ namespace BubbleBobble.Vista
 
             #region spritesBub
             bub = new Dictionary<string, Sprite>();
-
             Sprite bubc1 = new Sprite(new Surface(Resource1.bubc1));
             Sprite bubc2 = new Sprite(new Surface(Resource1.bubc2));
             Sprite bubc3 = new Sprite(new Surface(Resource1.bubc3));
@@ -55,41 +52,8 @@ namespace BubbleBobble.Vista
             Sprite bubm2 = new Sprite(new Surface(Resource1.bubm2));
             Sprite bubm3 = new Sprite(new Surface(Resource1.bubm3));
             Sprite bubm4 = new Sprite(new Surface(Resource1.bubm4));
-
-
-
-            bubc1.Transparent = true;
-            bubc1.TransparentColor = Color.Magenta;
-            bubc2.Transparent = true;
-            bubc2.TransparentColor = Color.Magenta;
-            bubc3.Transparent = true;
-            bubc3.TransparentColor = Color.Magenta;
-
-            bubc1i.Transparent = true;
-            bubc1i.TransparentColor = Color.Magenta;
-            bubc2i.Transparent = true;
-            bubc2i.TransparentColor = Color.Magenta;
-            bubc3i.Transparent = true;
-            bubc3i.TransparentColor = Color.Magenta;
-
-            Sprite frente = new Sprite(new Surface(Resource1.bubfte));
-            frente.Transparent = true;
-            frente.TransparentColor = Color.Magenta;
-
-            bubm1.Transparent = true;
-            bubm1.TransparentColor = Color.Magenta;
-            bubm2.Transparent = true;
-            bubm2.TransparentColor = Color.Magenta;
-            bubm3.Transparent = true;
-            bubm3.TransparentColor = Color.Magenta;
-            bubm4.Transparent = true;
-            bubm4.TransparentColor = Color.Magenta;
-
-
-            /*Sprite bvm = new Sprite(new Surface(Resource1.bubcm));
-            bvm.Transparent = true;
-            bvm.TransparentColor = Color.Magenta;*/
-
+            Sprite frente = new Sprite(new Surface(Resource1.bubfte));           
+           
             bub.Add("derecha1", bubc1);
             bub.Add("derecha2", bubc2);
             bub.Add("derecha3", bubc3);
@@ -101,6 +65,12 @@ namespace BubbleBobble.Vista
             bub.Add("muerto3", bubm3);
             bub.Add("muerto4", bubm4);
             bub.Add("frente", frente);
+
+            foreach (KeyValuePair<string, Sprite> par in bub)
+            {
+                par.Value.Transparent = true;
+                par.Value.TransparentColor = Color.Magenta;
+            }
 
             #endregion spritesBub
 
@@ -117,39 +87,8 @@ namespace BubbleBobble.Vista
             bubm2 = new Sprite(new Surface(Resource1.bobm2));
             bubm3 = new Sprite(new Surface(Resource1.bobm3));
             bubm4 = new Sprite(new Surface(Resource1.bobm4));
-
-
-            bubc1.Transparent = true;
-            bubc1.TransparentColor = Color.Magenta;
-            bubc2.Transparent = true;
-            bubc2.TransparentColor = Color.Magenta;
-            bubc3.Transparent = true;
-            bubc3.TransparentColor = Color.Magenta;
-
-            bubc1i.Transparent = true;
-            bubc1i.TransparentColor = Color.Magenta;
-            bubc2i.Transparent = true;
-            bubc2i.TransparentColor = Color.Magenta;
-            bubc3i.Transparent = true;
-            bubc3i.TransparentColor = Color.Magenta;
-
             frente = new Sprite(new Surface(Resource1.bobfte));
-            frente.Transparent = true;
-            frente.TransparentColor = Color.Magenta;
-
-            bubm1.Transparent = true;
-            bubm1.TransparentColor = Color.Magenta;
-            bubm2.Transparent = true;
-            bubm2.TransparentColor = Color.Magenta;
-            bubm3.Transparent = true;
-            bubm3.TransparentColor = Color.Magenta;
-            bubm4.Transparent = true;
-            bubm4.TransparentColor = Color.Magenta;
-
-            /*bvm = new Sprite(new Surface(Resource1.bubcm));
-            bvm.Transparent = true;
-            bvm.TransparentColor = Color.Magenta;*/
-
+            
             bob.Add("derecha1", bubc1);
             bob.Add("derecha2", bubc2);
             bob.Add("derecha3", bubc3);
@@ -161,7 +100,12 @@ namespace BubbleBobble.Vista
             bob.Add("muerto3", bubm3);
             bob.Add("muerto4", bubm4);
             bob.Add("frente", frente);
-            
+
+            foreach (KeyValuePair<string, Sprite> par in bob)
+            {
+                par.Value.Transparent = true;
+                par.Value.TransparentColor = Color.Magenta;
+            }
 
             #endregion spritesBob
 
@@ -190,46 +134,20 @@ namespace BubbleBobble.Vista
             bvr2.TransparentColor = Color.Magenta;
             #endregion burbujaVerde
 
-            //Resource1.bobc1.
             #region spriteRobotito
-            rob0 = new Sprite(new Surface(Resource1.rt0));
-            rob0i = new Sprite(new Surface(Resource1.rt0i));
-            rob0.Transparent = true;
-            rob0.TransparentColor = Color.Magenta;
-            rob0i.Transparent = true;
-            rob0i.TransparentColor = Color.Magenta;
-            rob1 = new Sprite(new Surface(Resource1.rt1));
-            rob1i = new Sprite(new Surface(Resource1.rt1i));
-            rob1.Transparent = true;
-            rob1.TransparentColor = Color.Magenta;
-            rob1i.Transparent = true;
-            rob1i.TransparentColor = Color.Magenta;
-            rob2 = new Sprite(new Surface(Resource1.rt2));
-            rob2i = new Sprite(new Surface(Resource1.rt2i));
-            rob2.Transparent = true;
-            rob2.TransparentColor = Color.Magenta;
-            rob2i.Transparent = true;
-            rob2i.TransparentColor = Color.Magenta;
-            rob3 = new Sprite(new Surface(Resource1.rt3));
-            rob3i = new Sprite(new Surface(Resource1.rt3i));
-            rob3.Transparent = true;
-            rob3.TransparentColor = Color.Magenta;
-            rob3i.Transparent = true;
-            rob3i.TransparentColor = Color.Magenta;
-
-            renc = new Sprite(new Surface(Resource1.renc));
-            renc.Transparent = true;
-            renc.TransparentColor = Color.Magenta;
+            Sprite rob0 = new Sprite(new Surface(Resource1.rt0));
+            Sprite rob0i = new Sprite(new Surface(Resource1.rt0i));
+            Sprite rob1 = new Sprite(new Surface(Resource1.rt1));
+            Sprite rob1i = new Sprite(new Surface(Resource1.rt1i));
+            Sprite rob2 = new Sprite(new Surface(Resource1.rt2));
+            Sprite rob2i = new Sprite(new Surface(Resource1.rt2i));
+            Sprite rob3 = new Sprite(new Surface(Resource1.rt3));
+            Sprite rob3i = new Sprite(new Surface(Resource1.rt3i));            
+            Sprite renc = new Sprite(new Surface(Resource1.renc));
             Sprite renc1 = new Sprite(new Surface(Resource1.renc1));
-            renc1.Transparent = true;
-            renc1.TransparentColor = Color.Magenta;
             Sprite renc2 = new Sprite(new Surface(Resource1.renc2));
-            renc2.Transparent = true;
-            renc2.TransparentColor = Color.Magenta;
             Sprite rfrente = new Sprite(new Surface(Resource1.rtf));
-            rfrente.Transparent = true;
-            rfrente.TransparentColor = Color.Magenta;
-
+            
 
             robotito = new Dictionary<string, Sprite>();
             robotito.Add("derecha0", rob0);
@@ -244,13 +162,53 @@ namespace BubbleBobble.Vista
             robotito.Add("encerrado1", renc1);
             robotito.Add("encerrado2", renc2);
             robotito.Add("frente", rfrente);
-
+            foreach (KeyValuePair<string, Sprite> par in robotito)
+            {
+                par.Value.Transparent = true;
+                par.Value.TransparentColor = Color.Magenta;
+            }
             #endregion spriteRobotito
+
+            #region spriteViejita
+            Sprite viej0=new Sprite(new Surface(Resource1.vi1));
+            Sprite viej1 = new Sprite(new Surface(Resource1.vi2));
+            Sprite viej2 = new Sprite(new Surface(Resource1.vi3));
+            Sprite viej3 = new Sprite(new Surface(Resource1.vi4));
+            Sprite viej0i = new Sprite(new Surface(Resource1.vii1));
+            Sprite viej1i = new Sprite(new Surface(Resource1.vii2));
+            Sprite viej2i = new Sprite(new Surface(Resource1.vii3));
+            Sprite viej3i = new Sprite(new Surface(Resource1.vii4));
+            Sprite vieje = new Sprite(new Surface(Resource1.vienc));
+            Sprite vieje1 = new Sprite(new Surface(Resource1.vienc1));
+            Sprite vieje2 = new Sprite(new Surface(Resource1.vienc2));
+            Sprite vif = new Sprite(new Surface(Resource1.vif));
+
+            viejita = new Dictionary<string, Sprite>();
+            viejita.Add("derecha0", viej0);
+            viejita.Add("derecha1", viej1);
+            viejita.Add("derecha2", viej2);
+            viejita.Add("derecha3", viej3);
+            viejita.Add("izquierda0", viej0i);
+            viejita.Add("izquierda1", viej1i);
+            viejita.Add("izquierda2", viej2i);
+            viejita.Add("izquierda3", viej3i);
+            viejita.Add("encerradomedio", vieje);
+            viejita.Add("encerrado1", vieje1);
+            viejita.Add("encerrado2", vieje2);
+            viejita.Add("frente", vif);
+
+            foreach(KeyValuePair<string,Sprite> par in viejita)
+            {
+                par.Value.Transparent = true;
+                par.Value.TransparentColor = Color.Magenta;
+            }
+            #endregion spriteViejita
 
             this.alto = alto;
             this.ancho = ancho;
             this.unidad = 10;
             fullscreen = false;
+
             screen=Video.SetVideoMode(ancho, alto, false, false, fullscreen);
         }
 
@@ -282,42 +240,23 @@ namespace BubbleBobble.Vista
         public void Dibujar(Robotito robotito)
         {
             Point posicion = APosicionVisual(new Point(robotito.getPosicion().X, robotito.getPosicion().Y + robotito.getAlto()));
-            Sprite paradibujar = robotito.Vista.getSprite();
-            /*switch (robotito.Estado)
-            {
-                case 0:
-                    if (robotito.Direccion == Direccion.derecha)
-                        paradibujar = rob0;
-                    else
-                        paradibujar = rob0i;
-                    break;
-                case 1:
-                    if (robotito.Direccion == Direccion.derecha)
-                        paradibujar = rob1;
-                    else
-                        paradibujar = rob1i;
-                    break;
-                case 2:
-                    if (robotito.Direccion == Direccion.derecha)
-                        paradibujar = rob2;
-                    else
-                        paradibujar = rob2i;
-                    break;
-                case 3:
-                    if (robotito.Direccion == Direccion.derecha)
-                        paradibujar = rob3;
-                    else
-                        paradibujar = rob3i;
-                    break;
-            }*/
+            Sprite paradibujar = robotito.Vista.getSprite();            
             if(paradibujar!=null)
             {
-                //if (robotito.Atrapado)
-                //    paradibujar = renc;
                 paradibujar.Position=posicion;
                 screen.Blit(paradibujar);
-            }            
-            
+            }
+        }
+
+        public void Dibujar(PersonajeTerrestre personaje)
+        {
+            Point posicion = APosicionVisual(new Point(personaje.getPosicion().X, personaje.getPosicion().Y + personaje.getAlto()));
+            Sprite paradibujar = personaje.Vista.getSprite();
+            if (paradibujar != null)
+            {
+                paradibujar.Position = posicion;
+                screen.Blit(paradibujar);
+            }
         }
 
         public void Dibujar(Pared dibujable,string cual)
@@ -335,9 +274,9 @@ namespace BubbleBobble.Vista
                 if (burbuja is BurbujaConEnemigo)
                 {
                     IEnemigo enemigo = ((BurbujaConEnemigo)burbuja).Enemigo;
-                    if (enemigo is Robotito)
+                    if (enemigo is PersonajeTerrestre)
                     {
-                        Robotito r = (Robotito)enemigo;
+                        PersonajeTerrestre r = (PersonajeTerrestre)enemigo;
                         r.setPosicion(burbuja.getPosicion());
                         Dibujar(r);
                     }
@@ -404,8 +343,8 @@ namespace BubbleBobble.Vista
                 }
             foreach (IEnemigo enemigo in laberinto.Enemigos)
             {
-                if (enemigo is Robotito)
-                    Dibujar((Robotito)enemigo);
+                if (enemigo is PersonajeTerrestre)
+                    Dibujar((PersonajeTerrestre)enemigo);
             }
             foreach(Jugador jugador in laberinto.Jugadores)
                 Dibujar(jugador);
@@ -437,9 +376,14 @@ namespace BubbleBobble.Vista
             jugador.Vista = new VistaJugador(jugador, bob);
         }
 
-        internal void setRobotito(Robotito robotito)
+        public void setRobotito(Robotito robotito)
         {
             robotito.Vista = new VistaEnemigoTerrestre(robotito, this.robotito);
+        }
+
+        public void setViejita(Viejita viejita)
+        {
+            viejita.Vista = new VistaEnemigoTerrestre(viejita, this.viejita);
         }
     }
 }

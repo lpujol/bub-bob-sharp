@@ -460,5 +460,89 @@ namespace BubbleBobble {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap vi1 {
+            get {
+                object obj = ResourceManager.GetObject("vi1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vi2 {
+            get {
+                object obj = ResourceManager.GetObject("vi2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vi3 {
+            get {
+                object obj = ResourceManager.GetObject("vi3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vi4 {
+            get {
+                object obj = ResourceManager.GetObject("vi4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vienc {
+            get {
+                object obj = ResourceManager.GetObject("vienc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vienc1 {
+            get {
+                object obj = ResourceManager.GetObject("vienc1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vienc2 {
+            get {
+                object obj = ResourceManager.GetObject("vienc2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vif {
+            get {
+                object obj = ResourceManager.GetObject("vif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vii1 {
+            get {
+                object obj = ResourceManager.GetObject("vii1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vii2 {
+            get {
+                object obj = ResourceManager.GetObject("vii2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vii3 {
+            get {
+                object obj = ResourceManager.GetObject("vii3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vii4 {
+            get {
+                object obj = ResourceManager.GetObject("vii4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
