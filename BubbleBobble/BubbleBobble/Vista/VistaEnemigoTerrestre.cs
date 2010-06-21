@@ -39,6 +39,7 @@ namespace BubbleBobble.Vista
                     case 4:
                         return sprites["encerrado2"];
                 }
+                return sprites["encerradomedio"];
             }
             if (personaje.CambiaDir)
                 return sprites["frente"];
