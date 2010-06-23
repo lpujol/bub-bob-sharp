@@ -14,7 +14,8 @@ namespace BubbleBobble.clases
         int maximoInmortal;
         bool inmortal;
         int vidas;
-        Point posicionInicial;        
+        Point posicionInicial;
+        bool _saltoLatente;
 
         public Jugador(Direccion direccion)
             : base(4, 4, direccion)
@@ -23,7 +24,8 @@ namespace BubbleBobble.clases
             transcurridoMuerto = 0;
             maximoInmortal = 30;
             transcurridoInmortal = 0;
-            vidas = 3;            
+            vidas = 3;
+            _saltoLatente = false;
         }
 
         public Jugador(Point posicion, Direccion direccion)
@@ -36,6 +38,7 @@ namespace BubbleBobble.clases
             transcurridoInmortal = 0;            
             vidas = 3;           
             cambiaDir = false;
+            _saltoLatente = false;
         }
 
         public override ObjetoDisparado getObjetoDisparado()
@@ -66,29 +69,30 @@ namespace BubbleBobble.clases
                 }
                 if (this.estado == Estado.cayendo)
                 {
-                    if (getPosicion().Y < -getAlto())
-                        setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
-                    for (int x = 0; x < 2; x++)
-                    {
-                        List<Point> puntos = new List<Point>();
-                        for (int n = 0; n <= getAncho(); n++)
+                        if (getPosicion().Y < -getAlto())
+                            setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
+                        for (int x = 0; x < 2; x++)
                         {
-                            if (getPosicion().X % 2 != 0)
-                                puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - 2));
+                            List<Point> puntos = new List<Point>();
+                            for (int n = 0; n <= getAncho(); n++)
+                            {
+                                if (getPosicion().X % 2 != 0)
+                                    puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - 2));
+                                else
+                                {
+                                    if (n != getAncho())
+                                        puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - 2));
+                                }
+                            }
+                            if (laberinto.esOcupableDesdeArriba(puntos))
+                                bajarUno();
                             else
                             {
-                                if (n != getAncho())
-                                    puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - 2));
+                                x = 3;
+                                estado = Estado.caminando;
                             }
                         }
-                        if (laberinto.esOcupableDesdeArriba(puntos))
-                            bajarUno();
-                        else
-                        {
-                            x = 3;
-                            estado = Estado.caminando;
-                        }
-                    }
+                    
                 }
             }
             else
@@ -98,6 +102,19 @@ namespace BubbleBobble.clases
                     transcurridoInmortal++;
                     if (transcurridoInmortal > maximoInmortal)
                         inmortal = false;
+                }
+                if (this.estado == Estado.cayendo)
+                {
+                    if (_saltoLatente)
+                    {
+                        List<Point> puntos = new List<Point>();
+                        for (int n = 0; n <= getAncho(); n++)
+                            puntos.Add(new Point(this.getPosicion().X + n, this.getPosicion().Y));
+                        if (laberinto.hayBurbujaEnPosiciones(puntos))
+                        {
+                            this.estado = Estado.salto1;                           
+                        }
+                    }
                 }
                 base.vivir();
             }
@@ -143,6 +160,18 @@ namespace BubbleBobble.clases
             if(!muerto)
                 base.Disparar();
         }
-       
+
+        
+        public void saltoLatente()
+        {
+            _saltoLatente = true;
+        }
+
+
+
+        internal void liberaSaltoLatente()
+        {
+            _saltoLatente = false;
+        }
     }
 }
