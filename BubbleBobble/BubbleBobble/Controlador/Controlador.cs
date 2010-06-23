@@ -15,6 +15,7 @@ namespace BubbleBobble.Controlador
 
         bool presionadoDerecha;
         bool presionadoIzquierda;
+        bool presionadoArriba;
 
         public Jugador jugador;
 
@@ -27,6 +28,7 @@ namespace BubbleBobble.Controlador
             this.fuego = fuego;
             this.presionadoDerecha = false;
             this.presionadoIzquierda = false;
+            this.presionadoArriba = false;
         }
 
         public void keyDown(Key key)
@@ -45,6 +47,11 @@ namespace BubbleBobble.Controlador
                     jugador.cambiaDireccion();
                 jugador.Direccion = Direccion.derecha;
             }
+            if (key == arriba)
+            {
+                jugador.saltoLatente();
+                presionadoArriba = true;
+            }
             if (presionadoDerecha || presionadoIzquierda)
                 jugador.Moviendose = true;
         }
@@ -62,6 +69,11 @@ namespace BubbleBobble.Controlador
                 presionadoIzquierda = false;
                 if (presionadoDerecha)
                     jugador.Direccion = Direccion.derecha;
+            }
+            if (key == arriba)
+            {
+                jugador.liberaSaltoLatente();
+                presionadoArriba = false;
             }
             if (!presionadoIzquierda && !presionadoDerecha)
                 jugador.Moviendose = false;

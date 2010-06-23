@@ -249,5 +249,22 @@ namespace BubbleBobble.clases
         {
             return this.alto;
         }
+
+        public bool hayBurbujaEnPosiciones(List<System.Drawing.Point> puntos)
+        {
+            foreach (Burbuja burbuja in this.burbujas)
+            {
+                foreach (System.Drawing.Point p in puntos)
+                {
+                    if (p.Y == (burbuja.getPosicion().Y + burbuja.getAlto()))
+                    {
+                        for(int x=0;x<burbuja.getAncho();x++)
+                            if(burbuja.getPosicion().X+x==p.X)
+                                return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
