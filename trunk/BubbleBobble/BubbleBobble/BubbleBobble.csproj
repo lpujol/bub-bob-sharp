@@ -275,4 +275,7 @@
   <ItemGroup>
     <None Include="Resources\icono.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0063.txt" />
+  </ItemGroup>
 </Project>

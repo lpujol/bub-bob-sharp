@@ -349,6 +349,30 @@ namespace BubbleBobble {
             }
         }
         
+        /// <summary>
+        ///   Busca una cadena traducida similar a xxxxxxxxxvvvvxxxxxxvvvvxxxxxxxxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvx^^^^^^^^^^^^^^^^^^^^^^xvvxx
+        ///xx^^xxxxxxxxxxxxxxxxxxxxxxxx^^xx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvxxvvvvvvvvvvvvvvvvxxvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xx^vvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xx [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string n0063 {
+            get {
+                return ResourceManager.GetString("n0063", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap pared01 {
             get {
                 object obj = ResourceManager.GetObject("pared01", resourceCulture);
