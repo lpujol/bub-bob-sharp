@@ -11,18 +11,19 @@ namespace BubbleBobble.clases
         private List<IEnemigo> enemigos;
         private List<ObjetoDisparado> objetosDisparados;
         private List<Burbuja> burbujas;
-        private int alto;
-        private int ancho;
+        private static int alto=52;
+        private static int ancho=64;
+        public static int TBloque = 2;
         private string pared;
 
         private static Bloque[,] armarBloques(out string pared)
         {
-            Bloque[,] b = new Bloque[64, 52];
+            Bloque[,] b = new Bloque[Laberinto.ancho, Laberinto.alto];
             string cadena = Resource1.n0003;
             int posicion = 0;
-            for (int y = 50; y >= 0; y -= 2)
+            for (int y = Laberinto.alto-Laberinto.TBloque; y >= 0; y -= Laberinto.TBloque)
             {
-                for (int x = 0; x < 64; x += 2)
+                for (int x = 0; x < Laberinto.ancho; x += Laberinto.TBloque)
                 {
                     while (cadena[posicion] == '\n' || cadena[posicion] == '\r')
                         posicion++;
@@ -61,8 +62,7 @@ namespace BubbleBobble.clases
 
         public Laberinto()
         {
-            alto = 52;
-            ancho = 64;
+
             bloques = Laberinto.armarBloques(out this.pared);
 
             jugadores = new List<Jugador>();
@@ -100,7 +100,7 @@ namespace BubbleBobble.clases
 
         public Bloque bloqueEn(int x, int y)
         {
-            if (y >= 0 && y < alto)
+            if (y >= 0 && y < Laberinto.alto)
                 return bloques[x, y];
             else
                 return null;
@@ -109,7 +109,7 @@ namespace BubbleBobble.clases
 
         public Bloque bloqueEnP(int x, int y)
         {
-            if (y >= 0 && y < alto-2)
+            if (y >= 0 && y < Laberinto.alto - Laberinto.TBloque)
                 return bloques[x, y];
             else
                 //return null;
@@ -127,7 +127,7 @@ namespace BubbleBobble.clases
         {
             try
             {
-                if ((punto.X % 2) != 0) return true;
+                if ((punto.X % Laberinto.TBloque) != 0) return true;
                 if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X + 2, punto.Y].GetType())
                     return false;
                 return true;
@@ -139,7 +139,7 @@ namespace BubbleBobble.clases
         {
             try
             {
-                if ((punto.X % 2) != 0) return true;
+                if ((punto.X % Laberinto.TBloque) != 0) return true;
                 if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X - 1, punto.Y].GetType())
                     return false;
                 return true;
@@ -151,7 +151,7 @@ namespace BubbleBobble.clases
         {
             try
             {
-                if ((punto.Y % 2) != 0) return true;
+                if ((punto.Y % Laberinto.TBloque) != 0) return true;
                 if (bloqueEnP(punto.X, punto.Y) is Aire) return true;
                 Bloque b1=bloques[punto.X, punto.Y];
                 Bloque b2=bloques[punto.X, punto.Y + 2];
@@ -245,10 +245,16 @@ namespace BubbleBobble.clases
             burbujaConEnemigo.pinchar();
         }
 
-        internal int getAlto()
+        public int getAlto()
         {
-            return this.alto;
+            return Laberinto.alto;
         }
+
+        public int getAncho()
+        {
+            return Laberinto.ancho;
+        }
+
 
         public bool hayBurbujaEnPosiciones(List<System.Drawing.Point> puntos)
         {
