@@ -19,6 +19,7 @@ namespace BubbleBobble.clases
         public EstadoBurbuja Estado
         {
             get { return this.estado; }
+            set { this.estado = value; }
         }
 
         public void pinchar()

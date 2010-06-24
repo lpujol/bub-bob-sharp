@@ -172,9 +172,9 @@ namespace BubbleBobble.clases
             {
                 if ((punto.Y % Laberinto.TBloque) != 0) return true;
                 if (bloqueEnP(punto.X, punto.Y) is Aire) return true;
-                Bloque b1=bloques[punto.X, punto.Y];
-                Bloque b2=bloques[punto.X, punto.Y + Laberinto.TBloque];
-                if (b1 == null && b2 == null) return true;
+                Bloque b1=bloqueEn(punto.X, punto.Y);
+                Bloque b2=bloqueEn(punto.X, punto.Y + Laberinto.TBloque);
+                if (b1 == null || b2 == null) return true;
                 if (b1.GetType() != b2.GetType())
                     return false;
                 return true;
@@ -232,9 +232,12 @@ namespace BubbleBobble.clases
 
 
 
-        internal void reventarBurbuja(Burbuja burbuja)
+        public void reventarBurbuja(Burbuja burbuja)
         {
             burbujas.Remove(burbuja);
+            foreach (Burbuja b in burbujas)
+                if (b.colisionaCon(burbuja))
+                    b.Estado = EstadoBurbuja.Rev1;
         }
 
         internal void burbujaAtrapaEnemigo(BurbujaDisparada burbujaDisparada, IEnemigo enemigo)
