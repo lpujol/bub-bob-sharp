@@ -335,8 +335,8 @@ namespace BubbleBobble.Vista
         public void Dibujar(Laberinto laberinto)
         {
             Video.Screen.Fill(Color.Black);
-            for (int x = 0; x < 64; x+=2)
-                for (int y = 0; y < 52; y+=2)
+            for (int x = 0; x < laberinto.getAncho(); x+=Laberinto.TBloque)
+                for (int y = 0; y < laberinto.getAlto(); y+=Laberinto.TBloque)
                 {
                     if(laberinto.bloqueEn(x,y) is Pared)
                         Dibujar((Pared)laberinto.bloqueEn(x, y),laberinto.Pared);
