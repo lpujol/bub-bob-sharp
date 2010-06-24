@@ -272,4 +272,7 @@
   <ItemGroup>
     <None Include="Resources\vi3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono.ico" />
+  </ItemGroup>
 </Project>
