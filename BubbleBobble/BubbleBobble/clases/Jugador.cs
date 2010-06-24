@@ -39,6 +39,7 @@ namespace BubbleBobble.clases
             vidas = 3;           
             cambiaDir = false;
             _saltoLatente = false;
+            velocidad = 2;
         }
 
         public override ObjetoDisparado getObjetoDisparado()

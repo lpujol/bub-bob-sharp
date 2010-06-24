@@ -28,6 +28,8 @@ namespace BubbleBobble.clases
                 inicia = false;
                 return;
             }
+            if (posicion.X < 0 || posicion.X > laberinto.getAncho())
+                laberinto.pasarABurbujaRegular(this);
             if (this.Direccion == Direccion.derecha)
             {
                 for (int x = 0; x < velocidad; x++)

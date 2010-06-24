@@ -19,7 +19,7 @@ namespace BubbleBobble.clases
         private static Bloque[,] armarBloques(out string pared)
         {
             Bloque[,] b = new Bloque[Laberinto.ancho, Laberinto.alto];
-            string cadena = Resource1.n0001;
+            string cadena = Resource1.n0063;
             int posicion = 0;
             for (int y = Laberinto.alto-Laberinto.TBloque; y >= 0; y -= Laberinto.TBloque)
             {
@@ -143,7 +143,7 @@ namespace BubbleBobble.clases
                     return false;
                 return true;
             }
-            catch (Exception) { return false; }
+            catch (Exception) { return true; }
         }
 
         private bool esOcupableDesdeIzquierda(System.Drawing.Point punto)
@@ -155,7 +155,7 @@ namespace BubbleBobble.clases
                     return false;
                 return true;
             }
-            catch (Exception) { return false; }
+            catch (Exception) { return true; }
         }
 
         private bool esOcupableDesdeArriba(System.Drawing.Point punto)
