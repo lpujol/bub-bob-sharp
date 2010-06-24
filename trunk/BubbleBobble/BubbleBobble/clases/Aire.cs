@@ -11,7 +11,7 @@ namespace BubbleBobble.clases
     {
         private DireccionCorriente direccion;
 
-        public Aire(Point posicion,DireccionCorriente direccion):base(2,2,posicion)
+        public Aire(Point posicion,DireccionCorriente direccion):base(4,4,posicion)
         {
             this.direccion = direccion;
         }

@@ -9,7 +9,7 @@ namespace BubbleBobble.clases
     {
         static Random r;
         public Robotito(Direccion direccion)
-            : base(4, 4, direccion)
+            : base(8, 8, direccion)
         {
             moviendose = true;
             atrapado = false;
@@ -18,7 +18,7 @@ namespace BubbleBobble.clases
         }
 
         public Robotito(Point posicion, Direccion direccion)
-            : base(4,4,posicion,direccion)
+            : base(8,8,posicion,direccion)
         {
             moviendose = true;
             atrapado = false;

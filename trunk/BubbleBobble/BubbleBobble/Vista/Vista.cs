@@ -206,7 +206,7 @@ namespace BubbleBobble.Vista
 
             this.alto = alto;
             this.ancho = ancho;
-            this.unidad = 10;
+            this.unidad = 5;
             fullscreen = false;
 
             screen=Video.SetVideoMode(ancho, alto, false, false, fullscreen);
@@ -302,21 +302,21 @@ namespace BubbleBobble.Vista
         public void Dibujar(BurbujaDisparada bdisp)
         {
             Point posicion=APosicionVisual(new Point(bdisp.getPosicion().X,bdisp.getPosicion().Y+bdisp.getAlto()));
-            if (bdisp.DistanciaRecorrida <= 1)
+            if (bdisp.DistanciaRecorrida <= 2)
             {
                 bvd1.Position = posicion;
                 screen.Blit(bvd1);
             }
             else
             {
-                if (bdisp.DistanciaRecorrida <= 3)
+                if (bdisp.DistanciaRecorrida <= 6)
                 {
                     bvd2.Position = posicion;
                     screen.Blit(bvd2);
                 }
                 else
                 {
-                    if (bdisp.DistanciaRecorrida <=5)
+                    if (bdisp.DistanciaRecorrida <=10)
                     {
                         bvd3.Position = posicion;
                         screen.Blit(bvd3);

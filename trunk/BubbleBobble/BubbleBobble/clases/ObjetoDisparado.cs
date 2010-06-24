@@ -8,7 +8,7 @@ namespace BubbleBobble.clases
     {
         private Direccion direccion;
         public ObjetoDisparado(System.Drawing.Point posicion, Direccion direccion,Laberinto contenedor)
-            : base(4, 4, posicion)
+            : base(8, 8, posicion)
         {
             this.direccion = direccion;
             this.laberinto = contenedor;

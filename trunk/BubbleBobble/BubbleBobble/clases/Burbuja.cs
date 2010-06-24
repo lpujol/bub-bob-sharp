@@ -10,7 +10,7 @@ namespace BubbleBobble.clases
     {
         private EstadoBurbuja estado;
         public Burbuja(Point posicion,Laberinto laberinto)
-            : base(4, 4, posicion)
+            : base(8, 8, posicion)
         {
             this.laberinto = laberinto;
             estado = EstadoBurbuja.Estable;
@@ -40,43 +40,46 @@ namespace BubbleBobble.clases
                 estado = EstadoBurbuja.Rev2;
                 return;
             }
-            if (getPosicion().X < 4 || getPosicion().X>60)
+            if (getPosicion().X < Laberinto.TBloque || getPosicion().X>laberinto.getAncho()-Laberinto.TBloque)
             {
                 estado = EstadoBurbuja.Rev1;
                 return;
             }
             foreach (Jugador jugador in laberinto.Jugadores)
             {
-                if (colisionaCon(jugador))
+                if (!jugador.Muerto)
                 {
-                    if (jugador.getPosicion().Y == getPosicion().Y + getAlto())
+                    if (colisionaCon(jugador))
                     {
-                    }
-                    else
-                    {
-                        if (jugador.Direccion == Direccion.derecha)
+                        if (jugador.getPosicion().Y == getPosicion().Y + getAlto())
                         {
-                            if (getPosicion().X >= jugador.getPosicion().X + getAncho() - 1)
-                            {
-                            }
-                            else
-                            {
-                                estado = EstadoBurbuja.Rev1;
-                                return;
-                            }
                         }
                         else
                         {
-                            if ((getPosicion().X + getAncho() - 1) <= jugador.getPosicion().X)
+                            if (jugador.Direccion == Direccion.derecha)
                             {
+                                if (getPosicion().X >= jugador.getPosicion().X + getAncho() - 1)
+                                {
+                                }
+                                else
+                                {
+                                    estado = EstadoBurbuja.Rev1;
+                                    return;
+                                }
                             }
                             else
                             {
-                                estado = EstadoBurbuja.Rev1;
-                                return;
+                                if ((getPosicion().X + getAncho() - 1) <= jugador.getPosicion().X)
+                                {
+                                }
+                                else
+                                {
+                                    estado = EstadoBurbuja.Rev1;
+                                    return;
+                                }
                             }
                         }
-                    }                    
+                    }
                 }
             }
             //count++;
