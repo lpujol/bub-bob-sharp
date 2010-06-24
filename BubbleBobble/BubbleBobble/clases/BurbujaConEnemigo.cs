@@ -15,7 +15,7 @@ namespace BubbleBobble.clases
         {
             this.enemigo = enemigo;
             tiempoTranscurrido = 0;
-            tiempoMaximo = 100;
+            tiempoMaximo = 300;
         }
 
         public IEnemigo Enemigo {

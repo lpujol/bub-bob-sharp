@@ -6,7 +6,7 @@ namespace BubbleBobble
 {
     public class Bub:clases.Jugador
     {
-        public Bub():base(new System.Drawing.Point(6,2),clases.Direccion.derecha)
+        public Bub():base(new System.Drawing.Point(12,4),clases.Direccion.derecha)
         {
         }
         

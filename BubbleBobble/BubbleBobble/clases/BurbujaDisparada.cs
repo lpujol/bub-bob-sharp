@@ -15,9 +15,9 @@ namespace BubbleBobble.clases
         public BurbujaDisparada(Point posicion, Direccion direccion,Laberinto laberinto)
             : base(posicion, direccion,laberinto)
         {
-            velocidad = 3;
+            velocidad = 5;
             distanciaRecorrida = 0;
-            distanciaMaxima = 20;
+            distanciaMaxima = 40;
             inicia = true;
         }
 
@@ -74,7 +74,7 @@ namespace BubbleBobble.clases
                     {
                         List<Point> puntos = new List<Point>();
                         for (int n = 0; n < getAlto(); n++)
-                            puntos.Add(new Point(this.getPosicion().X - 2, getPosicion().Y + n));
+                            puntos.Add(new Point(this.getPosicion().X - Laberinto.TBloque, getPosicion().Y + n));
                         if (laberinto.esOcupableDesdeDerecha(puntos))
                         {
                             izquierdaUno();

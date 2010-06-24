@@ -18,7 +18,7 @@ namespace BubbleBobble.clases
         bool _saltoLatente;
 
         public Jugador(Direccion direccion)
-            : base(4, 4, direccion)
+            : base(8, 8, direccion)
         {
             maximoMuerto = 20;
             transcurridoMuerto = 0;
@@ -29,7 +29,7 @@ namespace BubbleBobble.clases
         }
 
         public Jugador(Point posicion, Direccion direccion)
-            : base(4,4,posicion,direccion)
+            : base(8,8,posicion,direccion)
         {
             posicionInicial = posicion;
             maximoMuerto = 20;
@@ -76,7 +76,7 @@ namespace BubbleBobble.clases
                             List<Point> puntos = new List<Point>();
                             for (int n = 0; n <= getAncho(); n++)
                             {
-                                if (getPosicion().X % 2 != 0)
+                                if (getPosicion().X % Laberinto.TBloque != 0)
                                     puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - 2));
                                 else
                                 {
@@ -103,7 +103,7 @@ namespace BubbleBobble.clases
                     if (transcurridoInmortal > maximoInmortal)
                         inmortal = false;
                 }
-                if (this.estado == Estado.cayendo)
+                /*if (this.estado == Estado.cayendo)
                 {
                     if (_saltoLatente)
                     {
@@ -115,9 +115,114 @@ namespace BubbleBobble.clases
                             this.estado = Estado.salto1;                           
                         }
                     }
-                }
-                base.vivir();
+                }*/
+                vivirJugador();
             }
+        }
+
+        private void vivirJugador()
+        {
+            switch (this.estado)
+            {
+                case Estado.cayendo:
+                    if (getPosicion().Y < -getAlto())
+                        setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
+                    for (int x = 0; x < 4; x++)
+                    {
+                        bool continuar = true;
+                        if (_saltoLatente)
+                        {
+                            List<Point> puntos = new List<Point>();
+                            for (int n = 0; n <= getAncho(); n++)
+                                puntos.Add(new Point(this.getPosicion().X + n, this.getPosicion().Y));
+                            if (laberinto.hayBurbujaEnPosiciones(puntos))
+                            {
+                                this.estado = Estado.salto1;
+                                continuar = false;
+                            }
+                        }
+                        if (continuar)
+                        {
+                            List<Point> puntos = new List<Point>();
+                            for (int n = 0; n <= getAncho(); n++)
+                            {
+                                if (getPosicion().X % Laberinto.TBloque != 0)
+                                    puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - Laberinto.TBloque));
+                                else
+                                {
+                                    if (n != getAncho())
+                                        puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
+                                }
+                            }
+                            if (laberinto.esOcupableDesdeArriba(puntos))
+                                bajarUno();
+                            else
+                            {
+                                x = 5;
+                                estado = Estado.caminando;
+                            }
+                        }
+                    }
+                    break;
+                case Estado.salto3:
+                    for (int x = 0; x < 4; x++)
+                        subirUno();
+                    estado = Estado.cayendo;
+                    break;
+                case Estado.salto2:
+                    for (int x = 0; x < 8; x++)
+                        subirUno();
+                    estado = Estado.salto3;
+                    break;
+                case Estado.salto1:
+                    for (int x = 0; x < 12; x++)
+                        subirUno();
+                    estado = Estado.salto2;
+                    break;
+
+            }
+            if (moviendose)
+            {
+                if (direccion == Direccion.derecha)
+                {
+                    for (int x = 0; x < velocidad; x++)
+                    {
+                        List<Point> puntos = new List<Point>();
+                        for (int n = 0; n < getAlto(); n++)
+                            puntos.Add(new Point(this.getPosicion().X + getAncho(), getPosicion().Y + n));
+                        if (laberinto.esOcupableDesdeIzquierda(puntos))
+                            derechaUno();
+                    }
+                }
+                else
+                {
+                    for (int x = 0; x < velocidad; x++)
+                    {
+                        List<Point> puntos = new List<Point>();
+                        for (int n = 0; n < getAlto(); n++)
+                            puntos.Add(new Point(this.getPosicion().X - 2, getPosicion().Y + n));
+                        if (laberinto.esOcupableDesdeDerecha(puntos))
+                            izquierdaUno();
+                    }
+
+                }
+            }
+            if (estado == Estado.caminando)
+            {
+                List<Point> puntos = new List<Point>();
+                for (int n = 0; n <= getAncho(); n++)
+                {
+                    if (getPosicion().X % Laberinto.TBloque != 0)
+                        puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - Laberinto.TBloque));
+                    else
+                        if (n != getAncho())
+                            puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
+                }
+                if (laberinto.esOcupableDesdeArriba(puntos))
+                    estado = Estado.cayendo;
+            }
+            if (tiempoDesdeElUltimoDisparo <= permitidoEntreDisparos)
+                tiempoDesdeElUltimoDisparo++;
         }
 
         public void sumarVidas()

@@ -11,9 +11,9 @@ namespace BubbleBobble.clases
         private List<IEnemigo> enemigos;
         private List<ObjetoDisparado> objetosDisparados;
         private List<Burbuja> burbujas;
-        private static int alto=52;
-        private static int ancho=64;
-        public static int TBloque = 2;
+        private static int alto=104;
+        private static int ancho=128;
+        public static int TBloque = 4;
         private string pared;
 
         private static Bloque[,] armarBloques(out string pared)
@@ -30,9 +30,20 @@ namespace BubbleBobble.clases
                     b[x, y] = getBloqueSegunchar(cadena[posicion], new System.Drawing.Point(x, y));
                     if (b[x, y] is Aire)
                     {
-                        b[x, y + 1] = b[x, y];
-                        b[x + 1, y] = b[x, y];
-                        b[x + 1, y + 1] = b[x, y];
+                        for (int nnx = 0; nnx < Laberinto.TBloque; nnx++)
+                        {
+                            for (int nny = 0; nny < Laberinto.TBloque; nny++)
+                            {
+                                if (nnx == 0 && nny == 0) { }
+                                else
+                                {
+                                    b[x + nnx, y + nny] = b[x, y];
+                                }
+                            }
+                        }
+                        //b[x, y + 1] = b[x, y];
+                        //b[x + 1, y] = b[x, y];
+                        //b[x + 1, y + 1] = b[x, y];
                     }
                     posicion++;                    
                 }
@@ -74,13 +85,13 @@ namespace BubbleBobble.clases
             jugadores.Add(jugador);
 
             enemigos = new List<IEnemigo>();            
-            Robotito robotito = new Robotito(new System.Drawing.Point(24, 32), Direccion.derecha);
+            Robotito robotito = new Robotito(new System.Drawing.Point(48, 64), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
-            robotito = new Robotito(new System.Drawing.Point(24, 38), Direccion.derecha);
+            robotito = new Robotito(new System.Drawing.Point(48, 76), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
-            Viejita viej = new Viejita(new System.Drawing.Point(24, 42), Direccion.derecha);
+            Viejita viej = new Viejita(new System.Drawing.Point(48, 84), Direccion.derecha);
             viej.Laberinto = this;
             enemigos.Add(viej);
 
@@ -128,7 +139,7 @@ namespace BubbleBobble.clases
             try
             {
                 if ((punto.X % Laberinto.TBloque) != 0) return true;
-                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X + 2, punto.Y].GetType())
+                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X + Laberinto.TBloque, punto.Y].GetType())
                     return false;
                 return true;
             }
@@ -140,7 +151,7 @@ namespace BubbleBobble.clases
             try
             {
                 if ((punto.X % Laberinto.TBloque) != 0) return true;
-                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X - 1, punto.Y].GetType())
+                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X - Laberinto.TBloque, punto.Y].GetType())
                     return false;
                 return true;
             }
@@ -154,7 +165,7 @@ namespace BubbleBobble.clases
                 if ((punto.Y % Laberinto.TBloque) != 0) return true;
                 if (bloqueEnP(punto.X, punto.Y) is Aire) return true;
                 Bloque b1=bloques[punto.X, punto.Y];
-                Bloque b2=bloques[punto.X, punto.Y + 2];
+                Bloque b2=bloques[punto.X, punto.Y + Laberinto.TBloque];
                 if (b1 == null && b2 == null) return true;
                 if (b1.GetType() != b2.GetType())
                     return false;

@@ -59,40 +59,40 @@ namespace BubbleBobble.clases
                 case Estado.cayendo:
                     if (getPosicion().Y < -getAlto())
                         setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
-                    for (int x = 0; x < 2; x++)
+                    for (int x = 0; x < 4; x++)
                     {
                         List<Point> puntos=new List<Point>();
                         for (int n = 0; n <= getAncho(); n++)
                         {
-                            if (getPosicion().X % 2 != 0)
-                                puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - 2));
+                            if (getPosicion().X % Laberinto.TBloque != 0)
+                                puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - Laberinto.TBloque));
                             else
                             {
                                 if(n!=getAncho())
-                                    puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - 2));
+                                    puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
                             }
                         }
                         if (laberinto.esOcupableDesdeArriba(puntos))
                             bajarUno();
                         else
                         {
-                            x = 3;
+                            x = 5;
                             estado = Estado.caminando;
                         }
                     }
                     break;
                 case Estado.salto3:
-                    for (int x = 0; x < 2; x++)
+                    for (int x = 0; x < 4; x++)
                         subirUno();
                     estado = Estado.cayendo;
                     break;
                 case Estado.salto2:
-                    for (int x = 0; x < 4; x++)
+                    for (int x = 0; x < 8; x++)
                         subirUno();
                     estado = Estado.salto3;
                     break;
                 case Estado.salto1:
-                    for (int x = 0; x < 6; x++)
+                    for (int x = 0; x < 12; x++)
                         subirUno();
                     estado = Estado.salto2;
                     break;
@@ -117,7 +117,7 @@ namespace BubbleBobble.clases
                     {
                         List<Point> puntos = new List<Point>();
                         for (int n = 0; n < getAlto(); n++)
-                            puntos.Add(new Point(this.getPosicion().X -2, getPosicion().Y + n));
+                            puntos.Add(new Point(this.getPosicion().X -Laberinto.TBloque, getPosicion().Y + n));
                         if (laberinto.esOcupableDesdeDerecha(puntos))
                             izquierdaUno();
                     }
@@ -129,11 +129,11 @@ namespace BubbleBobble.clases
                 List<Point> puntos=new List<Point>();
                 for (int n = 0; n <= getAncho(); n++)
                 {
-                    if (getPosicion().X % 2 != 0)
-                        puntos.Add(new Point(this.getPosicion().X-1 + n, getPosicion().Y - 2));
+                    if (getPosicion().X % Laberinto.TBloque != 0)
+                        puntos.Add(new Point(this.getPosicion().X-1 + n, getPosicion().Y - Laberinto.TBloque));
                     else
                         if(n!=getAncho())
-                            puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - 2));
+                            puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
                 }
                 if (laberinto.esOcupableDesdeArriba(puntos))
                     estado = Estado.cayendo;

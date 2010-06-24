@@ -7,7 +7,7 @@ namespace BubbleBobble.clases
 {
     public class Pared:Bloque
     {
-        public Pared(Point posicion):base(2,2,posicion)
+        public Pared(Point posicion):base(4,4,posicion)
         {
         }
     }
