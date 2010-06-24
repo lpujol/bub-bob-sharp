@@ -139,7 +139,11 @@ namespace BubbleBobble.clases
             try
             {
                 if ((punto.X % Laberinto.TBloque) != 0) return true;
-                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X + Laberinto.TBloque, punto.Y].GetType())
+                Bloque b1 = bloqueEn(punto.X, punto.Y);
+                Bloque b2 = bloqueEn(punto.X + Laberinto.TBloque, punto.Y);
+                if (b1 == null || b2 == null)
+                    return true;
+                if (b1.GetType() != b2.GetType())
                     return false;
                 return true;
             }
@@ -151,7 +155,11 @@ namespace BubbleBobble.clases
             try
             {
                 if ((punto.X % Laberinto.TBloque) != 0) return true;
-                if (bloques[punto.X, punto.Y].GetType() != bloques[punto.X - Laberinto.TBloque, punto.Y].GetType())
+                Bloque b1 = bloqueEn(punto.X, punto.Y);
+                Bloque b2 = bloqueEn(punto.X - Laberinto.TBloque, punto.Y);
+                if (b1 == null || b2 == null)
+                    return true;
+                if (b1.GetType() != b2.GetType())
                     return false;
                 return true;
             }
