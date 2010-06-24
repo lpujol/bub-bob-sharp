@@ -29,11 +29,53 @@ namespace BubbleBobble.clases
         public override void vivir()
         {
             int n = Robotito.r.Next(30);
-            if (n == 15)
+            /*if (n == 15)
                 saltar();
             if (n % 8 == 0)
             {
                 cambiarDireccion();
+            }*/
+            if(this.estado==Estado.caminando)
+            {
+                if (!moviendose) moviendose = true;
+                bool cambia = false;
+                if (this.direccion == Direccion.derecha)
+                {
+                     List<Point> puntos = new List<Point>();
+                     for (int nn = 0; nn < getAlto(); nn++)
+                         puntos.Add(new Point(this.getPosicion().X + getAncho(), getPosicion().Y +nn));
+                     if (!laberinto.esOcupableDesdeIzquierda(puntos))
+                         cambia = true;
+                }
+                else
+                {
+                    List<Point> puntos = new List<Point>();
+                    for (int nn = 0; nn < getAlto(); nn++)
+                        puntos.Add(new Point(this.getPosicion().X -Laberinto.TBloque, getPosicion().Y + nn));
+                    if (!laberinto.esOcupableDesdeDerecha(puntos))
+                        cambia = true;
+                }
+                if (!cambia && n == 5) cambia = true;
+                if (cambia)
+                    cambiarDireccion();
+                else
+                {
+                    bool apuntodecaer = false;
+                    if (this.direccion == Direccion.derecha && !(laberinto.bloqueEn(this.posicion.X,this.posicion.Y-1) is Aire)&& laberinto.bloqueEn(this.posicion.X + 1, this.posicion.Y - 1) is Aire)
+                        apuntodecaer = true;
+                    if (this.direccion == Direccion.izquierda && !(laberinto.bloqueEn(this.posicion.X+getAncho(),this.posicion.Y-1) is Aire) && laberinto.bloqueEn(this.posicion.X+this.getAncho()-2 , this.posicion.Y - 1) is Aire)
+                        apuntodecaer = true;
+                    if (apuntodecaer)
+                        if (n %3==0)
+                            cambiarDireccion();
+                    if (n == 17) saltar();
+                }
+            }
+            if (this.estado == Estado.cayendo)
+            {
+                if (moviendose)
+                    if (n < 23)
+                        moviendose = false;
             }
             base.vivir();
             foreach (Jugador jugador in laberinto.Jugadores)

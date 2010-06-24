@@ -210,6 +210,9 @@ namespace BubbleBobble.Vista
             fullscreen = false;
 
             screen=Video.SetVideoMode(ancho, alto, false, false, fullscreen);
+            Video.WindowCaption = "Re-Bubble Bobble";
+            Video.WindowIcon(Resource1.icono);
+            
         }
 
         public void Dibujar(IDibujable dibujable)

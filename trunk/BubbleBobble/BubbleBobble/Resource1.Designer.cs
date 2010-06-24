@@ -270,6 +270,13 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Icon icono {
+            get {
+                object obj = ResourceManager.GetObject("icono", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         /// <summary>
         ///   Busca una cadena traducida similar a xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         ///xx&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;vvvv&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;xx
