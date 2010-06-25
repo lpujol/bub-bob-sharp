@@ -40,5 +40,17 @@ namespace BubbleBobble.clases
             base.vivir();
         }
 
+        public override void pinchar()
+        {
+            enemigo.Vivo = false;
+            if (enemigo is PersonajeTerrestre)
+            {
+                ((PersonajeTerrestre)enemigo).saltar();
+            }
+
+            laberinto.reingresarEnemigo(this.enemigo);
+            base.pinchar();
+        }
+
     }
 }

@@ -1,0 +1,4 @@
+Robotito,Izquierda,40,64
+Robotito,Derecha,62,64
+Robotito,Izquierda,48,94
+Robotito,Derecha,56,94

@@ -36,14 +36,17 @@ namespace BubbleBobble.clases
                 cambiarDireccion();
             }
             base.vivir();
-            foreach (Jugador jugador in laberinto.Jugadores)
+            if (vivo)
             {
-                if (!jugador.Inmortal)
+                foreach (Jugador jugador in laberinto.Jugadores)
                 {
-                    if (colisionaCon(jugador))
-                        jugador.matar();
+                    if (!jugador.Inmortal)
+                    {
+                        if (colisionaCon(jugador))
+                            jugador.matar();
+                    }
+
                 }
-                    
             }
         }
 

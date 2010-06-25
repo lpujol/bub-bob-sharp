@@ -46,6 +46,7 @@
     <Compile Include="clases\Burbuja.cs" />
     <Compile Include="clases\BurbujaConEnemigo.cs" />
     <Compile Include="clases\BurbujaDisparada.cs" />
+    <Compile Include="clases\Fruta.cs" />
     <Compile Include="clases\IDibujable.cs" />
     <Compile Include="clases\IEnemigo.cs" />
     <Compile Include="clases\Ivivo.cs" />
@@ -277,5 +278,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\0063.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e0001.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e0002.txt" />
   </ItemGroup>
 </Project>
