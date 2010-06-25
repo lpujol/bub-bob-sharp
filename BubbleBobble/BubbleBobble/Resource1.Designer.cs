@@ -270,6 +270,31 @@ namespace BubbleBobble {
             }
         }
         
+        /// <summary>
+        ///   Busca una cadena traducida similar a Robotito,Izquierda,48,64
+        ///Robotito,Izquierda,48,76
+        ///Robotito,Izquierda,48,94
+        ///.
+        /// </summary>
+        internal static string e0001 {
+            get {
+                return ResourceManager.GetString("e0001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Robotito,Izquierda,32,64
+        ///Robotito,Derecha,56,64
+        ///Robotito,Izquierda,40,94
+        ///Robotito,Derecha,49,94
+        ///.
+        /// </summary>
+        internal static string e0002 {
+            get {
+                return ResourceManager.GetString("e0002", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Icon icono {
             get {
                 object obj = ResourceManager.GetObject("icono", resourceCulture);
@@ -364,7 +389,7 @@ namespace BubbleBobble {
         ///xxvvvvxxvvvvvvvvvvvvvvvvxxvvvvxx
         ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
         ///xxvvvvvvvvvvvvvvvvvvvvvvvvvvvvxx
-        ///xx^vvvvvvvvvvvvvvvvvvvvvvvvvvvxx
+        ///xx^^vvvvvvvvvvvvvvvvvvvvvvvvvvxx
         ///xx [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string n0063 {

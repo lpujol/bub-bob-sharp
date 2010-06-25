@@ -254,6 +254,14 @@ namespace BubbleBobble.Vista
         public void Dibujar(PersonajeTerrestre personaje)
         {
             Point posicion = APosicionVisual(new Point(personaje.getPosicion().X, personaje.getPosicion().Y + personaje.getAlto()));
+            if (personaje.Vista == null)
+            {
+                if (personaje is Robotito)
+                    setRobotito((Robotito)personaje);
+                if (personaje is Viejita)
+                    setViejita((Viejita)personaje);
+
+            }
             Sprite paradibujar = personaje.Vista.getSprite();
             if (paradibujar != null)
             {
@@ -359,6 +367,10 @@ namespace BubbleBobble.Vista
             foreach (Burbuja b in laberinto.Burbujas)
             {
                 Dibujar(b);
+            }
+            foreach (Fruta fruta in laberinto.Frutas)
+            {
+                Dibujar(fruta);
             }
             Video.Update();
         }

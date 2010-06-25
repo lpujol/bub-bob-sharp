@@ -16,6 +16,7 @@ namespace BubbleBobble.clases
         int vidas;
         Point posicionInicial;
         bool _saltoLatente;
+        int puntaje;
 
         public Jugador(Direccion direccion)
             : base(8, 8, direccion)
@@ -26,6 +27,7 @@ namespace BubbleBobble.clases
             transcurridoInmortal = 0;
             vidas = 3;
             _saltoLatente = false;
+            puntaje = 0;
         }
 
         public Jugador(Point posicion, Direccion direccion)
@@ -40,6 +42,7 @@ namespace BubbleBobble.clases
             cambiaDir = false;
             _saltoLatente = false;
             velocidad = 2;
+            puntaje = 0;
         }
 
         public override ObjetoDisparado getObjetoDisparado()
@@ -123,6 +126,19 @@ namespace BubbleBobble.clases
 
         private void vivirJugador()
         {
+            for (int x = 0; x < laberinto.Frutas.Count; x++)
+            {
+                Fruta f = laberinto.Frutas[x];
+                try
+                {
+                    if (colisionaCon(f))
+                    {
+                        puntaje += f.Puntaje;
+                        laberinto.comeFruta(f);
+                    }
+                }
+                catch(Exception){}
+            }
             switch (this.estado)
             {
                 case Estado.cayendo:
@@ -259,6 +275,12 @@ namespace BubbleBobble.clases
             this.estado = Estado.caminando;
             this.inmortal = true;
             transcurridoInmortal = 0;
+        }
+
+        public void inicial()
+        {
+            this.posicion = posicionInicial;
+            this.estado = Estado.caminando;
         }
 
         public override void Disparar()

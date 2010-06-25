@@ -18,19 +18,29 @@ namespace BubbleBobble
         public Juego()
         {
             vista = new Vista.Vista(800, 600);
-            lab = new Laberinto();
+            List<string> niveles = new List<string>();
+            List<string> eniveles = new List<string>();
+            niveles.Add(Resource1.n0001);
+            eniveles.Add(Resource1.e0001);
+            niveles.Add(Resource1.n0002);
+            eniveles.Add(Resource1.e0002);
+            niveles.Add(Resource1.n0003);
+            niveles.Add(Resource1.n0063);
+
+
+            lab = new Laberinto(niveles,eniveles);
             controladores = new List<BubbleBobble.Controlador.Controlador>();
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[0], Key.LeftArrow, Key.UpArrow, Key.RightArrow, Key.Space));
             controladores.Add(new BubbleBobble.Controlador.Controlador(lab.Jugadores[1], Key.A, Key.W, Key.D, Key.LeftShift));
             vista.setBub(lab.Jugadores[0]);
             vista.setBob(lab.Jugadores[1]);
-            foreach(IEnemigo enemigo in lab.Enemigos)
+            /*foreach(IEnemigo enemigo in lab.Enemigos)
             {
                 if (enemigo is Robotito)
                     vista.setRobotito((Robotito)enemigo);
                 if(enemigo is Viejita)
                     vista.setViejita((Viejita)enemigo);
-            }
+            }*/
             //inicializar eventos
             Events.Fps = 15;
             System.Console.WriteLine(Events.Fps.ToString());
@@ -77,8 +87,11 @@ namespace BubbleBobble
         void Events_Tick(object sender, TickEventArgs e)
         {
             //System.Console.WriteLine(Events.Fps.ToString());
-            for (int x = 0; x < lab.Jugadores.Count; x++)
-                lab.Jugadores[x].vivir();
+            if (!lab.enTransicion())
+            {
+                for (int x = 0; x < lab.Jugadores.Count; x++)
+                    lab.Jugadores[x].vivir();
+            }
             for (int x = 0; x < lab.ObjetosDisparados.Count; x++)
             {
                 ObjetoDisparado disparado = lab.ObjetosDisparados[x];
@@ -97,8 +110,17 @@ namespace BubbleBobble
                 }
                 catch (Exception) { }
             }
-            foreach (IEnemigo enemigo in lab.Enemigos)
-                enemigo.vivir();
+            for (int x = 0; x < lab.Enemigos.Count; x++)
+            {
+                IEnemigo enemigo = lab.Enemigos[x];
+                try
+                {
+                    enemigo.vivir();
+                }
+                catch (Exception) { }
+            }
+            lab.vivir();
+                
             vista.Dibujar(lab);
         }
         

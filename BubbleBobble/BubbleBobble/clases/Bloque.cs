@@ -49,5 +49,10 @@ namespace BubbleBobble.clases
             if (this is Aire) return true;
             return false;
         }
+
+        internal void setPosicion(Point point)
+        {
+            this.posicion = point;
+        }
     }
 }

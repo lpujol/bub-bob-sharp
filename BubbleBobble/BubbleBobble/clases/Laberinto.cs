@@ -7,19 +7,27 @@ namespace BubbleBobble.clases
     public class Laberinto
     {
         Bloque[,] bloques;
+        Bloque[,] bloques2;
         private List<Jugador> jugadores;
         private List<IEnemigo> enemigos;
         private List<ObjetoDisparado> objetosDisparados;
         private List<Burbuja> burbujas;
+        private List<Fruta> frutas;
+        private List<string> niveles;
+        private List<string> eniveles;
         private static int alto=104;
         private static int ancho=128;
         public static int TBloque = 4;
         private string pared;
+        int transcurridoFinal;
+        int indiceNivel;
+        bool transicion;
+        int indiceTransicion;
 
-        private static Bloque[,] armarBloques(out string pared)
+        private static Bloque[,] armarBloques(string nivel,out string pared)
         {
             Bloque[,] b = new Bloque[Laberinto.ancho, Laberinto.alto];
-            string cadena = Resource1.n0063;
+            string cadena = nivel;
             int posicion = 0;
             for (int y = Laberinto.alto-Laberinto.TBloque; y >= 0; y -= Laberinto.TBloque)
             {
@@ -53,6 +61,29 @@ namespace BubbleBobble.clases
             return b;
         }
 
+        private static List<IEnemigo> armarEnemigos(string txt)
+        {
+            List<IEnemigo> enemigos=new List<IEnemigo>();
+            int n=txt.IndexOf((char)13);
+            while(n>0)
+            {
+                string leido=txt.Substring(0,n);
+                string[] l=leido.Split(new char[]{','});
+                string tipo=l[0];
+                string dir=l[1];
+                int x=int.Parse(l[2]);
+                int y=int.Parse(l[3]);
+                if (tipo == "Robotito")
+                    enemigos.Add(new Robotito(new System.Drawing.Point(x, y), dir == "Izquierda" ? Direccion.izquierda : Direccion.derecha));
+                if(tipo=="Viejita")
+                    enemigos.Add(new Viejita(new System.Drawing.Point(x,y),dir=="Izquierda"?Direccion.izquierda:Direccion.derecha));
+                txt=txt.Substring(n + 2);
+                n = txt.IndexOf((char)13);
+            }
+            
+            return enemigos;
+        }
+
         private static Bloque getBloqueSegunchar(char c,System.Drawing.Point posicion)
         {
             switch (c)
@@ -71,10 +102,12 @@ namespace BubbleBobble.clases
             return new Aire(posicion, DireccionCorriente.Abajo);
         }
 
-        public Laberinto()
+        public Laberinto(List<string> niveles,List<string> eniveles)
         {
-
-            bloques = Laberinto.armarBloques(out this.pared);
+            this.niveles = niveles;
+            this.eniveles = eniveles;
+            indiceNivel = 0;
+            bloques = Laberinto.armarBloques(niveles[indiceNivel++],out this.pared);
 
             jugadores = new List<Jugador>();
             Jugador jugador = new Bub();
@@ -84,7 +117,7 @@ namespace BubbleBobble.clases
             jugador.Laberinto = this;
             jugadores.Add(jugador);
 
-            enemigos = new List<IEnemigo>();            
+            /*enemigos = new List<IEnemigo>();            
             Robotito robotito = new Robotito(new System.Drawing.Point(48, 64), Direccion.derecha);
             robotito.Laberinto = this;
             enemigos.Add(robotito);
@@ -93,10 +126,17 @@ namespace BubbleBobble.clases
             enemigos.Add(robotito);
             Viejita viej = new Viejita(new System.Drawing.Point(48, 84), Direccion.derecha);
             viej.Laberinto = this;
-            enemigos.Add(viej);
+            enemigos.Add(viej);*/
+            enemigos = Laberinto.armarEnemigos(eniveles[0]);
+            foreach (IEnemigo e in enemigos)
+                ((ObjetoVivo)e).Laberinto = this;
 
             objetosDisparados = new List<ObjetoDisparado>();
-            burbujas = new List<Burbuja>();            
+            burbujas = new List<Burbuja>();
+            frutas = new List<Fruta>();
+            transcurridoFinal = 0;
+            transicion = false;
+            indiceTransicion = 0;
         }
 
         public string Pared
@@ -107,6 +147,11 @@ namespace BubbleBobble.clases
         public List<IEnemigo> Enemigos
         {
             get { return this.enemigos; }
+        }
+
+        public List<Fruta> Frutas
+        {
+            get { return this.frutas; }
         }
 
         public Bloque bloqueEn(int x, int y)
@@ -237,7 +282,7 @@ namespace BubbleBobble.clases
             burbujas.Remove(burbuja);
             foreach (Burbuja b in burbujas)
                 if (b.colisionaCon(burbuja))
-                    b.Estado = EstadoBurbuja.Rev1;
+                    b.pinchar();
         }
 
         internal void burbujaAtrapaEnemigo(BurbujaDisparada burbujaDisparada, IEnemigo enemigo)
@@ -259,12 +304,18 @@ namespace BubbleBobble.clases
             jugador.reiniciar();// setPosicion(new System.Drawing.Point(6, 2));
         }
 
-        internal void liberarEnemigo(BurbujaConEnemigo burbujaConEnemigo)
+        public void liberarEnemigo(BurbujaConEnemigo burbujaConEnemigo)
         {
             IEnemigo enemigo = burbujaConEnemigo.liberarEnemigo();
             enemigo.fueLiberado();
             enemigos.Add(enemigo);
             burbujaConEnemigo.pinchar();
+        }
+
+        public void reingresarEnemigo(IEnemigo ene)
+        {
+            ene.fueLiberado();
+            enemigos.Add(ene);
         }
 
         public int getAlto()
@@ -293,6 +344,97 @@ namespace BubbleBobble.clases
                 }
             }
             return false;
+        }
+
+        internal void convertirEnObjetoConPuntos(PersonajeTerrestre personajeTerrestre)
+        {
+            enemigos.Remove((IEnemigo)personajeTerrestre);
+            frutas.Add(new Fruta(personajeTerrestre.getPosicion()));
+        }
+
+        internal void comeFruta(Fruta f)
+        {
+            frutas.Remove(f);
+        }
+
+        public void vivir()
+        {
+            if (enemigos.Count == 0 && !transicion)
+            {
+                bool continuar = false;
+                foreach (Burbuja b in burbujas)
+                    if (b is BurbujaConEnemigo && ((BurbujaConEnemigo)b).Enemigo!=null)
+                        continuar = true;
+                if (!continuar)
+                {
+                    transcurridoFinal++;
+                    if (transcurridoFinal == 75)
+                    {
+                        pasarNivel();
+                        transcurridoFinal = 0;
+                    }
+                }
+            }
+            if (transicion)
+            {
+
+                if (indiceTransicion >= getAlto())
+                {
+                    bloques = Laberinto.armarBloques(niveles[indiceNivel - 1], out pared);
+                    transicion = false;
+                    foreach (Jugador j in jugadores)
+                        j.inicial();
+                    if (indiceNivel-1 < eniveles.Count)
+                        enemigos = Laberinto.armarEnemigos(eniveles[indiceNivel - 1]);
+                    else
+                        enemigos = Laberinto.armarEnemigos(eniveles[0]);
+                    foreach (IEnemigo e in enemigos)
+                        ((ObjetoVivo)e).Laberinto = this;                    
+
+                }
+                else
+                {
+                    for (int nn = 0; nn < 4; nn++)
+                    {
+                        if (indiceTransicion < getAlto())
+                        {
+                            for (int y = Laberinto.alto - 1; y > 0; y--)
+                            {
+                                for (int x = 0; x < getAncho(); x++)
+                                {
+                                    bloques[x, y] = bloques[x, y - 1];
+                                    if (bloques[x, y] != null)
+                                        bloques[x, y].setPosicion(new System.Drawing.Point(x, y - 1));
+                                }
+                            }
+                            for (int x = 0; x < getAncho(); x++)
+                            {
+                                bloques[x, 0] = bloques2[x, Laberinto.alto - indiceTransicion - 1];
+                                if (bloques[x, 0] != null) bloques[x, 0].setPosicion(new System.Drawing.Point(x, 0));
+                            }
+                            indiceTransicion++;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pasarNivel()
+        {
+            if (indiceNivel < niveles.Count)
+            {
+                transicion = true;
+                indiceTransicion = 0;
+                frutas = new List<Fruta>();
+                burbujas = new List<Burbuja>();
+                string n;
+                bloques2 = Laberinto.armarBloques(niveles[indiceNivel++], out n);                
+            }
+        }
+
+        public bool enTransicion()
+        {
+            return this.transicion;
         }
     }
 }

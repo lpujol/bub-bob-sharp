@@ -12,5 +12,11 @@ namespace BubbleBobble.clases
         void fueAtrapado();
 
         void fueLiberado();
+
+        bool Vivo
+        {
+            get;
+            set;
+        }
     }
 }

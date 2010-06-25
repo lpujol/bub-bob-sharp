@@ -12,7 +12,7 @@ namespace BubbleBobble.clases
             : base(8, 8, direccion)
         {
             moviendose = true;
-            atrapado = false;
+            atrapado = false;            
             if(Robotito.r==null)
                 Robotito.r = new Random(DateTime.Now.Millisecond);
         }
@@ -78,14 +78,17 @@ namespace BubbleBobble.clases
                         moviendose = false;
             }
             base.vivir();
-            foreach (Jugador jugador in laberinto.Jugadores)
+            if (vivo)
             {
-                if (!jugador.Inmortal)
+                foreach (Jugador jugador in laberinto.Jugadores)
                 {
-                    if (colisionaCon(jugador))
-                        jugador.matar();
+                    if (!jugador.Inmortal)
+                    {
+                        if (colisionaCon(jugador))
+                            jugador.matar();
+                    }
+
                 }
-                    
             }
         }
 

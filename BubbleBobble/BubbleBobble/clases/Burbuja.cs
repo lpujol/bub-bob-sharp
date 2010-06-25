@@ -22,7 +22,7 @@ namespace BubbleBobble.clases
             set { this.estado = value; }
         }
 
-        public void pinchar()
+        public virtual void pinchar()
         {
             this.estado = EstadoBurbuja.Rev1;
         }
@@ -64,7 +64,7 @@ namespace BubbleBobble.clases
                                 }
                                 else
                                 {
-                                    estado = EstadoBurbuja.Rev1;
+                                    pinchar();
                                     return;
                                 }
                             }
@@ -75,7 +75,7 @@ namespace BubbleBobble.clases
                                 }
                                 else
                                 {
-                                    estado = EstadoBurbuja.Rev1;
+                                    pinchar();
                                     return;
                                 }
                             }
