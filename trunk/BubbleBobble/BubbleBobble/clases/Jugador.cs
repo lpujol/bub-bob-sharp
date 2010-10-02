@@ -331,5 +331,10 @@ namespace BubbleBobble.clases
             }
             this.posicion = new Point(newx, newy);
         }
+
+        internal void sumarPuntos(int puntos)
+        {
+            this.puntaje += puntos;
+        }
     }
 }

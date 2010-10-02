@@ -16,6 +16,7 @@ namespace BubbleBobble.clases
             this.enemigo = enemigo;
             tiempoTranscurrido = 0;
             tiempoMaximo = 300;
+            this.puntos = 1000;
         }
 
         public IEnemigo Enemigo {

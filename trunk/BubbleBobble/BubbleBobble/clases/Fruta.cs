@@ -11,7 +11,7 @@ namespace BubbleBobble.clases
         public Fruta(Point posicion)
             : base(8, 8, posicion)
         {
-            puntos = 1000;
+            puntos = 300;
         }
 
         public int Puntaje
