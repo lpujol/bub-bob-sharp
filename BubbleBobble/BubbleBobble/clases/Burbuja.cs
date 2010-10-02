@@ -9,11 +9,13 @@ namespace BubbleBobble.clases
     public class Burbuja:ObjetoVivo
     {
         private EstadoBurbuja estado;
+        protected int puntos;
         public Burbuja(Point posicion,Laberinto laberinto)
             : base(8, 8, posicion)
         {
             this.laberinto = laberinto;
             estado = EstadoBurbuja.Estable;
+            this.puntos = 10;
         }
 
         public EstadoBurbuja Estado
@@ -64,6 +66,7 @@ namespace BubbleBobble.clases
                                 }
                                 else
                                 {
+                                    jugador.sumarPuntos(this.puntos);
                                     pinchar();
                                     return;
                                 }
@@ -75,6 +78,7 @@ namespace BubbleBobble.clases
                                 }
                                 else
                                 {
+                                    jugador.sumarPuntos(this.puntos);
                                     pinchar();
                                     return;
                                 }
