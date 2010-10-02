@@ -18,6 +18,7 @@ namespace BubbleBobble.Vista
         bool fullscreen;
         int margenDerecho;
         int margenIzquierdo;
+        SdlDotNet.Graphics.Font fuente;
 
         Surface screen;
         Dictionary<string,Sprite> pared;
@@ -212,6 +213,8 @@ namespace BubbleBobble.Vista
             screen=Video.SetVideoMode(ancho, alto, false, false, fullscreen);
             Video.WindowCaption = "Re-Bubble Bobble";
             Video.WindowIcon(Resource1.icono);
+
+            fuente = new SdlDotNet.Graphics.Font(Resource1.arial, 20);
             
         }
 
@@ -237,6 +240,15 @@ namespace BubbleBobble.Vista
             {
                 dibujar.Position = posicion;
                 screen.Blit(dibujar);
+            }
+            //puntajes, ver esto!
+            if (jugador is Bub)
+            {
+                screen.Blit(new TextSprite(jugador.Puntaje.ToString(),fuente,Color.White,new Point(0,0)));
+            }
+            if (jugador is Bob)
+            {
+                screen.Blit(new TextSprite(jugador.Puntaje.ToString(), fuente, Color.White, new Point(ancho-(jugador.Puntaje.ToString().Length)*10-5, 0)));
             }
         }
 
@@ -352,6 +364,8 @@ namespace BubbleBobble.Vista
                     if(laberinto.bloqueEn(x,y) is Pared)
                         Dibujar((Pared)laberinto.bloqueEn(x, y),laberinto.Pared);
                 }
+            if(!laberinto.enTransicion())
+                screen.Blit(new TextSprite("Nivel "+laberinto.NumeroNivel.ToString(), fuente, Color.White, new Point(ancho / 2 - 50, alto - (laberinto.getAlto()+5) * unidad)));
             foreach (IEnemigo enemigo in laberinto.Enemigos)
             {
                 if (enemigo is PersonajeTerrestre)

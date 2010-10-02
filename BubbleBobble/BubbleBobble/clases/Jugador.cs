@@ -18,6 +18,12 @@ namespace BubbleBobble.clases
         bool _saltoLatente;
         int puntaje;
 
+        public int Puntaje
+        {
+            get { return puntaje; }
+            set { puntaje = value; }
+        }
+
         public Jugador(Direccion direccion)
             : base(8, 8, direccion)
         {
@@ -300,6 +306,30 @@ namespace BubbleBobble.clases
         internal void liberaSaltoLatente()
         {
             _saltoLatente = false;
+        }
+
+        internal void acercarInicial()
+        {
+            int newx, newy;
+            if (this.posicion.X > this.posicionInicial.X)
+                newx = this.posicion.X - (this.posicion.X-this.posicionInicial.X>3?3:1);
+            else
+            {
+                if (this.posicion.X < this.posicionInicial.X)
+                    newx = this.posicion.X + (this.posicion.X - this.posicionInicial.X > 3 ? 3 : 1);
+                else
+                    newx = this.posicion.X;
+            }
+            if (this.posicion.Y > this.posicionInicial.Y)
+                newy = this.posicion.Y - (this.posicion.Y - this.posicionInicial.Y > 3 ? 3 : 1);
+            else
+            {
+                if (this.posicion.Y < this.posicionInicial.Y)
+                    newy = this.posicion.Y + (this.posicion.Y - this.posicionInicial.Y > 3 ? 3 : 1);
+                else
+                    newy = this.posicion.Y;
+            }
+            this.posicion = new Point(newx, newy);
         }
     }
 }
