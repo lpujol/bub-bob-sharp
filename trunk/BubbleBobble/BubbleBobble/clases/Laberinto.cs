@@ -394,6 +394,8 @@ namespace BubbleBobble.clases
                 }
                 else
                 {
+                    foreach (Jugador j in jugadores)
+                        j.acercarInicial();
                     for (int nn = 0; nn < 4; nn++)
                     {
                         if (indiceTransicion < getAlto())
@@ -435,6 +437,11 @@ namespace BubbleBobble.clases
         public bool enTransicion()
         {
             return this.transicion;
+        }
+
+        public int NumeroNivel
+        {
+            get { return this.indiceNivel; }
         }
     }
 }
