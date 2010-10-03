@@ -302,6 +302,20 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap fruta001 {
+            get {
+                object obj = ResourceManager.GetObject("fruta001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap fruta002 {
+            get {
+                object obj = ResourceManager.GetObject("fruta002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Icon icono {
             get {
                 object obj = ResourceManager.GetObject("icono", resourceCulture);

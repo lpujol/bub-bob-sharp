@@ -26,6 +26,7 @@ namespace BubbleBobble.Vista
         //Sprite bubc1i, bubc2i, bubc3i;
         Sprite bvd1, bvd2, bvd3, bvd4;
         Sprite bv, bvr1, bvr2;
+        Sprite sprcereza;
 
         //Sprite bvm;
         Dictionary<string, Sprite> bub;
@@ -204,6 +205,12 @@ namespace BubbleBobble.Vista
                 par.Value.TransparentColor = Color.Magenta;
             }
             #endregion spriteViejita
+
+            #region frutas
+            sprcereza = new Sprite(new Surface(Resource1.fruta001));
+            sprcereza.TransparentColor = Color.Magenta;
+            sprcereza.Transparent = true;
+            #endregion frutas
 
             this.alto = alto;
             this.ancho = ancho;
@@ -384,7 +391,10 @@ namespace BubbleBobble.Vista
             }
             foreach (Fruta fruta in laberinto.Frutas)
             {
-                Dibujar(fruta);
+                if (fruta is Cereza)
+                    Dibujar((Cereza)fruta);
+                else
+                    Dibujar(fruta);
             }
             Video.Update();
         }
@@ -413,6 +423,13 @@ namespace BubbleBobble.Vista
         public void setViejita(Viejita viejita)
         {
             viejita.Vista = new VistaEnemigoTerrestre(viejita, this.viejita);
+        }
+
+        public void Dibujar(Cereza dibujable)
+        {
+            Point posicion = APosicionVisual(new Point(dibujable.getPosicion().X, dibujable.getPosicion().Y + dibujable.getAlto()));
+            sprcereza.Position = posicion;
+            screen.Blit(sprcereza);
         }
     }
 }

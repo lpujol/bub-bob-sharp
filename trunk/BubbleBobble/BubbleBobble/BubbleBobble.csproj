@@ -62,6 +62,7 @@
     <Compile Include="clases\Burbuja.cs" />
     <Compile Include="clases\BurbujaConEnemigo.cs" />
     <Compile Include="clases\BurbujaDisparada.cs" />
+    <Compile Include="clases\Cereza.cs" />
     <Compile Include="clases\Fruta.cs" />
     <Compile Include="clases\IDibujable.cs" />
     <Compile Include="clases\IEnemigo.cs" />
@@ -301,5 +302,11 @@
   <ItemGroup>
     <None Include="Resources\arial.ttf" />
     <None Include="Resources\e0002.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fruta001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fruta002.png" />
   </ItemGroup>
 </Project>
