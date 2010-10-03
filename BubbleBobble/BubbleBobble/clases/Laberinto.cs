@@ -349,7 +349,7 @@ namespace BubbleBobble.clases
         internal void convertirEnObjetoConPuntos(PersonajeTerrestre personajeTerrestre)
         {
             enemigos.Remove((IEnemigo)personajeTerrestre);
-            frutas.Add(new Fruta(personajeTerrestre.getPosicion()));
+            frutas.Add(new Cereza(personajeTerrestre.getPosicion()));
         }
 
         internal void comeFruta(Fruta f)
