@@ -19,6 +19,7 @@ namespace BubbleBobble.Vista
         int margenDerecho;
         int margenIzquierdo;
         SdlDotNet.Graphics.Font fuente;
+        Menu menu;
 
         Surface screen;
         Dictionary<string,Sprite> pared;
@@ -27,6 +28,7 @@ namespace BubbleBobble.Vista
         Sprite bvd1, bvd2, bvd3, bvd4;
         Sprite bv, bvr1, bvr2;
         Sprite sprcereza;
+        Sprite vidaBub,vidaBob;
 
         //Sprite bvm;
         Dictionary<string, Sprite> bub;
@@ -212,6 +214,14 @@ namespace BubbleBobble.Vista
             sprcereza.Transparent = true;
             #endregion frutas
 
+            vidaBub = new Sprite(new Surface(Resource1.vidaBub));
+            vidaBub.TransparentColor = Color.Magenta;
+            vidaBub.Transparent = true;
+
+            vidaBob = new Sprite(new Surface(Resource1.vidaBob));
+            vidaBob.TransparentColor = Color.Magenta;
+            vidaBob.Transparent = true;
+
             this.alto = alto;
             this.ancho = ancho;
             this.unidad = 5;
@@ -252,10 +262,70 @@ namespace BubbleBobble.Vista
             if (jugador is Bub)
             {
                 screen.Blit(new TextSprite(jugador.Puntaje.ToString(),fuente,Color.White,new Point(0,0)));
+                dibujarVidasBub(jugador.Vidas);
             }
             if (jugador is Bob)
             {
                 screen.Blit(new TextSprite(jugador.Puntaje.ToString(), fuente, Color.White, new Point(ancho-(jugador.Puntaje.ToString().Length)*10-5, 0)));
+                dibujarVidasBob(jugador.Vidas);
+            }
+        }
+
+        private void dibujarVidasBub(int vidas)
+        {
+            if(vidas>=1)
+            {
+                vidaBub.Position = new Point(4 * unidad + unidad*4, alto - unidad*4);
+                screen.Blit(vidaBub);
+            }
+            if (vidas >= 2)
+            {
+                vidaBub.Position = new Point(4 * unidad + unidad*8, alto - unidad*4);
+                screen.Blit(vidaBub);
+            }
+            if (vidas >= 3)
+            {
+                vidaBub.Position = new Point(4 * unidad + unidad * 12, alto - unidad*4);
+                screen.Blit(vidaBub);
+            }
+            if (vidas >= 4)
+            {
+                vidaBub.Position = new Point(4 * unidad + unidad * 16, alto - unidad*4);
+                screen.Blit(vidaBub);
+            }
+            if (vidas >= 5)
+            {
+                vidaBub.Position = new Point(4 * unidad + unidad * 24, alto - unidad*4);
+                screen.Blit(vidaBub);
+            }
+        }
+
+        private void dibujarVidasBob(int vidas)
+        {
+            if (vidas >= 1)
+            {
+                vidaBob.Position = new Point(ancho -(unidad*24+ unidad * 4), alto - unidad * 4);
+                screen.Blit(vidaBob);
+            }
+            if (vidas >= 2)
+            {
+                vidaBob.Position = new Point(ancho  -(unidad*24+ unidad * 8), alto - unidad * 4);
+                screen.Blit(vidaBob);
+            }
+            if (vidas >= 3)
+            {
+                vidaBob.Position = new Point(ancho  - (unidad*24+ unidad * 12), alto - unidad * 4);
+                screen.Blit(vidaBob);
+            }
+            if (vidas >= 4)
+            {
+                vidaBob.Position = new Point(ancho  - (unidad*24+ unidad * 16), alto - unidad * 4);
+                screen.Blit(vidaBob);
+            }
+            if (vidas >= 5)
+            {
+                vidaBob.Position = new Point(ancho  - (unidad*24+ unidad * 24), alto - unidad * 4);
+                screen.Blit(vidaBob);
             }
         }
 
@@ -362,7 +432,7 @@ namespace BubbleBobble.Vista
 
 
 
-        public void Dibujar(Laberinto laberinto)
+        public void Dibujar(Laberinto laberinto,bool pausa)
         {
             Video.Screen.Fill(Color.Black);
             for (int x = 0; x < laberinto.getAncho(); x+=Laberinto.TBloque)
@@ -378,8 +448,11 @@ namespace BubbleBobble.Vista
                 if (enemigo is PersonajeTerrestre)
                     Dibujar((PersonajeTerrestre)enemigo);
             }
-            foreach(Jugador jugador in laberinto.Jugadores)
-                Dibujar(jugador);
+            foreach (Jugador jugador in laberinto.Jugadores)
+            {
+                if(jugador.Vidas>=0)
+                    Dibujar(jugador);
+            }
             foreach (ObjetoDisparado ob in laberinto.ObjetosDisparados)
             {
                 if(ob is BurbujaDisparada)
@@ -395,6 +468,16 @@ namespace BubbleBobble.Vista
                     Dibujar((Cereza)fruta);
                 else
                     Dibujar(fruta);
+            }
+            if (pausa)
+            {
+                Rectangle rect = new Rectangle(0, 0, screen.Width, screen.Height);
+                Surface srf = new Surface(rect);
+                srf.Fill(Color.Black);
+                srf.Alpha = 128;
+                srf.AlphaBlending = true;
+                screen.Blit(srf);
+                Dibujar(menu);
             }
             Video.Update();
         }
@@ -430,6 +513,29 @@ namespace BubbleBobble.Vista
             Point posicion = APosicionVisual(new Point(dibujable.getPosicion().X, dibujable.getPosicion().Y + dibujable.getAlto()));
             sprcereza.Position = posicion;
             screen.Blit(sprcereza);
+        }
+
+        internal void dibujarMenu()
+        {
+            
+            Video.Update();
+        }
+
+        internal void Dibujar(Menu menu)
+        {
+            foreach (Opcion opc in menu.Opciones)
+            {
+                if (opc == menu.Seleccionada)
+                    screen.Blit(opc.ImagenSobre);
+                else
+                    screen.Blit(opc.Imagen);
+            }
+            Video.Update();
+        }
+
+        internal void setMenu(Menu menu)
+        {
+            this.menu = menu;
         }
     }
 }

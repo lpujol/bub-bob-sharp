@@ -69,9 +69,13 @@
     <Compile Include="clases\Ivivo.cs" />
     <Compile Include="clases\Jugador.cs" />
     <Compile Include="clases\Laberinto.cs" />
+    <Compile Include="clases\menu\Menu.cs" />
+    <Compile Include="clases\menu\OpcionContinuar.cs" />
+    <Compile Include="clases\menu\OpcionSalir.cs" />
     <Compile Include="clases\Objeto.cs" />
     <Compile Include="clases\ObjetoDisparado.cs" />
     <Compile Include="clases\ObjetoVivo.cs" />
+    <Compile Include="clases\menu\Opcion.cs" />
     <Compile Include="clases\Pared.cs" />
     <Compile Include="clases\Personaje.cs" />
     <Compile Include="clases\PersonajeTerrestre.cs" />
@@ -308,5 +312,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fruta002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vidaBub.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vidaBob.bmp" />
   </ItemGroup>
 </Project>
