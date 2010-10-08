@@ -14,6 +14,8 @@ namespace BubbleBobble
         Laberinto lab;
         Vista.Vista vista;
         List<Controlador.Controlador> controladores;
+        private bool pausa,gameOver;
+        Menu menu;
 
         public Juego()
         {
@@ -42,11 +44,15 @@ namespace BubbleBobble
                     vista.setViejita((Viejita)enemigo);
             }*/
             //inicializar eventos
+            pausa = true;
+            menu = new Menu(this);
+            vista.setMenu(menu);
+
             Events.Fps = 15;
             System.Console.WriteLine(Events.Fps.ToString());
             Events.Tick+=new EventHandler<TickEventArgs>(Events_Tick);
             Events.KeyboardDown += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardDown);
-            Events.KeyboardUp += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardUp);
+            Events.KeyboardUp += new EventHandler<SdlDotNet.Input.KeyboardEventArgs>(Events_KeyboardUp);             
             Events.Quit += new EventHandler<QuitEventArgs>(Events_Quit);
         }
 
@@ -70,13 +76,33 @@ namespace BubbleBobble
         void Events_KeyboardDown(object sender, SdlDotNet.Input.KeyboardEventArgs e)
         {
             if (e.Key == SdlDotNet.Input.Key.Escape)
-                Events.QuitApplication();
-            foreach (Controlador.Controlador c in controladores)
+                pausarJuego();
+            if (!pausa)
             {
-                c.keyDown(e.Key);
-                c.keyPress(e.Key);
+                foreach (Controlador.Controlador c in controladores)
+                {
+                    c.keyDown(e.Key);
+                    c.keyPress(e.Key);
+                }
+            }
+            else
+            {
+                if (e.Key == Key.DownArrow)
+                    menu.baja();
+                if (e.Key == Key.UpArrow)
+                    menu.sube();
+                if(e.KeyboardCharacter.ToString()=="return")
+                    menu.Seleccionada.ejecutarComando();
             }
             
+        }
+
+        public void pausarJuego()
+        {
+            if (pausa)
+                pausa = false;
+            else
+                pausa = true;
         }
 
         public void Run()
@@ -87,41 +113,53 @@ namespace BubbleBobble
         void Events_Tick(object sender, TickEventArgs e)
         {
             //System.Console.WriteLine(Events.Fps.ToString());
-            if (!lab.enTransicion())
+            if (!pausa)
             {
-                for (int x = 0; x < lab.Jugadores.Count; x++)
-                    lab.Jugadores[x].vivir();
-            }
-            for (int x = 0; x < lab.ObjetosDisparados.Count; x++)
-            {
-                ObjetoDisparado disparado = lab.ObjetosDisparados[x];
-                try
+                if (!lab.enTransicion())
                 {
-                    disparado.vivir();
+                    int sumaVidas = 0;
+                    for (int x = 0; x < lab.Jugadores.Count; x++)
+                    {
+                        sumaVidas += lab.Jugadores[x].Vidas;
+                        if(lab.Jugadores[x].Vidas>=0)
+                            lab.Jugadores[x].vivir();
+                        if (sumaVidas < 0)
+                            gameOver = true;
+                    }
                 }
-                catch (Exception) {  }
-            }
-            for (int x = 0; x < lab.Burbujas.Count; x++)
-            {
-                Burbuja burbuja = lab.Burbujas[x];
-                try
+                for (int x = 0; x < lab.ObjetosDisparados.Count; x++)
                 {
-                    burbuja.vivir();
+                    ObjetoDisparado disparado = lab.ObjetosDisparados[x];
+                    try
+                    {
+                        disparado.vivir();
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
-            }
-            for (int x = 0; x < lab.Enemigos.Count; x++)
-            {
-                IEnemigo enemigo = lab.Enemigos[x];
-                try
+                for (int x = 0; x < lab.Burbujas.Count; x++)
                 {
-                    enemigo.vivir();
+                    Burbuja burbuja = lab.Burbujas[x];
+                    try
+                    {
+                        burbuja.vivir();
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
-            }
-            lab.vivir();
-                
-            vista.Dibujar(lab);
+                for (int x = 0; x < lab.Enemigos.Count; x++)
+                {
+                    IEnemigo enemigo = lab.Enemigos[x];
+                    try
+                    {
+                        enemigo.vivir();
+                    }
+                    catch (Exception) { }
+                }
+                lab.vivir();
+            }   
+            vista.Dibujar(lab,pausa);
+            //if (pausa)
+            //    vista.Dibujar(menu);
+            
         }
         
     }

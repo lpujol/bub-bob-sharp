@@ -301,6 +301,12 @@
   <data name="vi4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\vi4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vidaBob" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vidaBob.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vidaBub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vidaBub.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="vienc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\vienc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

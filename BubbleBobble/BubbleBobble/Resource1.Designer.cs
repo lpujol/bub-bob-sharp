@@ -566,6 +566,20 @@ namespace BubbleBobble {
             }
         }
         
+        internal static System.Drawing.Bitmap vidaBob {
+            get {
+                object obj = ResourceManager.GetObject("vidaBob", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vidaBub {
+            get {
+                object obj = ResourceManager.GetObject("vidaBub", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap vienc {
             get {
                 object obj = ResourceManager.GetObject("vienc", resourceCulture);
