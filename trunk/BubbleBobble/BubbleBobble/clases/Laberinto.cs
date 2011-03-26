@@ -443,5 +443,16 @@ namespace BubbleBobble.clases
         {
             get { return this.indiceNivel; }
         }
+
+        public Bloque Bloque
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }

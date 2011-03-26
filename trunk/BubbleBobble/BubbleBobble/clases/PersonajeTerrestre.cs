@@ -76,18 +76,7 @@ namespace BubbleBobble.clases
                             setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
                         for (int x = 0; x < 4; x++)
                         {
-                            List<Point> puntos = new List<Point>();
-                            for (int n = 0; n <= getAncho(); n++)
-                            {
-                                if (getPosicion().X % Laberinto.TBloque != 0)
-                                    puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - Laberinto.TBloque));
-                                else
-                                {
-                                    if (n != getAncho())
-                                        puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
-                                }
-                            }
-                            if (laberinto.esOcupableDesdeArriba(puntos))
+                            if(puedoAvanzarDesdeArriba())
                                 bajarUno();
                             else
                             {
@@ -119,10 +108,7 @@ namespace BubbleBobble.clases
                     {
                         for (int x = 0; x < velocidad; x++)
                         {
-                            List<Point> puntos = new List<Point>();
-                            for (int n = 0; n < getAlto(); n++)
-                                puntos.Add(new Point(this.getPosicion().X + getAncho(), getPosicion().Y + n));
-                            if (laberinto.esOcupableDesdeIzquierda(puntos))
+                            if(puedoAvanzarDesdeIzquierda())
                                 derechaUno();
                         }
                     }
@@ -130,10 +116,7 @@ namespace BubbleBobble.clases
                     {
                         for (int x = 0; x < velocidad; x++)
                         {
-                            List<Point> puntos = new List<Point>();
-                            for (int n = 0; n < getAlto(); n++)
-                                puntos.Add(new Point(this.getPosicion().X - Laberinto.TBloque, getPosicion().Y + n));
-                            if (laberinto.esOcupableDesdeDerecha(puntos))
+                            if(puedoAvanzarDesdeDerecha())
                                 izquierdaUno();
                         }
 
@@ -141,16 +124,7 @@ namespace BubbleBobble.clases
                 }
                 if (estado == Estado.caminando)
                 {
-                    List<Point> puntos = new List<Point>();
-                    for (int n = 0; n <= getAncho(); n++)
-                    {
-                        if (getPosicion().X % Laberinto.TBloque != 0)
-                            puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - Laberinto.TBloque));
-                        else
-                            if (n != getAncho())
-                                puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
-                    }
-                    if (laberinto.esOcupableDesdeArriba(puntos))
+                    if(puedoAvanzarDesdeArriba())
                         estado = Estado.cayendo;
                 }
                 if (tiempoDesdeElUltimoDisparo <= permitidoEntreDisparos)
@@ -177,18 +151,7 @@ namespace BubbleBobble.clases
                         setPosicion(new Point(getPosicion().X, laberinto.getAlto()));
                     for (int x = 0; x < 4; x++)
                     {
-                        List<Point> puntos = new List<Point>();
-                        for (int n = 0; n <= getAncho(); n++)
-                        {
-                            if (getPosicion().X % Laberinto.TBloque != 0)
-                                puntos.Add(new Point(this.getPosicion().X - 1 + n, getPosicion().Y - Laberinto.TBloque));
-                            else
-                            {
-                                if (n != getAncho())
-                                    puntos.Add(new Point(this.getPosicion().X + n, getPosicion().Y - Laberinto.TBloque));
-                            }
-                        }
-                        if (laberinto.esOcupableDesdeArriba(puntos))
+                        if(puedoAvanzarDesdeArriba())
                             bajarUno();
                         else
                         {

@@ -7,15 +7,13 @@ namespace BubbleBobble.clases
 {
     public class BurbujaDisparada:ObjetoDisparado
     {
-        int velocidad;
         int distanciaMaxima;
         int distanciaRecorrida;
 
         bool inicia;
         public BurbujaDisparada(Point posicion, Direccion direccion,Laberinto laberinto)
-            : base(posicion, direccion,laberinto)
+            : base(posicion, direccion,laberinto,5)
         {
-            velocidad = 5;
             distanciaRecorrida = 0;
             distanciaMaxima = 40;
             inicia = true;
@@ -32,15 +30,13 @@ namespace BubbleBobble.clases
                 laberinto.pasarABurbujaRegular(this);
             if (this.Direccion == Direccion.derecha)
             {
-                for (int x = 0; x < velocidad; x++)
+                for (int x = 0; x < this.Velocidad; x++)
                     {
 
                         if (distanciaRecorrida < distanciaMaxima)
                         {
-                            List<Point> puntos = new List<Point>();
-                            for (int n = 0; n < getAlto(); n++)
-                                puntos.Add(new Point(this.getPosicion().X + getAncho(), getPosicion().Y + n));
-                            if (laberinto.esOcupableDesdeIzquierda(puntos))
+                            
+                            if (puedoAvanzarDesdeIzquierda())
                             {
                                 derechaUno();
                                 foreach (IEnemigo enemigo in laberinto.Enemigos)
@@ -54,7 +50,7 @@ namespace BubbleBobble.clases
                             }
                             else
                             {
-                                x = velocidad;
+                                x = this.Velocidad;
                                 distanciaRecorrida = distanciaMaxima;
                                 laberinto.pasarABurbujaRegular(this);
                             }
@@ -62,7 +58,7 @@ namespace BubbleBobble.clases
                         }
                         else
                         {
-                            x = velocidad;
+                            x = this.Velocidad;
                             laberinto.pasarABurbujaRegular(this);
                         }
                             
@@ -70,14 +66,12 @@ namespace BubbleBobble.clases
             }
             else
             {
-                for (int x = 0; x < velocidad; x++)
+                for (int x = 0; x < this.Velocidad; x++)
                 {
                     if (distanciaRecorrida < distanciaMaxima)
                     {
-                        List<Point> puntos = new List<Point>();
-                        for (int n = 0; n < getAlto(); n++)
-                            puntos.Add(new Point(this.getPosicion().X - Laberinto.TBloque, getPosicion().Y + n));
-                        if (laberinto.esOcupableDesdeDerecha(puntos))
+                       
+                        if (puedoAvanzarDesdeDerecha())
                         {
                             izquierdaUno();
                             foreach (IEnemigo enemigo in laberinto.Enemigos)
@@ -91,7 +85,7 @@ namespace BubbleBobble.clases
                         }
                         else
                         {
-                            x = velocidad;
+                            x = this.Velocidad;
                             distanciaRecorrida = distanciaMaxima;
                             laberinto.pasarABurbujaRegular(this);
                         }
@@ -99,7 +93,7 @@ namespace BubbleBobble.clases
                     }
                     else
                     {
-                        x = velocidad;
+                        x = this.Velocidad;
                         laberinto.pasarABurbujaRegular(this);                        
                     }
                 }

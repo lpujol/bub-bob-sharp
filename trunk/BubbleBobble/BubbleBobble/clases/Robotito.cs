@@ -41,18 +41,12 @@ namespace BubbleBobble.clases
                 bool cambia = false;
                 if (this.direccion == Direccion.derecha)
                 {
-                     List<Point> puntos = new List<Point>();
-                     for (int nn = 0; nn < getAlto(); nn++)
-                         puntos.Add(new Point(this.getPosicion().X + getAncho(), getPosicion().Y +nn));
-                     if (!laberinto.esOcupableDesdeIzquierda(puntos))
+                     if (!puedoAvanzarDesdeIzquierda())
                          cambia = true;
                 }
                 else
                 {
-                    List<Point> puntos = new List<Point>();
-                    for (int nn = 0; nn < getAlto(); nn++)
-                        puntos.Add(new Point(this.getPosicion().X -Laberinto.TBloque, getPosicion().Y + nn));
-                    if (!laberinto.esOcupableDesdeDerecha(puntos))
+                    if (!puedoAvanzarDesdeDerecha())
                         cambia = true;
                 }
                 if (!cambia && n == 5) cambia = true;
