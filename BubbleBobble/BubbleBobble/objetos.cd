@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BubbleBobble.clases.Aire" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Aire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Bloque" Collapsed="true">
+    <Position X="12" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAQAAAAABAAQAAAABAAAAAAAAABAAAAAEAEA=</HashCode>
+      <FileName>clases\Bloque.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BubbleBobble.clases.Burbuja" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAQBAAAAAgAAAAAAAAAAAABAQAAIAg=</HashCode>
+      <FileName>clases\Burbuja.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.BurbujaConEnemigo" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAARAQCAAAA=</HashCode>
+      <FileName>clases\BurbujaConEnemigo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.BurbujaDisparada" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAgAEAAIABAAAAAgAABAAAAAAA=</HashCode>
+      <FileName>clases\BurbujaDisparada.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Cereza" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Cereza.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Fruta" Collapsed="true">
+    <Position X="4.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>clases\Fruta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Jugador" Collapsed="true">
+    <Position X="4.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAiABEAIQAACAKEAAACAADIQAASQAAAApAIAIjAA=</HashCode>
+      <FileName>clases\Jugador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Laberinto" Collapsed="true">
+    <Position X="14.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gYsACAACAUAEAAQBsAAWCASBAQAgAwsCIGIBkAiCgAE=</HashCode>
+      <FileName>clases\Laberinto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bloque" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BubbleBobble.clases.Objeto" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAQAAAAABAAQACAABAAAAAAAAAAAAAAAEAkA=</HashCode>
+      <FileName>clases\Objeto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BubbleBobble.clases.ObjetoDisparado" Collapsed="true">
+    <Position X="11.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>clases\ObjetoDisparado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.ObjetoVivo" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAABAAAAAAAAAAAAUAAIABBBAAABAAA=</HashCode>
+      <FileName>clases\ObjetoVivo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BubbleBobble.clases.Pared" Collapsed="true">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Pared.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Personaje" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAEAAAABAAAAAAA=</HashCode>
+      <FileName>clases\Personaje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.PersonajeTerrestre" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAACgAgAAAAIACABCAASAEAAgABADABAQARAQAABAI=</HashCode>
+      <FileName>clases\PersonajeTerrestre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.clases.Robotito" Collapsed="true">
+    <Position X="7" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>clases\Robotito.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BubbleBobble.clases.Viejita" Collapsed="true">
+    <Position X="9.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>clases\Viejita.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BubbleBobble.Bob" Collapsed="true">
+    <Position X="3.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BubbleBobble.Bub" Collapsed="true">
+    <Position X="5.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BubbleBobble.clases.IDibujable" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>clases\IDibujable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BubbleBobble.clases.IEnemigo" Collapsed="true">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAABAAAABAA=</HashCode>
+      <FileName>clases\IEnemigo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BubbleBobble.clases.Ivivo" Collapsed="true">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAA=</HashCode>
+      <FileName>clases\Ivivo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

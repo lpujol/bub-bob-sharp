@@ -7,6 +7,10 @@ using SdlDotNet.Graphics.Sprites;
 using SdlDotNet.Graphics.Primitives;
 using BubbleBobble.clases;
 using System.Drawing;
+using SdlDotNet.Particles;
+using SdlDotNet.Particles.Emitters;
+using SdlDotNet.Particles.Manipulators;
+
 
 namespace BubbleBobble.Vista
 {
@@ -35,6 +39,8 @@ namespace BubbleBobble.Vista
         Dictionary<string, Sprite> bob;
         Dictionary<string, Sprite> robotito;
         Dictionary<string, Sprite> viejita;
+
+        ParticleSystem particles;
         public Vista(int ancho, int alto)
         {
             pared = new Dictionary<string, Sprite>();
@@ -207,6 +213,8 @@ namespace BubbleBobble.Vista
                 par.Value.TransparentColor = Color.Magenta;
             }
             #endregion spriteViejita
+
+            particles = new ParticleSystem();
 
             #region frutas
             sprcereza = new Sprite(new Surface(Resource1.fruta001));
@@ -390,6 +398,17 @@ namespace BubbleBobble.Vista
                 {
                     bvr1.Position = posicion;
                     screen.Blit(bvr1);
+                    ParticleCircleEmitter explosion = new ParticleCircleEmitter(particles, Color.Green, Color.YellowGreen, 1, 2);
+                    explosion.X = posicion.X+burbuja.getAncho()/2; // donde explotará
+                    explosion.Y = posicion.Y+burbuja.getAlto()/2;
+                    explosion.Life = 5;
+                    explosion.Frequency = 10000;
+                    explosion.LifeMin = 3;
+                    explosion.LifeMax = 7;
+                    explosion.LifeFullMin = 5;
+                    explosion.LifeFullMax = 5;
+                    explosion.SpeedMin = 8;
+                    explosion.SpeedMax = 20;
                 }
                 else
                 {
@@ -455,8 +474,10 @@ namespace BubbleBobble.Vista
             }
             foreach (ObjetoDisparado ob in laberinto.ObjetosDisparados)
             {
-                if(ob is BurbujaDisparada)
+                if (ob is BurbujaDisparada)
                     Dibujar((BurbujaDisparada)ob);
+                else
+                    Dibujar(ob);
             }
             foreach (Burbuja b in laberinto.Burbujas)
             {
@@ -479,6 +500,8 @@ namespace BubbleBobble.Vista
                 screen.Blit(srf);
                 Dibujar(menu);
             }
+            particles.Update();
+            particles.Render(Video.Screen);
             Video.Update();
         }
 

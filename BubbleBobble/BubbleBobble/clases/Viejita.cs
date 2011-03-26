@@ -15,6 +15,7 @@ namespace BubbleBobble.clases
             atrapado = false;
             if(Viejita.r==null)
                 Viejita.r = new Random(DateTime.Now.Millisecond);
+            this.permitidoEntreDisparos = 500;
         }
 
         public Viejita(Point posicion, Direccion direccion)
@@ -28,12 +29,70 @@ namespace BubbleBobble.clases
 
         public override void vivir()
         {
-            int n = Viejita.r.Next(30);
-            if (n == 15)
-                saltar();
-            if (n % 8 == 0)
+            int n = Viejita.r.Next(30);            
+            if (this.estado == Estado.caminando)
             {
-                cambiarDireccion();
+                if (!moviendose) moviendose = true;
+                bool cambia = false;
+                if (this.direccion == Direccion.derecha)
+                {
+                    if (!puedoAvanzarDesdeIzquierda())
+                        cambia = true;
+                }
+                else
+                {
+                    if (!puedoAvanzarDesdeDerecha())
+                        cambia = true;
+                }
+                if (!cambia)
+                {
+                    if (n % 10 == 0)
+                    {
+                        foreach (Jugador j in laberinto.Jugadores)
+                        {
+                            if (!j.Inmortal)
+                            {
+                                int posY = j.getPosicion().Y;
+                                int alt = j.getAlto();
+                                if (this.getPosicion().Y >= posY && this.getPosicion().Y <= (posY + alt))
+                                {
+                                    if (this.direccion == Direccion.derecha)
+                                    {
+                                        if (j.getPosicion().X > this.getPosicion().X)
+                                            Disparar();
+                                    }
+                                    else
+                                    {
+                                        if (j.getPosicion().X < this.getPosicion().X)
+                                            Disparar();
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+                if (!cambia && n == 5) cambia = true;
+                if (cambia)
+                    cambiarDireccion();
+                else
+                {
+                    bool apuntodecaer = false;
+                    if (this.direccion == Direccion.derecha && !(laberinto.bloqueEn(this.posicion.X, this.posicion.Y - 1) is Aire) && laberinto.bloqueEn(this.posicion.X + 1, this.posicion.Y - 1) is Aire)
+                        apuntodecaer = true;
+                    if (this.direccion == Direccion.izquierda && !(laberinto.bloqueEn(this.posicion.X + getAncho(), this.posicion.Y - 1) is Aire) && laberinto.bloqueEn(this.posicion.X + this.getAncho() - 2, this.posicion.Y - 1) is Aire)
+                        apuntodecaer = true;
+                    if (apuntodecaer)
+                        if (n % 3 == 0)
+                            cambiarDireccion();
+                    if (n == 17) saltar();
+                }
+            }
+            if (this.estado == Estado.cayendo)
+            {
+                if (moviendose)
+                    if (n < 23)
+                        moviendose = false;
             }
             base.vivir();
             if (vivo)
@@ -61,7 +120,7 @@ namespace BubbleBobble.clases
 
         public override ObjetoDisparado getObjetoDisparado()
         {
-            return null;
+            return new BolaDeFuego(this.posicion, this.direccion, this.laberinto);
         }
     }
 }
