@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using BubbleBobble.clases.objetosDisparados;
 
 namespace BubbleBobble.clases
 {
@@ -17,7 +18,41 @@ namespace BubbleBobble.clases
         Point posicionInicial;
         bool _saltoLatente;
         int puntaje;
+        bool disparaRapido;
+        bool disparaFuego;
+        bool disparaLejos;
+        bool caminaRapido;
+        bool burbujaRapida;
 
+        public bool BurbujaRapida
+        {
+            get { return burbujaRapida; }
+            set { burbujaRapida = value; }
+        }
+
+        public bool CaminaRapido
+        {
+            get { return caminaRapido; }
+            set { caminaRapido = value; }
+        }
+
+        public bool DisparaLejos
+        {
+            get { return disparaLejos; }
+            set { disparaLejos = value; }
+        }
+
+        public bool DisparaRapido
+        {
+            get { return disparaRapido; }
+            set { disparaRapido = value; }
+        }
+
+        public bool DisparaFuego
+        {
+            get { return disparaFuego; }
+            set { disparaFuego = value; }
+        }
         public int Puntaje
         {
             get { return puntaje; }
@@ -40,6 +75,11 @@ namespace BubbleBobble.clases
             : base(8,8,posicion,direccion)
         {
             posicionInicial = posicion;
+            DisparaFuego = false;
+            DisparaLejos = false;
+            DisparaRapido = false;
+            CaminaRapido = false;
+            BurbujaRapida = false;
             maximoMuerto = 20;
             transcurridoMuerto = 0;
             maximoInmortal = 30;
@@ -53,12 +93,21 @@ namespace BubbleBobble.clases
 
         public override ObjetoDisparado getObjetoDisparado()
         {
-            return new BurbujaDisparada(new Point(getPosicion().X+(this.direccion==Direccion.derecha?2:-2), getPosicion().Y), this.direccion,this.laberinto);
+            if(DisparaLejos)
+                return new BurbujaDisparadaLejos(new Point(getPosicion().X + (this.direccion == Direccion.derecha ? 2 : -2), getPosicion().Y), this.direccion, this.laberinto,this.burbujaRapida);
+            if (DisparaFuego)
+                return new ProyectilFuego(new Point(getPosicion().X + (this.direccion == Direccion.derecha ? 2 : -2), getPosicion().Y), this.direccion, this.laberinto);
+            return new BurbujaDisparada(new Point(getPosicion().X+(this.direccion==Direccion.derecha?2:-2), getPosicion().Y), this.direccion,this.laberinto,this.burbujaRapida);
         }
 
         internal void matar()
         {
             muerto = true;
+            DisparaFuego = false;
+            DisparaLejos = false;
+            DisparaRapido = false;
+            CaminaRapido = false;
+            BurbujaRapida = false;
             estado = Estado.cayendo;
         }
 
@@ -188,8 +237,11 @@ namespace BubbleBobble.clases
                 {
                     for (int x = 0; x < velocidad; x++)
                     {
-                       if (puedoAvanzarDesdeIzquierda())
+                        if (puedoAvanzarDesdeIzquierda())
+                        {
+                            if (CaminaRapido) derechaUno();
                             derechaUno();
+                        }
                     }
                 }
                 else
@@ -197,7 +249,10 @@ namespace BubbleBobble.clases
                     for (int x = 0; x < velocidad; x++)
                     {
                         if (puedoAvanzarDesdeDerecha())
+                        {
+                            if (caminaRapido) izquierdaUno();
                             izquierdaUno();
+                        }
                     }
 
                 }
@@ -209,7 +264,10 @@ namespace BubbleBobble.clases
                     estado = Estado.cayendo;
             }
             if (tiempoDesdeElUltimoDisparo <= permitidoEntreDisparos)
+            {
+                if (DisparaRapido) tiempoDesdeElUltimoDisparo++;
                 tiempoDesdeElUltimoDisparo++;
+            }
         }
 
         public void sumarVidas()

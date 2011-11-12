@@ -40,6 +40,8 @@ namespace BubbleBobble.Vista
         Dictionary<string, Sprite> robotito;
         Dictionary<string, Sprite> viejita;
 
+        Sprite fireball;
+
         ParticleSystem particles;
         public Vista(int ancho, int alto)
         {
@@ -206,6 +208,8 @@ namespace BubbleBobble.Vista
             viejita.Add("encerrado1", vieje1);
             viejita.Add("encerrado2", vieje2);
             viejita.Add("frente", vif);
+
+            fireball = new Sprite(new Surface(Resource1.fireball));
 
             foreach(KeyValuePair<string,Sprite> par in viejita)
             {
@@ -474,10 +478,7 @@ namespace BubbleBobble.Vista
             }
             foreach (ObjetoDisparado ob in laberinto.ObjetosDisparados)
             {
-                if (ob is BurbujaDisparada)
-                    Dibujar((BurbujaDisparada)ob);
-                else
-                    Dibujar(ob);
+                Dibujar(ob);                
             }
             foreach (Burbuja b in laberinto.Burbujas)
             {
@@ -503,6 +504,29 @@ namespace BubbleBobble.Vista
             particles.Update();
             particles.Render(Video.Screen);
             Video.Update();
+        }
+
+        private void Dibujar(ObjetoDisparado objeto)
+        {
+            if (objeto is BurbujaDisparada)
+            {
+                Dibujar((BurbujaDisparada)objeto);
+                return;
+            }
+            if (objeto is BolaDeFuego)
+            {
+                Dibujar((BolaDeFuego)objeto);
+                return;
+            }
+            else
+                Dibujar(objeto);
+        }
+
+        private void Dibujar(BolaDeFuego dibujable)
+        {
+            Point posicion = APosicionVisual(new Point(dibujable.getPosicion().X, dibujable.getPosicion().Y + dibujable.getAlto()));
+            fireball.Position = posicion;
+            screen.Blit(fireball);
         }
 
         public Point APosicionVisual(Point p)

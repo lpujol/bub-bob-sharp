@@ -7,17 +7,17 @@ namespace BubbleBobble.clases
 {
     public class BurbujaDisparada:ObjetoDisparado
     {
-        int distanciaMaxima;
+        protected int distanciaMaxima;
         int distanciaRecorrida;
 
         bool inicia;
-        public BurbujaDisparada(Point posicion, Direccion direccion,Laberinto laberinto)
-            : base(posicion, direccion,laberinto,5)
+        public BurbujaDisparada(Point posicion, Direccion direccion,Laberinto laberinto,bool rapida)
+            : base(posicion, direccion,laberinto,rapida?8:5)
         {
             distanciaRecorrida = 0;
             distanciaMaxima = 40;
             inicia = true;
-        }
+        }        
 
         public override void vivir()
         {
