@@ -454,5 +454,10 @@ namespace BubbleBobble.clases
             {
             }
         }
+
+        internal void eliminarObjetoDisparado(ObjetoDisparado objeto)
+        {
+            this.objetosDisparados.Remove(objeto);
+        }
     }
 }

@@ -18,11 +18,17 @@ namespace BubbleBobble.clases
             {
                 if (this.Direccion == Direccion.derecha)
                 {
-                    derechaUno();
+                    if (puedoAvanzarDesdeIzquierda())
+                        derechaUno();
+                    else
+                        laberinto.eliminarObjetoDisparado(this);
                 }
                 else
                 {
-                    izquierdaUno();
+                    if (puedoAvanzarDesdeDerecha())
+                        izquierdaUno();
+                    else
+                        laberinto.eliminarObjetoDisparado(this);
                 }
                 foreach (Jugador jugador in laberinto.Jugadores)
                 {

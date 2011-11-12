@@ -59,14 +59,16 @@
     <Compile Include="Bub.cs" />
     <Compile Include="clases\Aire.cs" />
     <Compile Include="clases\Bloque.cs" />
-    <Compile Include="clases\BolaDeFuego.cs" />
+    <Compile Include="clases\objetosDisparados\BolaDeFuego.cs" />
     <Compile Include="clases\Burbuja.cs" />
     <Compile Include="clases\BurbujaConEnemigo.cs" />
-    <Compile Include="clases\BurbujaDisparada.cs" />
-    <Compile Include="clases\Cereza.cs" />
-    <Compile Include="clases\Fruta.cs" />
+    <Compile Include="clases\objetosDisparados\BurbujaDisparada.cs" />
+    <Compile Include="clases\objetosDisparados\BurbujaDisparadaLejos.cs" />
+    <Compile Include="clases\objetosDisparados\ProyectilFuego.cs" />
+    <Compile Include="clases\objetosTirados\Cereza.cs" />
+    <Compile Include="clases\objetosTirados\Fruta.cs" />
     <Compile Include="clases\IDibujable.cs" />
-    <Compile Include="clases\IEnemigo.cs" />
+    <Compile Include="clases\enemigos\IEnemigo.cs" />
     <Compile Include="clases\Ivivo.cs" />
     <Compile Include="clases\Jugador.cs" />
     <Compile Include="clases\Laberinto.cs" />
@@ -74,14 +76,14 @@
     <Compile Include="clases\menu\OpcionContinuar.cs" />
     <Compile Include="clases\menu\OpcionSalir.cs" />
     <Compile Include="clases\Objeto.cs" />
-    <Compile Include="clases\ObjetoDisparado.cs" />
+    <Compile Include="clases\objetosDisparados\ObjetoDisparado.cs" />
     <Compile Include="clases\ObjetoVivo.cs" />
     <Compile Include="clases\menu\Opcion.cs" />
     <Compile Include="clases\Pared.cs" />
     <Compile Include="clases\Personaje.cs" />
     <Compile Include="clases\PersonajeTerrestre.cs" />
-    <Compile Include="clases\Robotito.cs" />
-    <Compile Include="clases\Viejita.cs" />
+    <Compile Include="clases\enemigos\Robotito.cs" />
+    <Compile Include="clases\enemigos\Viejita.cs" />
     <Compile Include="Controlador\Controlador.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="program.cs" />
@@ -320,5 +322,8 @@
   <ItemGroup>
     <None Include="objetos.cd" />
     <None Include="Resources\vidaBob.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fireball.png" />
   </ItemGroup>
 </Project>
