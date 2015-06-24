@@ -1,0 +1,1 @@
+Remake casera del clasico juego bubble bobble, donde dos dragoncitos que escupen burbujas van atrapando y explotando a distintos tipos de bichitos a lo largo de varios niveles.
